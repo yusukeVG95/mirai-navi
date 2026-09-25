@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <title>みらい留学受検ナビ（参考情報）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -70,6 +71,10 @@
   .primary-btn{ align-self:flex-start; font:inherit; font-weight:700; font-size:15.5px; cursor:pointer; background:var(--primary); color:var(--surface); border:none; border-radius:10px; padding:13px 26px; box-shadow:var(--shadow); }
   .primary-btn:disabled{ opacity:.45; cursor:not-allowed; }
   .primary-btn:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
+  .email-card{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+  .email-card .email-copy{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; max-width:56ch; }
+  .email-btn{ font:inherit; font-weight:700; font-size:14.5px; cursor:pointer; background:var(--surface); color:var(--primary); border:1.5px solid var(--primary); border-radius:10px; padding:11px 22px; white-space:nowrap; }
+  .email-btn:hover{ background:var(--accent-soft); }
   .results{ display:flex; flex-direction:column; gap:18px; }
   .section-title{ font-size:19px; font-weight:600; display:flex; align-items:baseline; gap:9px; margin-bottom:14px; }
   .section-title .num{ font-family:'JetBrains Mono',monospace; color:var(--primary); font-size:15px; }
@@ -228,6 +233,11 @@ const TOKUSHIMA_URL = "https://nyuushi.tokushima-ec.ed.jp/";
 const SAGA_URL = "https://www.pref.saga.lg.jp/kiji00376956/index.html";
 const KUMAMOTO_URL = "https://www.pref.kumamoto.jp/soshiki/8/277880.html";
 const OITA_URL = "https://www.pref.oita.jp/site/kyoiku/r09koukounyuushi.html";
+// 診断結果メール送信フォーム（Googleフォーム、回答は「みらい留学受検ナビ 診断結果メール送信リスト」スプレッドシートに自動記録され、
+// フォーム設定「回答のコピーを送信＝常時」により送信者本人にもメールが届く）
+const EMAIL_FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSdt90bAIN0F9jggE10H7u9BZgFRDPLhdDkGVkIo3zt9oXecaQ/viewform";
+const EMAIL_FORM_ENTRY_SUMMARY = "entry.1970008572";
+const EMAIL_SUMMARY_MAX_LEN = 3500;
 
 const SCHOOLS = [
   {
@@ -3502,7 +3512,87 @@ function renderResults(){
     wrap.appendChild(card);
   });
 
+  // 診断結果をメールで受け取る
+  const emailCard = document.createElement("div");
+  emailCard.className = "card email-card";
+  emailCard.innerHTML = `
+    <div class="email-copy">📧 この診断結果をメールで受け取れます。メールアドレスを入力するGoogleフォームが新しいタブで開きます（診断結果は自動入力済みです）。</div>
+    <button type="button" class="email-btn" id="email-results-btn">結果をメールする</button>
+  `;
+  wrap.appendChild(emailCard);
+  document.getElementById("email-results-btn").addEventListener("click", emailResults);
+
   wrap.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function buildDiagnosisSummaryText(){
+  const residence = document.getElementById("residence").value;
+  const lines = [];
+  lines.push("【みらい留学受検ナビ　診断結果】");
+  lines.push("※本結果はあくまで参考情報です。出願前に必ず学校・教育委員会の最新の公式発表をご確認ください。");
+  lines.push("");
+  lines.push("■選択した志望校");
+  selected.forEach((id,idx)=>{
+    const s = SCHOOLS.find(x=>x.id===id);
+    lines.push(`第${idx+1}志望：${s.name}（${s.pref}／${s.quota}）`);
+  });
+  lines.push("");
+  lines.push(`■①居住地（${residence}）で必要なこと`);
+  const specific = RESIDENCE_NOTES[residence];
+  lines.push(specific || "前年度の個別実績は本調査では未確認です。都道府県・年度によって要否が変わります。");
+  lines.push("");
+  lines.push("■②併願はどの順番ならできるか");
+  if(selected.length <= 1){
+    lines.push("選択中は1校のみです。");
+  } else {
+    for(let i=0;i<selected.length-1;i++){
+      const a = SCHOOLS.find(x=>x.id===selected[i]);
+      const b = SCHOOLS.find(x=>x.id===selected[i+1]);
+      const f = feasibility(lastMeaningfulStep(a), firstApplyStep(b));
+      const aStep = lastMeaningfulStep(a);
+      const resultTxt = aStep && aStep.resultDate ? `結果発表（${fmtDate(aStep.resultDate)}）` : "結果発表日";
+      lines.push(`第${i+1}志望（${a.name}）の${resultTxt}を確認後→第${i+2}志望（${b.name}）へ：${f.label}`);
+    }
+  }
+  lines.push("");
+  lines.push("■③いつ・どの順で分かるか（時系列）");
+  const entries = collectTimelineEntries();
+  if(entries.length){
+    entries.forEach(e=>{
+      const d = fmtDate(e.dateStr.split ? e.dateStr.split("〜")[0] : e.dateStr);
+      lines.push(`${d}　${e.school}｜${e.label.replace(/^📅\s*/,"")}`);
+    });
+  } else {
+    lines.push("日付が判明しているステップがありません。");
+  }
+  lines.push("");
+  lines.push("■各校の次の締切・発表日");
+  selected.forEach((id,idx)=>{
+    const s = SCHOOLS.find(x=>x.id===id);
+    lines.push(`--- 第${idx+1}志望　${s.name} ---`);
+    (s.steps||[]).filter(st=>st.type==="exam").forEach(step=>{
+      const dates=[];
+      if(step.applyEnd) dates.push(`出願締切:${fmtDate(step.applyEnd)}`);
+      if(step.examDate) dates.push(`検査:${fmtDate(step.examDate)}`);
+      if(step.resultDate) dates.push(`発表:${fmtDate(step.resultDate)}`);
+      lines.push(`　${step.label}　${dates.join(" / ") || "日程未公表"}`);
+    });
+  });
+  lines.push("");
+  lines.push("詳細・最新情報はサイトでご確認ください：");
+  lines.push("https://yusukevg95.github.io/mirai-navi/");
+
+  let text = lines.join("\n");
+  if(text.length > EMAIL_SUMMARY_MAX_LEN){
+    text = text.slice(0, EMAIL_SUMMARY_MAX_LEN) + "\n…（文字数の都合で以下省略。詳細はサイトでご確認ください）";
+  }
+  return text;
+}
+
+function emailResults(){
+  const text = buildDiagnosisSummaryText();
+  const url = `${EMAIL_FORM_BASE}?usp=pp_url&${EMAIL_FORM_ENTRY_SUMMARY}=${encodeURIComponent(text)}`;
+  window.open(url, "_blank", "noopener");
 }
 
 initResidenceSelect();
