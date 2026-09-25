@@ -45,6 +45,48 @@
   .disclaimer{ display:flex; gap:10px; background:var(--accent-soft); border:1px solid color-mix(in srgb, var(--accent) 35%, transparent); color:var(--ink); border-radius:10px; padding:12px 14px; font-size:13.5px; line-height:1.65; }
   .ref-badge{ display:inline-flex; align-items:center; gap:6px; background:#fff3cd; color:#7a5b00; border:1px solid #f0d78c; border-radius:999px; padding:4px 12px; font-size:12.5px; font-weight:700; letter-spacing:.02em; margin-bottom:10px; }
   @media (prefers-color-scheme: dark){ .ref-badge{ background:#4a3c00; color:#ffe28a; border-color:#7a5b00; } }
+  .faq-jump-link{ display:inline-block; margin-top:4px; font-size:13px; color:var(--primary); text-decoration:none; font-weight:600; }
+  .faq-jump-link:hover{ text-decoration:underline; }
+  /* 志望順ごとの色分け（第1〜6志望、以降は繰り返し） */
+  :root{
+    --rank-1:#e5484d; --rank-1-soft:#fde8e8;
+    --rank-2:#f76b15; --rank-2-soft:#feead5;
+    --rank-3:#a58500; --rank-3-soft:#fbf1c7;
+    --rank-4:#2f9e44; --rank-4-soft:#e6f4ea;
+    --rank-5:#1c7ed6; --rank-5-soft:#e7f1fc;
+    --rank-6:#9c36b5; --rank-6-soft:#f5e8fa;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --rank-1-soft:#3a1f20; --rank-2-soft:#3a2a18; --rank-3-soft:#39330f; --rank-4-soft:#1c3324; --rank-5-soft:#1c2c3a; --rank-6-soft:#33223a;
+    }
+  }
+  .rank-chip{ display:inline-flex; align-items:center; gap:5px; font-weight:700; }
+  .rank-dot{ display:inline-block; width:9px; height:9px; border-radius:50%; flex:none; margin-right:6px; }
+  .rank-1 .rank-dot, .rank-1.rank-dot{ background:var(--rank-1); }
+  .rank-2 .rank-dot, .rank-2.rank-dot{ background:var(--rank-2); }
+  .rank-3 .rank-dot, .rank-3.rank-dot{ background:var(--rank-3); }
+  .rank-4 .rank-dot, .rank-4.rank-dot{ background:var(--rank-4); }
+  .rank-5 .rank-dot, .rank-5.rank-dot{ background:var(--rank-5); }
+  .rank-6 .rank-dot, .rank-6.rank-dot{ background:var(--rank-6); }
+  .selected-chip.rank-1{ border-color:var(--rank-1); background:var(--rank-1-soft); }
+  .selected-chip.rank-2{ border-color:var(--rank-2); background:var(--rank-2-soft); }
+  .selected-chip.rank-3{ border-color:var(--rank-3); background:var(--rank-3-soft); }
+  .selected-chip.rank-4{ border-color:var(--rank-4); background:var(--rank-4-soft); }
+  .selected-chip.rank-5{ border-color:var(--rank-5); background:var(--rank-5-soft); }
+  .selected-chip.rank-6{ border-color:var(--rank-6); background:var(--rank-6-soft); }
+  .result-school.rank-1{ border-left:5px solid var(--rank-1); }
+  .result-school.rank-2{ border-left:5px solid var(--rank-2); }
+  .result-school.rank-3{ border-left:5px solid var(--rank-3); }
+  .result-school.rank-4{ border-left:5px solid var(--rank-4); }
+  .result-school.rank-5{ border-left:5px solid var(--rank-5); }
+  .result-school.rank-6{ border-left:5px solid var(--rank-6); }
+  .tl-school.rank-1{ background:var(--rank-1-soft); color:var(--rank-1); }
+  .tl-school.rank-2{ background:var(--rank-2-soft); color:var(--rank-2); }
+  .tl-school.rank-3{ background:var(--rank-3-soft); color:var(--rank-3); }
+  .tl-school.rank-4{ background:var(--rank-4-soft); color:var(--rank-4); }
+  .tl-school.rank-5{ background:var(--rank-5-soft); color:var(--rank-5); }
+  .tl-school.rank-6{ background:var(--rank-6-soft); color:var(--rank-6); }
   .card{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px; box-shadow:var(--shadow); }
   .step-card h2{ display:flex; align-items:center; gap:10px; font-size:19px; font-weight:600; margin-bottom:14px; }
   .step-num{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; background:var(--primary); color:var(--surface); width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
@@ -57,7 +99,7 @@
   #selected-summary{ margin-top:16px; }
   .selected-summary-title{ font-size:13px; font-weight:700; color:var(--ink-soft); margin-bottom:8px; }
   .selected-chips{ display:flex; flex-wrap:wrap; gap:8px; }
-  .selected-chip{ display:inline-flex; align-items:center; gap:7px; background:var(--primary-soft); color:var(--ink); border-radius:999px; padding:5px 6px 5px 12px; font-size:13px; }
+  .selected-chip{ display:inline-flex; align-items:center; gap:7px; background:var(--primary-soft); color:var(--ink); border-radius:999px; padding:5px 6px 5px 12px; font-size:13px; border:1.5px solid transparent; }
   .chip-remove{ font:inherit; border:none; background:var(--surface); color:var(--ink-soft); width:20px; height:20px; border-radius:50%; cursor:pointer; line-height:1; }
   .chip-remove:hover{ background:var(--accent-soft); color:var(--accent); }
   .school-toggle{ text-align:left; cursor:pointer; border:1.5px solid var(--line); background:var(--surface-alt); border-radius:12px; padding:14px 16px; font:inherit; color:var(--ink); display:flex; flex-direction:column; gap:4px; position:relative; transition:border-color .15s, background .15s; }
@@ -68,6 +110,12 @@
   .school-toggle .name{ font-weight:700; font-size:15.5px; }
   .school-toggle .quota{ font-size:12.5px; color:var(--ink-soft); }
   .priority-badge{ position:absolute; top:-9px; right:-9px; width:26px; height:26px; border-radius:50%; background:var(--primary); color:var(--surface); font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); }
+  .priority-badge.rank-1{ background:var(--rank-1); }
+  .priority-badge.rank-2{ background:var(--rank-2); }
+  .priority-badge.rank-3{ background:var(--rank-3); }
+  .priority-badge.rank-4{ background:var(--rank-4); }
+  .priority-badge.rank-5{ background:var(--rank-5); }
+  .priority-badge.rank-6{ background:var(--rank-6); }
   .primary-btn{ align-self:flex-start; font:inherit; font-weight:700; font-size:15.5px; cursor:pointer; background:var(--primary); color:var(--surface); border:none; border-radius:10px; padding:13px 26px; box-shadow:var(--shadow); }
   .primary-btn:disabled{ opacity:.45; cursor:not-allowed; }
   .primary-btn:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
@@ -154,16 +202,35 @@
 <div class="page">
   <header class="hero">
     <span class="ref-badge">⚠ 参考情報・非公式（要ご自身での確認）</span>
-    <p class="eyebrow">地域みらい留学 受検制度診断（プロトタイプ・参考情報）</p>
-    <h1>みらい留学受検ナビ</h1>
-    <p class="lead">お住まいの都道府県と志望校を選ぶと、①居住地で必要なこと ②併願できる順番 ③いつ・どの順で結果が分かるか を一枚で整理します。<b>ここに書かれている内容はあくまで参考情報です。</b>実際の出願にあたっては、必ずご自身で学校・教育委員会の公式発表を確認してください。</p>
+    <p class="eyebrow">地域みらい留学を検討する保護者・生徒のための</p>
+    <h1>志望校別・受検スケジュールチェッカー</h1>
+    <p class="lead">「どの学校を、いつまでに、どの順番で受けられるか」がわからず悩む方向けのツールです。お住まいの都道府県と志望校（<b>第2志望・第3志望…も都道府県をまたいで何校でも選べます</b>）を選ぶと、①居住地で必要なこと ②併願できる順番 ③いつ・どの順で結果が分かるか を一枚で整理します。<b>ここに書かれている内容はあくまで参考情報です。</b>実際の出願にあたっては、必ずご自身で学校・教育委員会の公式発表を確認してください。</p>
     <div class="disclaimer">⚠ <b>本ツールは非公式の参考情報サイトです。</b>掲載内容はWeb検索による2026年9月時点の調査に基づく試作版で、公式発表を保証するものではありません。誤り・古い情報が含まれる可能性があります。今年度分（令和9年度）が未公表の項目は前年度以前の実績を「参考データ」として代わりに表示しています。<b>出願前には必ず学校・教育委員会の最新の公式発表をご自身でご確認ください。</b>本サイトの情報を用いたことによる不利益について、作成者は責任を負いかねます。</div>
+    <a href="#faq-section" class="faq-jump-link">💬 よくある質問を見る ↓</a>
   </header>
 
-  <section class="card faq-card">
+  <section class="card step-card">
+    <h2><span class="step-num">1</span>お住まいの都道府県</h2>
+    <select id="residence"></select>
+    <div class="note-box" id="residence-note"></div>
+  </section>
+
+  <section class="card step-card">
+    <h2><span class="step-num">2</span>志望校を選ぶ</h2>
+    <p style="margin:-6px 0 14px;font-size:13px;color:var(--ink-soft)">まず都道府県を選ぶと、その県の参画校が表示されます。<b>クリックした順に優先順位（第1志望・第2志望…）になり、都道府県をまたいで何校でも追加できます。</b>「結果をメールする」ボタンを押すと、選んだ学校すべての情報が1件のメールでまとめて届きます（学校ごとに個別送信する必要はありません）。</p>
+    <select id="school-pref-filter" style="margin-bottom:14px;"></select>
+    <div class="school-grid" id="school-grid"></div>
+    <div id="selected-summary"></div>
+  </section>
+
+  <button class="primary-btn" id="diagnose-btn" disabled onclick="try{renderResults()}catch(e){document.getElementById('results').hidden=false;document.getElementById('results').innerHTML='<div class=&quot;card&quot; style=&quot;color:red;white-space:pre-wrap;&quot;>DEBUG ERROR: '+e.message+'\n'+e.stack+'</div>'}">診断する</button>
+
+  <section class="results" id="results" hidden></section>
+
+  <section class="card faq-card" id="faq-section">
     <h2 class="section-title" style="margin-bottom:6px;">💬 よくある質問</h2>
     <p style="margin:0 0 14px;font-size:13px;color:var(--ink-soft)">受検制度説明会やLINE相談で実際によく聞かれる質問をまとめました。</p>
-    <details class="faq-item" open>
+    <details class="faq-item">
       <summary>内申点が低い・ついていない場合でも受検できますか？</summary>
       <div class="faq-body">
         保護者アンケートでは「高校受験で内申点の影響が想像以上に大きかった」と答えた方が6割を超えるほど、内申点は多くの方が不安に感じるポイントです。ただし内申点（調査書）の扱いは<b>学校ごとに異なり</b>、面接・作文・当日の学力検査を重視する学校も多くあります。不登校等の事情で評定がつかない場合の取り扱いについて、個別に相談に応じる学校もあります。事務局では一律に「どのくらい影響するか」をお答えできないため、気になる学校が決まったら<b>学校へ直接、事情を伝えたうえでご相談</b>いただくのが確実です。オープンスクールや個別相談会もこの確認の場として活用できます。
@@ -199,24 +266,6 @@
     </details>
   </section>
 
-  <section class="card step-card">
-    <h2><span class="step-num">1</span>お住まいの都道府県</h2>
-    <select id="residence"></select>
-    <div class="note-box" id="residence-note"></div>
-  </section>
-
-  <section class="card step-card">
-    <h2><span class="step-num">2</span>志望校を選ぶ</h2>
-    <p style="margin:-6px 0 14px;font-size:13px;color:var(--ink-soft)">まず都道府県を選ぶと、その県の参画校が表示されます。クリックした順に優先順位（第1志望・第2志望…）になり、県をまたいで何校でも追加できます。</p>
-    <select id="school-pref-filter" style="margin-bottom:14px;"></select>
-    <div class="school-grid" id="school-grid"></div>
-    <div id="selected-summary"></div>
-  </section>
-
-  <button class="primary-btn" id="diagnose-btn" disabled onclick="try{renderResults()}catch(e){document.getElementById('results').hidden=false;document.getElementById('results').innerHTML='<div class=&quot;card&quot; style=&quot;color:red;white-space:pre-wrap;&quot;>DEBUG ERROR: '+e.message+'\n'+e.stack+'</div>'}">診断する</button>
-
-  <section class="results" id="results" hidden></section>
-
   <footer class="page-footer">
     データ出典：各都道府県教育委員会・各校・各市町村の公表資料、c-mirai.jpの公開情報（2026年9月調査）。宮城・滋賀・岡山・静岡・茨城の一般入試日程は、社内共有された都道府県入試情報アーカイブ（教育委員会公式PDF）で追加確認済みです。各校の令和9年度の出願受付期間・入寮審査の詳細は例年11月頃に公表されるため、公表され次第データを更新予定です。
   </footer>
@@ -237,7 +286,7 @@ const OITA_URL = "https://www.pref.oita.jp/site/kyoiku/r09koukounyuushi.html";
 // フォーム設定「回答のコピーを送信＝常時」により送信者本人にもメールが届く）
 const EMAIL_FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSdt90bAIN0F9jggE10H7u9BZgFRDPLhdDkGVkIo3zt9oXecaQ/viewform";
 const EMAIL_FORM_ENTRY_SUMMARY = "entry.1970008572";
-const EMAIL_SUMMARY_MAX_LEN = 3500;
+const EMAIL_SUMMARY_MAX_LEN = 900; // 生テキストの上限（URLエンコード後は日本語で約7倍に増えるため、6000〜7000字程度に収まる設計）
 
 const SCHOOLS = [
   {
@@ -3299,6 +3348,9 @@ function renderSchoolGrid(){
   });
   applyBadges();
 }
+function rankClass(idx){
+  return "rank-" + ((idx % 6) + 1);
+}
 function toggleSchool(id){
   const i = selected.indexOf(id);
   if(i === -1) selected.push(id); else selected.splice(i,1);
@@ -3316,7 +3368,7 @@ function applyBadges(){
     else{
       el.classList.add("selected");
       const badge = document.createElement("span");
-      badge.className = "priority-badge";
+      badge.className = "priority-badge " + rankClass(idx);
       badge.textContent = idx+1;
       el.appendChild(badge);
     }
@@ -3327,7 +3379,7 @@ function renderSelectedSummary(){
   if(selected.length === 0){ el.innerHTML = ""; return; }
   const chips = selected.map((id,idx)=>{
     const s = SCHOOLS.find(x=>x.id===id);
-    return `<span class="selected-chip">第${idx+1}志望：${s.name}（${s.pref}）<button type="button" class="chip-remove" data-id="${id}" aria-label="削除">×</button></span>`;
+    return `<span class="selected-chip ${rankClass(idx)}"><span class="rank-dot ${rankClass(idx)}"></span>第${idx+1}志望：${s.name}（${s.pref}）<button type="button" class="chip-remove" data-id="${id}" aria-label="削除">×</button></span>`;
   }).join("");
   el.innerHTML = `<div class="selected-summary-title">選択中の志望校（${selected.length}校）</div><div class="selected-chips">${chips}</div>`;
   el.querySelectorAll(".chip-remove").forEach(btn=>{
@@ -3362,27 +3414,49 @@ function renderStage(step){
     </div>`;
 }
 
-function lastMeaningfulStep(school){
-  const steps = (school.steps||[]).filter(s=>s.type==="exam");
-  for(let i=steps.length-1;i>=0;i--){ if(steps[i].resultDate) return steps[i]; }
-  return null;
+// 学校の「一番最初に分かる」結果発表（＝実質的な判断ポイント）を返す。
+// 二次募集など最後の結果ではなく、最初に発表される結果を起点にする（併願の実務判断はこちらが基準）。
+function firstMeaningfulStep(school){
+  const steps = (school.steps||[]).filter(s=>s.type==="exam" && s.resultDate && parseFirstDate(s.resultDate));
+  if(!steps.length) return null;
+  return steps.reduce((min,s)=> parseFirstDate(s.resultDate) < parseFirstDate(min.resultDate) ? s : min);
 }
 function firstApplyStep(school){
-  return (school.steps||[]).find(s=>s.type==="exam" && s.applyEnd) || null;
+  const steps = (school.steps||[]).filter(s=>s.type==="exam" && s.applyEnd && parseFirstDate(s.applyEnd));
+  if(!steps.length) return null;
+  return steps.reduce((min,s)=> parseFirstDate(s.applyEnd) < parseFirstDate(min.applyEnd) ? s : min);
+}
+// 専願（exclusive）の早期選抜が、後志望校の出願締切より前に検査・発表される場合、
+// 「後の志望校に合格すると前の志望校を実質受けられなくなる」リスクを警告する。
+function earlyConflictWarning(a, b){
+  const aApply = firstApplyStep(a);
+  if(!aApply || !aApply.applyEnd) return null;
+  const aApplyDate = parseFirstDate(aApply.applyEnd);
+  if(!aApplyDate) return null;
+  const bSteps = (b.steps||[]).filter(s=>s.type==="exam" && s.exclusive);
+  for(const bs of bSteps){
+    const bDate = parseFirstDate(bs.resultDate) || parseFirstDate(bs.examDate);
+    if(bDate && bDate < aApplyDate){
+      const bWhen = bs.resultDate ? `発表：${fmtDate(bs.resultDate)}` : `検査：${fmtDate(bs.examDate)}`;
+      return `⚠ ${b.name}の「${bs.label}」（${bWhen}・専願想定）が、${a.name}の出願締切（${fmtDate(aApply.applyEnd)}）より前に行われます。${b.name}に合格すると、${a.name}を実質的に受検できなくなる可能性があります。`;
+    }
+  }
+  return null;
 }
 
 function collectTimelineEntries(){
   const entries = [];
-  selected.forEach(id=>{
+  selected.forEach((id,idx)=>{
     const s = SCHOOLS.find(x=>x.id===id);
     (s.steps||[]).forEach(step=>{
-      if(step.examDate) entries.push({sortDate:parseFirstDate(step.examDate), dateStr:step.examDate, label:`${step.label}｜検査・選考`, school:s.name, link:step.sourceUrl});
-      if(step.resultDate) entries.push({sortDate:parseFirstDate(step.resultDate), dateStr:step.resultDate, label:`${step.label}｜結果発表`, school:s.name, link:step.sourceUrl});
-      if(step.applyEnd) entries.push({sortDate:parseFirstDate(step.applyEnd), dateStr:step.applyEnd, label:`${step.label}｜出願締切`, school:s.name, link:step.sourceUrl});
+      if(step.cycle && /ref/i.test(step.cycle)) return; // 前年度以前の参考データは時系列（実際の予定表）には出さない
+      if(step.examDate) entries.push({sortDate:parseFirstDate(step.examDate), dateStr:step.examDate, label:`${step.label}｜検査・選考`, school:s.name, rank:idx, link:step.sourceUrl});
+      if(step.resultDate) entries.push({sortDate:parseFirstDate(step.resultDate), dateStr:step.resultDate, label:`${step.label}｜結果発表`, school:s.name, rank:idx, link:step.sourceUrl});
+      if(step.applyEnd) entries.push({sortDate:parseFirstDate(step.applyEnd), dateStr:step.applyEnd, label:`${step.label}｜出願締切`, school:s.name, rank:idx, link:step.sourceUrl});
     });
     (s.events||[]).forEach(ev=>{
       const d = parseFirstDate(ev.date);
-      if(d) entries.push({sortDate:d, dateStr:ev.date, label:`📅 ${ev.label}`, school:s.name, link:s.eventsSource?s.eventsSource.url:null, isEvent:true});
+      if(d) entries.push({sortDate:d, dateStr:ev.date, label:`📅 ${ev.label}`, school:s.name, rank:idx, link:s.eventsSource?s.eventsSource.url:null, isEvent:true});
     });
   });
   return entries.filter(e=>e.sortDate).sort((a,b)=>a.sortDate-b.sortDate);
@@ -3391,7 +3465,7 @@ function collectTimelineEntries(){
 function renderUrgentEvents(){
   const now = new Date();
   const items = [];
-  selected.forEach(id=>{
+  selected.forEach((id,idx)=>{
     const s = SCHOOLS.find(x=>x.id===id);
     (s.events||[]).forEach(ev=>{
       if(ev.past) return;
@@ -3399,7 +3473,7 @@ function renderUrgentEvents(){
       if(!d) return;
       const days = Math.round((d-now)/86400000);
       if(days >= -1 && days <= 60){
-        items.push({date:d, days, school:s.name, ev});
+        items.push({date:d, days, school:s.name, rank:idx, ev});
       }
     });
   });
@@ -3410,7 +3484,7 @@ function renderUrgentEvents(){
     const linkTxt = it.ev.applyUrl ? ` <a href="${it.ev.applyUrl}" target="_blank" rel="noopener">申込はこちら</a>` : "";
     return `<div class="urgent-item">
       <span class="d">${fmtDate(it.ev.date.split ? it.ev.date.split("〜")[0] : it.ev.date)}</span>
-      <span class="body"><span class="tl-school">${it.school}</span>${it.ev.label}（${it.ev.time||""}）${deadlineTxt}${linkTxt}</span>
+      <span class="body"><span class="tl-school ${rankClass(it.rank)}">${it.school}</span>${it.ev.label}（${it.ev.time||""}）${deadlineTxt}${linkTxt}</span>
     </div>`;
   }).join("");
   return `<div class="card urgent-card"><h3>🔔 直近のイベント（60日以内）</h3>${rows}</div>`;
@@ -3442,23 +3516,27 @@ function renderResults(){
   } else {
     const chain = selected.map((id,idx)=>{
       const s = SCHOOLS.find(x=>x.id===id);
-      return `<span class="chip">第${idx+1}志望：${s.name}</span>`;
+      return `<span class="chip rank-chip ${rankClass(idx)}"><span class="rank-dot ${rankClass(idx)}"></span>第${idx+1}志望：${s.name}</span>`;
     }).join('<span class="arrow">→</span>');
 
     let leadParts = [];
+    let conflictWarnings = [];
     const samePrefPairs = [];
     for(let i=0;i<selected.length-1;i++){
       const a = SCHOOLS.find(x=>x.id===selected[i]);
       const b = SCHOOLS.find(x=>x.id===selected[i+1]);
       if(a.pref === b.pref) samePrefPairs.push([a,b]);
-      const f = feasibility(lastMeaningfulStep(a), firstApplyStep(b));
-      const aStep = lastMeaningfulStep(a);
+      const f = feasibility(firstMeaningfulStep(a), firstApplyStep(b));
+      const aStep = firstMeaningfulStep(a);
       const resultTxt = aStep && aStep.resultDate ? `結果発表（${fmtDate(aStep.resultDate)}）` : "結果発表日";
       leadParts.push(`第${i+1}志望（${a.name}）の${resultTxt}を確認したうえで、まだ間に合えば第${i+2}志望（${b.name}）へ進む：<span class="badge ${f.cls}">${f.label}</span>`);
+      const warn = earlyConflictWarning(a, b);
+      if(warn) conflictWarnings.push(warn);
     }
     orderHtml = `
       <div class="combo-chain">${chain}</div>
       ${samePrefPairs.length ? `<p class="warn-line">⚠ 同一都道府県内の学校を複数選んでいます。公立高校は原則「1都道府県1校」のみ受検可能です。両方を同時に第一候補として進めることはできません。</p>` : ""}
+      ${conflictWarnings.length ? conflictWarnings.map(w=>`<p class="warn-line">${w}</p>`).join("") : ""}
       <div class="order-lead">おすすめの進め方：${leadParts.join("<br>")}</div>
       <ul class="combo-rules">
         <li><b>大原則：</b>公立高校は合格したら入学が前提のため、複数校の合格を同時にキープすることはできません。</li>
@@ -3474,7 +3552,7 @@ function renderResults(){
   const tlRows = entries.map(e=>`
     <div class="tl-row">
       <div class="tl-date">${fmtDate(e.dateStr.split ? e.dateStr.split("〜")[0] : e.dateStr)}</div>
-      <div class="tl-body"><span class="tl-school">${e.school}</span>${e.label}${e.link?` <a href="${e.link}" target="_blank" rel="noopener" style="font-size:12px;">🔗確認</a>`:""}</div>
+      <div class="tl-body"><span class="tl-school ${rankClass(e.rank)}">${e.school}</span>${e.label}${e.link?` <a href="${e.link}" target="_blank" rel="noopener" style="font-size:12px;">🔗確認</a>`:""}</div>
     </div>`).join("");
   wrap.innerHTML += `
     <div class="card">
@@ -3486,7 +3564,7 @@ function renderResults(){
   selected.forEach((id, idx)=>{
     const s = SCHOOLS.find(x=>x.id===id);
     const card = document.createElement("div");
-    card.className = "card result-school";
+    card.className = "card result-school " + rankClass(idx);
     const timelineHtml = (s.steps||[]).map(renderStage).join("");
     const eventsHtml = (s.events||[]).length ? `
       <h4 class="sub">📅 オープンスクール・説明会</h4>
@@ -3502,7 +3580,7 @@ function renderResults(){
     const extra = s.extraProcedure ? `<div class="note-box">📄 ${s.extraProcedure}</div>` : "";
     card.innerHTML = `
       <div class="head">
-        <h3>第${idx+1}志望　${s.name}</h3>
+        <h3><span class="rank-dot ${rankClass(idx)}"></span>第${idx+1}志望　${s.name}</h3>
         <span class="quota-tag">${s.quota}</span>
       </div>
       <div class="timeline">${timelineHtml}</div>
@@ -3525,73 +3603,70 @@ function renderResults(){
   wrap.scrollIntoView({behavior:"smooth", block:"start"});
 }
 
+// メール本文はGoogleフォームのURL（GETパラメータ）に載せるため、学校数が増えても
+// 安全な長さに収まるよう、時系列の全件列挙などは行わず「要点のみ」に絞って生成する。
 function buildDiagnosisSummaryText(){
   const residence = document.getElementById("residence").value;
   const lines = [];
   lines.push("【みらい留学受検ナビ　診断結果】");
-  lines.push("※本結果はあくまで参考情報です。出願前に必ず学校・教育委員会の最新の公式発表をご確認ください。");
+  lines.push("※参考情報です。出願前に必ず学校・教育委員会の最新の公式発表をご確認ください。");
   lines.push("");
   lines.push("■選択した志望校");
   selected.forEach((id,idx)=>{
     const s = SCHOOLS.find(x=>x.id===id);
-    lines.push(`第${idx+1}志望：${s.name}（${s.pref}／${s.quota}）`);
+    lines.push(`第${idx+1}志望：${s.name}（${s.pref}）`);
   });
   lines.push("");
-  lines.push(`■①居住地（${residence}）で必要なこと`);
   const specific = RESIDENCE_NOTES[residence];
-  lines.push(specific || "前年度の個別実績は本調査では未確認です。都道府県・年度によって要否が変わります。");
-  lines.push("");
-  lines.push("■②併願はどの順番ならできるか");
-  if(selected.length <= 1){
-    lines.push("選択中は1校のみです。");
-  } else {
+  if(specific){
+    const trimmed = specific.length > 90 ? specific.slice(0,90)+"…" : specific;
+    lines.push(`■①居住地（${residence}）：${trimmed}`);
+    lines.push("");
+  }
+  if(selected.length > 1){
+    lines.push("■②併願の順番");
     for(let i=0;i<selected.length-1;i++){
       const a = SCHOOLS.find(x=>x.id===selected[i]);
       const b = SCHOOLS.find(x=>x.id===selected[i+1]);
-      const f = feasibility(lastMeaningfulStep(a), firstApplyStep(b));
-      const aStep = lastMeaningfulStep(a);
-      const resultTxt = aStep && aStep.resultDate ? `結果発表（${fmtDate(aStep.resultDate)}）` : "結果発表日";
-      lines.push(`第${i+1}志望（${a.name}）の${resultTxt}を確認後→第${i+2}志望（${b.name}）へ：${f.label}`);
+      const f = feasibility(firstMeaningfulStep(a), firstApplyStep(b));
+      lines.push(`第${i+1}志望→第${i+2}志望：${f.label}`);
+      const warn = earlyConflictWarning(a, b);
+      if(warn) lines.push(`　${warn}`);
     }
+    lines.push("");
   }
-  lines.push("");
-  lines.push("■③いつ・どの順で分かるか（時系列）");
-  const entries = collectTimelineEntries();
-  if(entries.length){
-    entries.forEach(e=>{
-      const d = fmtDate(e.dateStr.split ? e.dateStr.split("〜")[0] : e.dateStr);
-      lines.push(`${d}　${e.school}｜${e.label.replace(/^📅\s*/,"")}`);
-    });
-  } else {
-    lines.push("日付が判明しているステップがありません。");
-  }
-  lines.push("");
-  lines.push("■各校の次の締切・発表日");
+  lines.push("■各校の次の日程");
   selected.forEach((id,idx)=>{
     const s = SCHOOLS.find(x=>x.id===id);
-    lines.push(`--- 第${idx+1}志望　${s.name} ---`);
-    (s.steps||[]).filter(st=>st.type==="exam").forEach(step=>{
-      const dates=[];
-      if(step.applyEnd) dates.push(`出願締切:${fmtDate(step.applyEnd)}`);
-      if(step.examDate) dates.push(`検査:${fmtDate(step.examDate)}`);
-      if(step.resultDate) dates.push(`発表:${fmtDate(step.resultDate)}`);
-      lines.push(`　${step.label}　${dates.join(" / ") || "日程未公表"}`);
-    });
+    const applyStep = firstApplyStep(s);
+    const resultStep = firstMeaningfulStep(s);
+    const parts = [];
+    if(applyStep && applyStep.applyEnd) parts.push(`出願締切${fmtDate(applyStep.applyEnd)}`);
+    if(resultStep && resultStep.examDate) parts.push(`検査${fmtDate(resultStep.examDate)}`);
+    if(resultStep && resultStep.resultDate) parts.push(`発表${fmtDate(resultStep.resultDate)}`);
+    lines.push(`第${idx+1}志望 ${s.name}：${parts.join("／") || "日程未公表"}`);
   });
   lines.push("");
-  lines.push("詳細・最新情報はサイトでご確認ください：");
+  lines.push("詳細な時系列・全ステップ・イベント日程はサイトでご確認ください：");
   lines.push("https://yusukevg95.github.io/mirai-navi/");
 
   let text = lines.join("\n");
   if(text.length > EMAIL_SUMMARY_MAX_LEN){
-    text = text.slice(0, EMAIL_SUMMARY_MAX_LEN) + "\n…（文字数の都合で以下省略。詳細はサイトでご確認ください）";
+    text = text.slice(0, EMAIL_SUMMARY_MAX_LEN) + "\n…（省略。詳細はサイトでご確認ください）";
   }
   return text;
 }
 
 function emailResults(){
-  const text = buildDiagnosisSummaryText();
-  const url = `${EMAIL_FORM_BASE}?usp=pp_url&${EMAIL_FORM_ENTRY_SUMMARY}=${encodeURIComponent(text)}`;
+  let text = buildDiagnosisSummaryText();
+  let url = `${EMAIL_FORM_BASE}?usp=pp_url&${EMAIL_FORM_ENTRY_SUMMARY}=${encodeURIComponent(text)}`;
+  // 最終防御線：万一URLが長くなりすぎた場合（学校を多数選択した場合等）は、
+  // Googleフォーム側のURL長エラー（Bad Request）を避けるため本文をさらに切り詰める。
+  const SAFE_URL_LEN = 6000;
+  while(url.length > SAFE_URL_LEN && text.length > 100){
+    text = text.slice(0, text.length - 200) + "\n…（省略。詳細はサイトでご確認ください）";
+    url = `${EMAIL_FORM_BASE}?usp=pp_url&${EMAIL_FORM_ENTRY_SUMMARY}=${encodeURIComponent(text)}`;
+  }
   window.open(url, "_blank", "noopener");
 }
 
