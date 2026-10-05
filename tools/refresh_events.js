@@ -74,11 +74,13 @@ for(const s of SCHOOLS){
 
   // existing events: keep future ones that are not duplicated by a fresh event on the same start date
   const freshStarts = new Set(fresh.map(ev => startOf(ev.date)));
+  const freshRangeEnds = new Set(fresh.filter(ev => ev.date.includes('〜')).map(ev => endOf(ev.date)));   // same end date long-running event = duplicate
   const old = (s.events || []);
   const keepOld = old.filter(ev => {
     if(!ev.date) return fresh.length === 0;                 // undated placeholder: keep only if nothing better
     if(ev.past) return false;
     if(endOf(ev.date) < today){ stat.droppedPast++; return false; }
+    if(ev.date.includes('〜') && freshRangeEnds.has(endOf(ev.date))) return false;
     return !freshStarts.has(startOf(ev.date));
   });
   const merged = [...fresh, ...keepOld].sort((a, b) => {
