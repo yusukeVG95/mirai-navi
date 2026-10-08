@@ -3,7 +3,7 @@
 サイト本体は `index.html` 1枚（データは `SCHOOLS` 配列に埋め込み）。公開URL：https://juken-chat.c-mirai.jp/schedule/
 （GitHub Pages `https://yusukevg95.github.io/mirai-navi/` の内容が中継されて表示される。）
 
-## 更新の全体像（週1回・日曜を想定）
+## 更新の全体像（週1回・水曜を想定）
 1. **イベント情報の更新**（c-mirai.jp のイベント一覧から機械的に取得）
 2. **日程・入寮情報の再調査**（「前年度参考（R8ref）」「空欄」を令和9年度の公式情報で埋める）
 3. 検証 → `DATA_UPDATED` 更新 → コミット/プッシュ → Artifact版も更新
