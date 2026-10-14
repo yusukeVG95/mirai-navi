@@ -289,7 +289,7 @@ const OITA_URL = "https://www.pref.oita.jp/site/kyoiku/r09koukounyuushi.html";
 // フォーム設定「回答のコピーを送信＝常時」により送信者本人にもメールが届く）
 const EMAIL_FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSdt90bAIN0F9jggE10H7u9BZgFRDPLhdDkGVkIo3zt9oXecaQ/viewform";
 const EMAIL_FORM_ENTRY_SUMMARY = "entry.1970008572";
-const DATA_UPDATED = "2026-10-08"; // データを最後に更新した日（更新作業のたびに書き換える）
+const DATA_UPDATED = "2026-10-14"; // データを最後に更新した日（更新作業のたびに書き換える）
 const EMAIL_SUMMARY_MAX_LEN = 900; // 生テキストの上限（URLエンコード後は日本語で約7倍に増えるため、6000〜7000字程度に収まる設計）
 
 const SCHOOLS = [
@@ -299,21 +299,18 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮選考（松風寮）", examDate:"2025-12", resultDate:null, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
         note:"推薦入試・一般入試に先行し、例年12月頃に実施される見込み。選考内容（面接・作文・保護者同伴の有無）や、合格が出願の前提になるかは非公表。奥尻町教育委員会（01397-2-3890）への確認を推奨します。",
         sourceUrl:"https://ritokei.com/grow/34595", whereToCheck:"離島経済新聞（ritokei）「北海道の離島留学」記事内『【奥尻島】“島留学”』の項" },
-      { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:null, applyEnd:null, exclusive:true, cycle:"R9",
-        note:"検査日は北海道内の共通日程。学校ごとの出願受付期間は例年11月頃公表予定で、本調査時点では未公表。",
-        sourceUrl:"https://www.town.okushiri.lg.jp/hotnews/detail/00009793.html", whereToCheck:"奥尻町サイトのお知らせ詳細ページ内、PDF『令和9年度北海道奥尻高等学校入学者選抜における学校裁量についての実施予定等』" },
+      { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:null, exclusive:true, cycle:"R9",
+        note:"面接は2/9（北海道内共通日程）。奥尻高校の令和9年度学校裁量資料に『その他の事項は令和9年度道立高等学校入学者選抜の手引及び奥尻高校の入学者選抜の手引により実施』とあり、道の日程表では推薦の合格内定の通知は2027-02-17まで、合格発表は3/16 10:00。学校ごとの出願受付期間・道外からの出願方法は奥尻高校の手引（本調査時点で未公表）で要確認（道の出願受付は1/18〜21）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』日程表（2/17欄）と奥尻町サイトの『令和9年度北海道奥尻高等学校入学者選抜における学校裁量についての実施予定等』PDF" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:null, cycle:"R9",
         note:"追検査は2027-03-10。出願受付期間は未公表。",
         sourceUrl:"https://www.town.okushiri.lg.jp/hotnews/detail/00009793.html", whereToCheck:"同上PDF" },
-      { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:null, applyEnd:null, cycle:"R9",
-        note:"上記PDFに二次募集の記載は確認できず。実施の有無は不明。",
-        sourceUrl:"https://www.town.okushiri.lg.jp/hotnews/detail/00009793.html", whereToCheck:"同上PDF（記載なし）" }
+      { type:"exam", key:"niji", label:"二次募集", resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
+        note:"奥尻高校は道立高等学校入学者選抜の手引に従って実施（学校裁量資料）。道の一般要項では、第2次募集は合格者が募集人員に満たない場合のみ実施し、実施の有無と募集人員は2027-03-18（9:00）に各校で掲示。出願受付3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。全道共通の検査日はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。奥尻高校での実施の有無は未定。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校一般入学者選抜実施要項』の『17 第2次募集』（p.25-26）と奥尻高校の学校裁量資料" }
     ],
     events:[
-      { date:"2026-10-11", label:"北海道奥尻高校学校説明会", time:"10:00-16:00", format:"現地", applyUrl:"https://c-mirai.jp/events/10c1413f-657e-4c75-b5de-d2ef9feed5dc" },
       { date:"2026-11-07", label:"北海道奥尻高校オープンキャンパス③", time:"13:00-15:30", format:"現地", applyUrl:"https://c-mirai.jp/events/57d7c24e-8480-4d60-a5b1-43a58aa9b7ad" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/1be4844e-55d8-4eb3-8c71-b5ee84742e24", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/1be4844e-55d8-4eb3-8c71-b5ee84742e24", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"shimane_oki", name:"島根県立隠岐高等学校", pref:"島根県", quota:"総合選抜（学校独自方式）",
@@ -374,14 +371,12 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮（チセネシリ寮）", examDate:null, resultDate:null, cycle:null,
         note:"出願前の独立した入寮試験・面接は確認できず。学校Q&Aには『合格者には入寮に関する案内を別途送付』とあり、合格後に案内が届く運用と推測される。",
         sourceUrl:"https://www.otoineppu-h.ed.jp/junior/qa.html", whereToCheck:"学校サイトQ&Aページの『Q18』『Q25』" },
-      { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:null, applyEnd:null, exclusive:true, cycle:"R9",
-        note:"道内共通日程。学校固有の出願受付期間は未公表（Q&Aには『2月中旬』との時期のみ記載）。",
-        sourceUrl:"https://www.otoineppu-h.ed.jp/junior/qa.html", whereToCheck:"Q&Aページ" },
+      { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:null, exclusive:true, cycle:"R9",
+        note:"面接は2/9（道内共通日程）。学校の令和9年度学校裁量資料に『その他の事項は令和9年度道立高等学校入学者選抜の手引並びにおといねっぷ美術工芸高校の手引に従って実施』とあり、道の日程表では推薦の合格内定の通知は2027-02-17まで、合格発表は3/16 10:00。学区外（国内全域）からの出願可。学校固有の出願受付期間は学校の手引（本調査時点で未公表）で要確認（道の出願受付は1/18〜21）。", sourceUrl:"https://www.otoineppu-h.ed.jp/entrance/files/R09_otokoh_nyushi.pdf", whereToCheck:"学校サイト『令和9年度入試情報』ページの学校裁量PDFと、北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』日程表（2/17欄）" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:null, cycle:"R9",
         note:"追検査は2027-03-10。", sourceUrl:"https://www.otoineppu-h.ed.jp/junior/qa.html", whereToCheck:"Q&Aページ" },
-      { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:null, applyEnd:null, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
-        note:"工芸科で3年連続実施実績あり（令和8年度3人、令和6年度4人）。令和9年度も実施される可能性が高いが、具体的な日程は本調査時点では未公表。",
-        sourceUrl:"https://www.hokkaido-koko-jyuken.com/capacity/2026-2ji/", whereToCheck:"『北海道公立高校 第2次募集』サイトの年度別ページ内『おといねっぷ美術工芸』欄" }
+      { type:"exam", key:"niji", label:"二次募集", resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
+        note:"工芸科で第2次募集の実施実績あり（令和8年度3人、令和6年度4人）。学校は道立高等学校入学者選抜の手引に従って実施（学校裁量資料）。道の一般要項では、第2次募集は合格者が募集人員に満たない場合のみ実施し、実施の有無と募集人員は2027-03-18（9:00）に各校で掲示。出願受付3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。全道共通の検査日はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校一般入学者選抜実施要項』の『17 第2次募集』（p.25-26）と学校の令和9年度学校裁量PDF" }
     ],
     events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/20fa0165-b77e-4152-9fa4-4df43308d7d9", where:"学校ページ内『学校のことを知るイベント』欄（申込は学校指定のGoogleフォーム）" }
@@ -397,11 +392,10 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
-        note:"地域探求科で3年連続実施実績あり（令和8年度23人、令和7年度17人、令和6年度15人）。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
+        note:"第2次募集には全道共通の検査日の設定はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。地域探求科で3年連続実施実績あり（令和8年度23人、令和7年度17人、令和6年度15人）。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
       { date:"2026-07-21〜2026-11-20", label:"学校見学（随時）", applyUrl:"https://forms.gle/9rApwNxJsDPtnTGk9" },
-      { date:"2026-10-09", label:"大樹高校 学校見学", time:"13:00-16:00", format:"現地", applyUrl:"https://c-mirai.jp/events/9534165f-a744-4ddf-9abb-35b4be444b02" },
       { date:"2026-10-26", label:"大樹高校 学校見学", time:"13:00-16:00", format:"現地", applyUrl:"https://c-mirai.jp/events/e86f5d8a-2605-4673-aaff-3af882aea8ee" }
     ],
     eventsSource:{ url:"https://c-mirai.jp/schools/e62cccbe-26d2-4967-8770-2f81950eade2", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
@@ -426,13 +420,10 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮（寮について出願前説明会あり）", examDate:null, resultDate:null, cycle:null,
         note:"募集要項・FAQに独立した入寮審査の記載はないが、c-mirai.jpに『出願前説明会（寮について）』というイベントの存在を確認（詳細未取得）。",
         sourceUrl:"https://niseko.ed.jp/faq/", whereToCheck:"学校サイトFAQページ" },
-      { type:"exam", key:"suisen", label:"推薦入試", applyStart:"2026-01-19", applyEnd:"2026-01-22", examDate:"2026-02-10", resultDate:"2026-03-17", exclusive:true, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
-        note:"ウェブ申請は2025-12-05〜2026-01-22。再出願（実質の二次募集）受付は2026-02-19〜2026-02-24（面接欠席者・確約書未提出者は不可）。",
-        sourceUrl:"https://niseko.ed.jp/wp-content/uploads/2025/10/071110【ニセコ】R8ニセコ国際高募集要項（推薦）.pdf", whereToCheck:"募集要項PDFの『4 出願の受付』『9 面接』『11 再出願』『12 合格発表』各見出し" }
+      { type:"exam", key:"suisen", label:"推薦入試", applyStart:"2027-01-18", applyEnd:"2027-01-21", examDate:"2027-02-09", resultDate:"2027-02-17", exclusive:true, cycle:"R9",
+        note:"募集人員70名（総合学科）の50％程度が推薦、道外からの入学者は募集人員の30％程度。出願受付は2027-01-18〜21（9:00〜16:30、21日は12:00まで）、ウェブ申請は2026-12-04〜2027-01-21。面接は2/9。合格内定の通知は2/17まで、入学確約書の提出は2/18〜22（16:00まで）。内定とならなかった者の再出願は2/18〜22（面接欠席者・確約書未提出者は不可）。合格発表は3/16 10:00（学校Webページ）。検定料は2,200円分の郵便為替のみ。", sourceUrl:"https://niseko.ed.jp/wp-content/uploads/2026/10/260826【ニセコ国際】R9ニセコ国際高募集要項（推薦）（黒字）ｅ.pdf", whereToCheck:"学校サイト『募集要項』ページの令和9年度『推薦入学者選抜』募集要項PDF（4 出願の受付／6 道外からの出願／9 面接／10 合格内定者の通知／11 再出願／12 合格発表）" }
     ],
-    events:[
-      { date:"2026-10-10", label:"【ニセコ国際高校】学校体験会", time:"09:00-13:00", format:"現地", applyUrl:"https://c-mirai.jp/events/72174d51-4e58-4893-9164-85d8f321126b" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/68f6bf63-4ec3-4964-9099-44585dd5df73", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -464,8 +455,6 @@ const SCHOOLS = [
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
-      { date:"2026-10-12", label:"福祉科～寮から中継！祝日の１年生の様子をウォッチ！～北海道置戸高等学校", time:"10:00-10:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c40c577a-0d48-410c-8d49-1662ccd24334" },
-      { date:"2026-10-12", label:"福祉科～寮から中継！進路・国家試験の勉強に励む３年生の様子～北海道置戸高等学校", time:"13:00-13:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/74123507-b9f0-40ac-b4dc-30f2122fb294" },
       { date:"2026-10-14", label:"福祉科～学校から中継！O3S直前特集＆先生に質問してみよう！～北海道置戸高等学校", time:"17:45-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b0b1459c-97c9-4a50-a173-a6f0fff7c0e8" },
       { date:"2026-10-17", label:"第１回置戸高校オンラインオープンスクール（O3S）【10月17日（土）】 第１部 13:30～14:30 ～DX機器を…", time:"13:30-14:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c43caa50-7a9c-402d-a863-49f57a119d10" },
       { date:"2026-10-17", label:"第１回置戸高校オンラインオープンスクール（O3S）【10月17日（土）】第２部 15:00～15:45 ～学校から中継…", time:"15:00-15:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/007c76da-385e-4e57-9744-265ee4a6d9ff" },
@@ -474,7 +463,7 @@ const SCHOOLS = [
       { date:"2026-11-14", label:"第２回置戸高校オンラインオープンスクール（O3S）【11月14日（土）】 第２部 15:00～15:45 ～学校から中…", time:"15:00-15:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/dbc774b7-adcf-4b7a-8f5f-5e7646f72e07" },
       { date:"2026-11-14", label:"第２回置戸高校オンラインオープンスクール（O3S）【11月14日（土）】第３部 17:00～18:00 ～寮から中継！…", time:"17:00-18:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/ec0dc048-e76f-4ee0-b196-30096f948071" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/7f9ea98b-89b9-4721-8338-b4d0427571c5", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/7f9ea98b-89b9-4721-8338-b4d0427571c5", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kagoshima_kawanabe", name:"鹿児島県立川辺高等学校", pref:"鹿児島県", quota:"県外生徒募集",
@@ -517,9 +506,10 @@ const SCHOOLS = [
         note:"福井県共通日程：出願1/13〜1/15（16:00締切）、面接等1/20（予備日1/21）、合格通知1/26。丸岡高校（普通科）の特色選抜に領域「地域みらい留学」あり（別紙3。コースとの対応は表の並び上スポーツ探究コース行に掲載されているため要確認）。応募資格は「地域活動（ボランティア含む）や探究活動に積極的に取り組み、その経験を学校生活で生かす意志のある者」等。募集人数・詳細は10月公表の実施要項で要確認。", sourceUrl:"https://www.pref.fukui.lg.jp/doc/koukou/nyugaku/r09nittei.html", whereToCheck:"福井県教育委員会『令和９年度福井県立高等学校入学者選抜について』ページの日程PDF（別紙1）・特色選抜実施校PDF（別紙3）" }
     ],
     events:[
+      { date:"2026-10-31", label:"【福井県立丸岡高等学校】オンライン学校個別説明会＆入試相談会！", time:"13:00-14:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/57c87c2e-4ff4-465f-9bf5-6769303656d9" },
       { date:"2026-11-28", label:"学校説明会", format:"現地" }
     ],
-    eventsSource:{ url:"https://www.pref.fukui.lg.jp/", where:"福井県サイト『県立高校体験入学の日程について』PDF内『丸岡』欄" }
+    eventsSource:{ url:"https://www.pref.fukui.lg.jp/", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_yuge", name:"愛媛県立弓削高等学校", pref:"愛媛県", quota:"全国募集（ゆめしま留学）",
@@ -533,14 +523,13 @@ const SCHOOLS = [
         note:"愛媛県の入試は特色選抜（1月）＋一般選抜（3月、第1選抜70%＋第2選抜30%の二段階選抜）という構成で、他県にあるような独立した『二次募集』制度自体が存在しない可能性が高い（県教委サイト・学校サイトいずれにも弓削高校固有の二次募集記載はなし）。", sourceUrl:"https://www.ehime-c.ed.jp/", whereToCheck:"愛媛県教育委員会高校教育課ページ、または高校教育課（089-912-2950）へ確認" }
     ],
     events:[
-      { date:"2026-10-09", label:"愛媛県立弓削高等学校 オンライン学校説明会", time:"18:00-19:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c0cc6a8c-2477-4099-9f72-5a40a89e132a" },
       { date:"2026-10-19", label:"【弓削高等学校】入寮希望者対象オンライン説明会①", time:"19:00-19:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/32d90bd9-e26d-4291-b885-6a9f57fabbd2" },
       { date:"2026-10-23", label:"【弓削高等学校】入寮希望者対象オンライン説明会②", time:"19:00-19:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/303383d8-d61f-4cd0-8321-d8f9fbe663fc" },
       { date:"2026-10-31", label:"【弓削高校】オープンスクール！（文化祭・寮説明会）", time:"09:00-17:00", format:"現地", applyUrl:"https://c-mirai.jp/events/14c746ef-bb4b-4775-b595-7083b4319d64" },
       { date:"2026-11-10", label:"【弓削高等学校】入寮希望者対象オンライン説明会③", time:"19:00-19:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c82f542a-e70e-4a18-96c3-d888ee190b6c" },
       { date:"2026-11-18", label:"【弓削高等学校】入寮希望者対象オンライン説明会④", time:"19:00-19:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c38ce683-2e7a-4cae-b5f2-8bafcd28f52e" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/7153c76f-13cd-48a4-9ae1-d377bbcd7229", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/7153c76f-13cd-48a4-9ae1-d377bbcd7229", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_tobe", name:"愛媛県立松山南高等学校砥部分校", pref:"愛媛県", quota:"全国募集",
@@ -571,7 +560,6 @@ const SCHOOLS = [
         note:"一次選抜で欠員が出た場合のみ実施。", sourceUrl:"https://www.pref.hiroshima.lg.jp/", whereToCheck:"同上要項" }
     ],
     events:[
-      { date:"2026-10-12", label:"東京3校合同相談会", time:"13:00-18:00", format:"現地" },
       { date:"2026-10-14", label:"オンライン学校説明会", time:"19:00-20:00", format:"オンライン" },
       { date:"2026-11-02", label:"オンライン入試説明会", time:"19:00-20:00", format:"オンライン" },
       { date:"2026-11-14", label:"学校見学ツアー", format:"現地" }
@@ -693,13 +681,12 @@ const SCHOOLS = [
         note:"一次選抜で欠員が出た場合のみ実施。出願登録・書類提出は3/11〜3/15正午、自己表現等は3/16。（出典：広島県教委日程の掲載情報を転載した情報サイト。教育委員会の公式資料で要確認）", sourceUrl:"https://www.pref.hiroshima.lg.jp/site/kyouiku/09senior-2nd-r9-nyuushi-r9-kou-r9-kou-mokuji-r9-kou-mokuji.html", whereToCheck:"広島県教委「令和9年度広島県公立高等学校入学者選抜」日程PDF" }
     ],
     events:[
-      { date:"2026-10-12", label:"【東京開催：３校合同相談窓口】海・山・川で暮らす「留学」という選択肢〜はじまりは、どこからでも〜", time:"13:00-18:00", format:"現地", applyUrl:"https://c-mirai.jp/events/3c66f48d-3055-4426-9a3f-c1e31f1f95b8" },
       { date:"2026-10-14", label:"【大崎海星高校】学校説明会", time:"19:00-20:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/36b0a601-98a6-4f90-84df-c0c366b74eb6" },
       { date:"2026-11-02", label:"【大崎海星高校】入試説明会", time:"19:00-20:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/34631f19-2832-4471-a9b4-e19a14d4fc62" },
       { date:"2026-11-14", label:"学校見学ツアー", format:"現地" },
       { date:"2026-11-27", label:"【大崎海星高校】入試説明会", time:"19:00-20:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7ccb3753-3e43-4a6f-b945-ef276c8c1d77" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/e2f1367c-282f-4995-9021-c449d0f2854d", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/e2f1367c-282f-4995-9021-c449d0f2854d", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"shiga_ika", name:"滋賀県立伊香高等学校", pref:"滋賀県", quota:"全国募集（木之本留学）",
@@ -712,9 +699,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", applyStart:"2027-03-12", applyEnd:"2027-03-15", examDate:"2027-03-17〜18", resultDate:"2027-03-19", cycle:"R9",
         sourceUrl:"https://drive.google.com/file/d/1nNqnMneneI4NG8sYJ65VOW0MANBJJqMc/view", whereToCheck:"同上PDF" }
     ],
-    events:[
-      { date:"2026-10-10", label:"【現地開催！】【森の探究科】滋賀県立伊香高校 / 体験入学（10月）", time:"09:00-12:00", format:"現地", applyUrl:"https://c-mirai.jp/events/5361e31b-d052-410b-bc7a-e4bc2276be82" }
-    ],
+    events:[],
     eventsSource:{ url:"https://www.ika-h.shiga-ec.ed.jp/junior-high/c-mirai/", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -778,9 +763,10 @@ const SCHOOLS = [
         sourceUrl:"https://drive.google.com/file/d/1_JAU0kTLNwZQ2LnYbZPU7pzZlr0KXTBx/view", whereToCheck:"茨城県教育委員会公表PDF『令和9年度県立高等学校入学者選抜日程表』" }
     ],
     events:[
+      { date:"2026-10-13〜2026-12-25", label:"行きたい高校がまだ決まっていなくても大丈夫！ 元大手塾塾長のコーディネーターに、高校選びを相談してみませんか？", format:"オンライン", applyUrl:"https://c-mirai.jp/events/035a992f-edbd-42e9-abdc-702a11d56f43", note:"期間内に随時・複数日開催" },
       { date:"2026-10-17", label:"第2回学校説明会＆輝流祭（文化祭）", time:"09:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/f6a4bd8c-c701-42a2-95b2-8b207d8953a6" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/a334c662-5daf-4e91-b43e-dddbdebeb398", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/a334c662-5daf-4e91-b43e-dddbdebeb398", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"aomori_ajigasawa", name:"青森県立鰺ヶ沢高等学校", pref:"青森県", quota:"特色化選抜・一般選抜",
@@ -807,12 +793,11 @@ const SCHOOLS = [
         note:"出願締切は正午、発表は13時。", sourceUrl:"https://www.pref.aomori.lg.jp/soshiki/kyoiku/e-gakyo/senbatsu2027.html", whereToCheck:"同上" }
     ],
     events:[
-      { date:"2026-10-08", label:"〖青森〗三戸発、みらい行き。暮らしと住まいのリアル説明会", time:"19:30-20:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/0f93cb75-47f1-4286-b33b-b60fa4ae5076" },
       { date:"2026-06-24〜2027-03-31", label:"【随時】三戸高校オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/1c5d85c7-f725-475f-ad7f-1cb360462b00", note:"期間内に随時・複数日開催" },
       { date:"2026-10-15", label:"〖青森〗三戸発、みらい行き。学校も町もまるごとわかる説明会", time:"19:30-20:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/82e5bd82-b62f-434c-9721-3e0c5696e310" },
       { date:"2026-10-31〜2026-11-01", label:"りんごの季節の三戸へ！三戸高校オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/c08cc15a-d74d-4ca6-b0c8-c1112281c3c7", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/92005e0a-adff-4494-b753-cbcf8616e4e5", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/92005e0a-adff-4494-b753-cbcf8616e4e5", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_numakunai", name:"岩手県立沼宮内高等学校", pref:"岩手県", quota:"いわて留学",
@@ -827,8 +812,10 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-25", applyEnd:null, cycle:"R9",
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上『二次募集』日程表" }
     ],
-    events:[],
-    eventsSource:{ url:"https://c-mirai.jp/schools/f9633fc3-aefb-48fe-a00a-79bae2bfd8be", where:"学校ページ（2026年9〜12月の新規イベント掲載は本調査時点で未確認）" }
+    events:[
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/50a94064-5861-4629-93e6-9345c0d19ac2" }
+    ],
+    eventsSource:{ url:"https://c-mirai.jp/schools/f9633fc3-aefb-48fe-a00a-79bae2bfd8be", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_kuzumaki", name:"岩手県立葛巻高等学校", pref:"岩手県", quota:"いわて留学（山村留学）",
@@ -844,9 +831,11 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上『二次募集』日程表" }
     ],
     events:[
-      { date:"2026-09-09〜2027-03-31", label:"オンライン個別相談（平日夜・土日など随時）", format:"オンライン", applyUrl:"https://c-mirai.jp/events/330f92d8-793e-412e-8203-0f02cb856dbc", note:"期間内に随時・複数日開催" }
+      { date:"2026-10-01〜2026-10-31", label:"中学３年生対象・個別見学", format:"現地", applyUrl:"https://c-mirai.jp/events/92a9c1be-6c34-4436-85a9-711021d69ea6", note:"期間内に随時・複数日開催" },
+      { date:"2026-09-09〜2027-03-31", label:"オンライン個別相談（平日夜・土日など随時）", format:"オンライン", applyUrl:"https://c-mirai.jp/events/330f92d8-793e-412e-8203-0f02cb856dbc", note:"期間内に随時・複数日開催" },
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/93cb938c-e931-455f-8e0a-4447c7532709" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/5a347636-3eba-4b68-af12-58b202618516", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/5a347636-3eba-4b68-af12-58b202618516", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"akita_ogakaiyou", name:"秋田県立男鹿海洋高等学校", pref:"秋田県", quota:"全国募集",
@@ -982,9 +971,7 @@ const SCHOOLS = [
       { type:"exam", key:"kouki", label:"後期選抜（一般）", applyStart:"2027-02-24", applyEnd:"2027-02-26", examDate:"2027-03-09", resultDate:"2027-03-18", cycle:"R9",
         note:"志望変更受付は2027-03-01〜03。", sourceUrl:"https://www.pref.nagano.lg.jp/kyoiku/koko/saiyo-nyuushi/shiken/ko/r9/r9konyushi.html", whereToCheck:"同上PDF" }
     ],
-    events:[
-      { date:"2026-10-10", label:"R8年度音楽科説明会", time:"09:00-16:00", format:"現地", applyUrl:"https://c-mirai.jp/events/6de9ceea-ef85-45a6-b3c4-d466d5a8e59e" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/9b018826-c228-4629-93b3-ea71e6691597", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -1068,9 +1055,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"第2次募集", applyStart:"2027-03-18", applyEnd:"2027-03-18", examDate:"2027-03-25", resultDate:"2027-03-26", cycle:"R9",
         sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」", note:"一般選抜で募集人員に満たない場合に実施。第2次募集選抜の募集人員は一般選抜結果通知と同じ3/13に公表。" }
     ],
-    events:[
-      { date:"2026-10-12", label:"【東京開催：３校合同相談窓口】海・山・川で暮らす「留学」という選択肢〜はじまりは、どこからでも〜", time:"13:00-18:00", format:"現地", applyUrl:"https://c-mirai.jp/events/3c66f48d-3055-4426-9a3f-c1e31f1f95b8" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/1727dd14-d265-46d7-a024-cfe422a132c5", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -1245,7 +1230,7 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
-        note:"令和7・8年度は実施（普通科25→16人）だが、令和6年度は未実施という変動あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
+        note:"第2次募集には全道共通の検査日の設定はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。令和7・8年度は実施（普通科25→16人）だが、令和6年度は未実施という変動あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
       { date:"2026-10-16", label:"【重要】北海道松前高校「入試・住まいに関する説明会」", time:"18:30-19:10", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7ba18dd9-7d9c-43dc-89ba-ce72cad77e6e" },
@@ -1267,9 +1252,12 @@ const SCHOOLS = [
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
-      { date:"2026-09-30〜2026-11-30", label:"【随時！】斜里高校 知床現地訪問 大募集！！", format:"現地", applyUrl:"https://c-mirai.jp/events/322e3c02-265b-4b90-9428-3680bcd5730a", note:"期間内に随時・複数日開催" }
+      { date:"2026-10-14", label:"10/14（水）19:00~ 斜里高校 進路相談会！！", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/f5625e72-bc7a-4478-a4e4-7266c6eca086" },
+      { date:"2026-09-30〜2026-11-30", label:"【随時！】斜里高校 知床現地訪問 大募集！！", format:"現地", applyUrl:"https://c-mirai.jp/events/322e3c02-265b-4b90-9428-3680bcd5730a", note:"期間内に随時・複数日開催" },
+      { date:"2026-10-15", label:"10/15（木）19:00~ 斜里高校 進路相談会！！", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/a7340af7-aa4f-450c-be53-aa8025f6427a" },
+      { date:"2026-10-16", label:"10/16（金）19:00~ 斜里高校 進路相談会！！", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/0fda2248-16dd-493d-8ec3-7d9a2b47dd37" }
     ],
-    eventsSource:{ url:"https://www.shari.hokkaido-c.ed.jp/", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://www.shari.hokkaido-c.ed.jp/", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"hokkaido_saroma", name:"北海道佐呂間高等学校", pref:"北海道", quota:"全国募集（定員6名）",
@@ -1282,7 +1270,7 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
-        note:"令和6年度は未実施、令和7・8年度は実施（普通科19人→22人）という変動あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
+        note:"第2次募集には全道共通の検査日の設定はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。令和6年度は未実施、令和7・8年度は実施（普通科19人→22人）という変動あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
       { date:"2026-10-22", label:"【現地開催】きっと見つかる、あなたのサロマ。北海道佐呂間高等学校 学校見学説明会 10/22（木）", time:"13:30-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/cd1a45b9-0c86-4b4e-b184-132cbc18ba83" }
@@ -1315,7 +1303,6 @@ const SCHOOLS = [
         note:"追検査は2027-03-10。", sourceUrl:HOKKAIDO_URL, whereToCheck:"同上" }
     ],
     events:[
-      { date:"2026-10-09", label:"大空高校をのぞいてみる会 10/9 （金） 18:00〜19:00", time:"18:00-19:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/791ae2bc-4619-4053-8441-770d2192a509" },
       { date:"2026-10-15", label:"コーディネーターが答える大空高校個別相談会 10/15（木） 17:30～18:00", time:"17:30-18:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/e44216c9-37b2-48a2-823d-b6ec00de1dff" },
       { date:"2026-10-15", label:"コーディネーターが答える大空高校個別相談会 10/15（木） 18:10～18:40", time:"18:10-18:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/464f083d-28ea-4fda-9e4b-9c55ca01ad83" },
       { date:"2026-10-16", label:"北海道大空高等学校 学校説明会 10/16（金）18：00〜19：00", time:"18:00-19:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/679e95c2-acb8-4e23-8d9d-ac0abb266593" },
@@ -1327,7 +1314,7 @@ const SCHOOLS = [
       { date:"2026-10-30", label:"【4組限定！】大空高校を深く知る会 10/30 （金） 19:00～20:00", time:"19:00-20:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/baeb2be1-765e-40e9-92cd-fe16cf182025" },
       { date:"2026-10-31", label:"北海道大空高等学校 オープンキャンパスAutumn", time:"09:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/ce10e392-9518-4f7f-b6f7-c0dc4b178265" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/6", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/6", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"hokkaido_kamikawa", name:"北海道上川高等学校", pref:"北海道", quota:"全国募集",
@@ -1341,13 +1328,12 @@ const SCHOOLS = [
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
-      { date:"2026-10-08", label:"【北海道・上川高校説明会】デジタル︎探究から、自分の「好き」を見つける！", time:"18:00-18:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/46343139-a4a5-4c54-9530-9f83f1c0c91d" },
       { date:"2026-10-14", label:"【北海道・上川高校】在校生登壇！「海外研修（フィリピン）どうだった？」", time:"13:00-13:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/3f652438-8490-47a2-8376-84bb11e31982" },
       { date:"2026-10-22〜2026-10-23", label:"【要予約】ゆっくり話そう！個別相談会を実施します【上川高校】", format:"オンライン", applyUrl:"https://c-mirai.jp/events/efeb767c-d4c5-47b5-911d-3cbfbd909c86", note:"期間内に随時・複数日開催" },
       { date:"2026-11-06", label:"【北海道・上川高校】上川高校、わたしに合う？受験前に知っておきたいこと、まとめて紹介します", time:"18:00-18:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/8ed8819c-0b17-426f-b7ef-fafd8d91d436" },
       { date:"2026-11-18", label:"【北海道・上川高校】生徒と話そう！「探究授業って？フツウの高校生が、商品開発をするまで」", time:"13:00-13:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/3f73a60c-424a-4fdd-8972-d815ea7aeb08" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/5136c8b4-438f-41a1-ab46-aeb2b7563b93", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/5136c8b4-438f-41a1-ab46-aeb2b7563b93", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"hokkaido_kembuchi", name:"北海道剣淵高等学校", pref:"北海道", quota:"全国募集",
@@ -1427,8 +1413,8 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"生徒寮に関する説明会", examDate:null, resultDate:null, cycle:null,
         note:"10月下旬・11月下旬（各18:00-19:00）に『知内高校入試等オンライン説明会』を実施予定。内容は出願手続き・生徒寮の説明・支援金について。入寮審査単独の詳細は未確認。",
         sourceUrl:"https://hs.shiriuchi.ed.jp/", whereToCheck:"学校サイト『学校説明会のお知らせ』ページ" },
-      { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:null, applyEnd:null, exclusive:true, cycle:"R9",
-        note:HOKKAIDO_COMMON_NOTE, sourceUrl:HOKKAIDO_URL, whereToCheck:"北海道教育委員会サイト" },
+      { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:null, exclusive:true, cycle:"R9",
+        note:"面接は2/9（道内共通日程）。知内高校の令和9年度学校裁量資料に『その他の事項は令和9年度道立高等学校入学者選抜の手引並びに知内高校の入学者選抜の手引に従って実施』とあり、道の日程表では推薦の合格内定の通知は2027-02-17まで、合格発表は3/16 10:00。推薦の入学枠は50％程度、学区外（国内全域）からの出願可。学校固有の出願受付期間は学校の手引（本調査時点で未公表）で要確認（道の出願受付は1/18〜21）。", sourceUrl:"https://hs.shiriuchi.ed.jp/wp-content/themes/shiriuchihighschool/pdf/discretion_r9.pdf", whereToCheck:"学校サイトの令和9年度『学校裁量』PDFと、北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』日程表（2/17欄）" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:null, cycle:"R9",
         note:"追検査は2027-03-10。", sourceUrl:HOKKAIDO_URL, whereToCheck:"同上" }
     ],
@@ -1480,9 +1466,7 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
-    events:[
-      { date:"2026-10-09", label:"月形高校学校説明会", time:"13:30-15:30", format:"現地", applyUrl:"https://c-mirai.jp/events/435878b1-4e97-4fd6-b828-b9e62c73f24c" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/051cf075-3473-4b8e-877b-32420c848fa1", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -1524,7 +1508,7 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
-        note:"令和8年度は二次募集要項が2026年3月19日付で公表された実績あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
+        note:"第2次募集には全道共通の検査日の設定はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。令和8年度は二次募集要項が2026年3月19日付で公表された実績あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
       { date:"2026-07-01〜2026-11-30", label:"しらぬか高校オープンスクール＆寮見学会【本年7月から10月まで個別受付してます】写真は８月白糠漁港の花火大会", format:"現地", applyUrl:"https://c-mirai.jp/events/e7e0b367-53ac-491e-8b31-5b3098e4964d", note:"期間内に随時・複数日開催" }
@@ -1657,8 +1641,10 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-25", applyEnd:null, cycle:"R9",
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" }
     ],
-    events:[],
-    eventsSource:{ url:"https://c-mirai.jp/schools/68527c2c-7e1f-4af7-b730-6a7620ea468f", where:"学校ページ『個別学校説明会（随時受付）』欄（2026年9〜12月の具体日程は明記なし）" }
+    events:[
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/f5bd9289-21ae-46dc-96c0-41ab7a8c529a" }
+    ],
+    eventsSource:{ url:"https://c-mirai.jp/schools/68527c2c-7e1f-4af7-b730-6a7620ea468f", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_osasa", name:"岩手県立大迫高等学校", pref:"岩手県", quota:"いわて留学（定員4名）",
@@ -1673,8 +1659,10 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-25", applyEnd:null, cycle:"R9",
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上『二次募集』日程表" }
     ],
-    events:[],
-    eventsSource:{ url:"https://c-mirai.jp/schools/fe239f2b-52ea-4390-97af-c26ad3c52c4f", where:"学校ページ（現地説明会・体験入学は例年7月実施、オンライン個別説明会は随時。2026年9〜12月の具体日程は明記なし）" }
+    events:[
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/90231ab3-6626-40de-a059-437e62e409ff" }
+    ],
+    eventsSource:{ url:"https://c-mirai.jp/schools/fe239f2b-52ea-4390-97af-c26ad3c52c4f", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_kurosawajirikogyo", name:"岩手県立黒沢尻工業高等学校", pref:"岩手県", quota:"いわて留学（令和8年度開始）",
@@ -1691,9 +1679,10 @@ const SCHOOLS = [
     ],
     events:[
       { date:"2026-08-03〜2026-11-30", label:"現地訪問・体験入学開催", format:"現地", applyUrl:"https://c-mirai.jp/events/4f7398b6-f401-4776-a6f4-31b49f1de34a", note:"期間内に随時・複数日開催" },
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/15c1c75a-9295-4f29-b933-7bfe0e78f109" },
       { date:"2026-11-30", label:"オンライン学校説明会", time:"23:46-23:59", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b5004d6f-cd16-4eb3-9925-7aaa1791d509" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/65a38bda-5954-4245-9363-ebc78d3cdf1f", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/65a38bda-5954-4245-9363-ebc78d3cdf1f", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_nishiwaga", name:"岩手県立西和賀高等学校", pref:"岩手県", quota:"いわて留学",
@@ -1706,13 +1695,15 @@ const SCHOOLS = [
       { type:"exam", key:"ichiji", label:"一次募集", examDate:"2027-03-04〜05", resultDate:"2027-03-15", applyEnd:null, cycle:"R9",
         note:"追検査は2027-03-10〜11。", sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" },
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-25", applyEnd:null, cycle:"R9",
-        sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" }
+        sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" },
+      { type:"dorm", key:"furusato", label:"西和賀ふるさと留学生（県外志願者）申込（事前面談必須）", cycle:"R9", applyEnd:"2026-12-04",
+        note:"令和9年度西和賀ふるさと留学生（県外志願者）募集による。事前面談（面談・学校見学・学生寮見学、西和賀町で実施、日程は問合せ後に調整）の申込期限は2026-11-02（月）。受験を決めた場合、申込書と中学校の学業成績証明書（調査書でも可）を在学中学校長を通じて西和賀町教育委員会学務課へ郵送または持参、2026-12-04（金）必着。選考方法・結果通知時期はページに記載なし。問合せ：西和賀町教育委員会学務課 0197-82-2116。", sourceUrl:"https://www.town.nishiwaga.lg.jp/soshikikarasagasu/kyoikuiinkai_gakumuka/1/1/4241.html", whereToCheck:"西和賀町『令和9年度西和賀ふるさと留学生（県外志願者）募集』ページの募集要項・実施要領" }
     ],
     events:[
       { date:"2026-08-01〜2027-03-28", label:"西和賀高校 学校見学随時受付中！！", format:"現地", applyUrl:"https://c-mirai.jp/events/5f5aa637-52a0-43c8-b1a5-fcdb88bcc22e", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-10", label:"西高祭", time:"10:00-14:30", format:"現地", applyUrl:"https://c-mirai.jp/events/8215c78b-b8f6-49a6-b16d-19549e92c9b6" }
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/d58657cf-92f8-4c3e-9dfc-4121756ae738" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/004e45bf-f29a-42de-9daf-3bb450fd7a58", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/004e45bf-f29a-42de-9daf-3bb450fd7a58", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"yamaguchi_suo_oshima", name:"山口県立大学附属周防大島高等学校", pref:"山口県", quota:"附属校特別選抜（全国募集）",
@@ -1776,9 +1767,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-24", applyEnd:"2027-03-19", cycle:"R9", applyStart:"2027-03-18",
         sourceUrl:"https://www.pref.miyazaki.lg.jp/documents/109134/109134_20260909144123-1.pdf", whereToCheck:"県教委『令和9年度宮崎県立高等学校入学者選抜に関する日程』PDF（生徒募集ページ、2026-09-09更新）", note:"県教委『令和9年度入学者選抜に関する日程』（2026-09-09掲載）による。二次募集は従来通りの用紙による出願方式。願書受付3/18〜3/19、志願状況発表3/19、検査3/23、合格者発表3/24。" }
     ],
-    events:[
-      { date:"2026-10-10", label:"【単独！！東京・対面説明会＠株式会社みらいワークス】 宮崎県立飯野高等学校", time:"10:30-14:30", format:"現地", applyUrl:"https://c-mirai.jp/events/4ecf5915-9273-46cc-83cc-cd8d491ab168" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/a1c9b355-e160-4104-8368-367033a19c1c", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -1830,10 +1819,9 @@ const SCHOOLS = [
         note:"石川県教委の令和9年度入学者選抜方針（石川県公報 2026-06-05号外）で公表済み。志願変更期間・特例出願期間は2/25〜3/1。能登高校の全国募集は推薦入学が基本で、全国募集の制度を利用して一般入学に出願できるのは、推薦の選考に漏れた同一校志願者に限られる。", sourceUrl:"https://www.pref.ishikawa.lg.jp/kyoiku/gakkou/senbatu/documents/r9housin.pdf", whereToCheck:"石川県教委『令和9年度入学者選抜方針』PDF（日程：一般入学）" }
     ],
     events:[
-      { date:"2026-09-14〜2026-11-30", label:"【随時受付！】能登町・能登高校まるごと見学(オープンスクール)！", format:"現地", applyUrl:"https://c-mirai.jp/events/12be2877-2216-42a5-8e84-6737e98c12fc", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-11", label:"能登高留学 能登高校オープンスクール（学校見学）今年度ラスト！", time:"09:00-12:30", format:"現地", applyUrl:"https://c-mirai.jp/events/aa701a55-1696-4ece-a5e5-f6292b0b5ff2" }
+      { date:"2026-09-14〜2026-11-30", label:"【随時受付！】能登町・能登高校まるごと見学(オープンスクール)！", format:"現地", applyUrl:"https://c-mirai.jp/events/12be2877-2216-42a5-8e84-6737e98c12fc", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/6bd8c54a-245c-4494-884a-f35550b480cc", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/6bd8c54a-245c-4494-884a-f35550b480cc", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"gunma_tsumagoi", name:"群馬県立嬬恋高等学校", pref:"群馬県", quota:"県外募集",
@@ -1846,9 +1834,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集（再募集）", applyStart:"2027-03-03", applyEnd:"2027-03-08", examDate:"2027-03-16", resultDate:"2027-03-19", cycle:"R9",
         sourceUrl:"https://www.pref.gunma.jp/site/kyouiku/742234.html", whereToCheck:"同上" }
     ],
-    events:[
-      { date:"2026-10-10", label:"群馬県・嬬恋高校｜第2回オープンスクール", time:"12:30-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/4c1237a4-04c5-46b3-ba3e-4e8f637cfd35" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/b6359839-168d-438b-92a5-bc84ad40319b", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -1862,9 +1848,7 @@ const SCHOOLS = [
       { type:"exam", key:"mar", label:"3月選抜（一般）", examDate:"2027-03-11", resultDate:"2027-03-18", cycle:"R9",
         note:"令和9年度の出願受付期間は未確認（県教委PDFに未記載。学力検査3/11・発表3/18は確定済み）。参考：令和8年度実績は2/25正午〜3/4正午（学力検査3/12）。兵庫県は令和8年度からインターネット出願に全面移行。", sourceUrl:"https://www2.hyogo-c.ed.jp/hpe/uploads/sites/10/2026/01/R9-senbatsunittei.pdf", whereToCheck:"兵庫県教委公式PDF『令和9年度兵庫県公立高等学校入学者選抜の日程』" }
     ],
-    events:[
-      { date:"2026-10-10", label:"第2回オープンハイスクール", format:"現地" }
-    ],
+    events:[],
     eventsSource:{ url:"https://www2.hyogo-c.ed.jp/weblog2/muraoka-hs/?p=13026", where:"学校サイト『オープンハイスクール申込』ページ" }
   },
   {
@@ -1878,9 +1862,7 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般選抜（3月）", examDate:"2027-03-09〜10", resultDate:"2027-03-18", applyEnd:"2027-02-15", cycle:"R9", applyStart:"2027-02-12",
         note:"県教委『令和9年度公立高等学校入学者選抜要綱』（2026年6月公表）による。願書登録は2026-12-01〜2027-02-12 23:59、願書受付2/12 9時〜2/15 16時、志願変更申請2/17〜2/18、出願関係書類受付2/22〜2/24 16時。学力検査3/9、適性検査・面接3/10、追検査3/13〜14、合格者発表3/18 9:30（合否照会サイト）。全日制の二次募集の記載はなく、定時制のみ別日程・第2次募集（検査3/26、発表3/30）。", sourceUrl:"https://www.pref.kagawa.lg.jp/documents/15088/yoko9.pdf", whereToCheck:"香川県教委『令和9年度公立高等学校入学者選抜要綱』PDF（日程）" }
     ],
-    events:[
-      { date:"2026-10-10", label:"【香川県立小豆島中央高等学校】学校案内・説明会開催します！～海が眺めらる教室で会いましょう～", time:"13:00-16:00", format:"現地", applyUrl:"https://c-mirai.jp/events/fee3bea9-789a-48ff-a88f-b4948c574a2f" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/f9099907-735a-4aed-aab3-ac82cae16ae5", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -1897,12 +1879,11 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.wakayama.lg.jp/prefg/500200/d00221979.html", whereToCheck:"同上" }
     ],
     events:[
-      { date:"2026-10-13", label:"和歌山県立串本古座高等学校オンライン説明会⑰【今年度もあと３回のみ実施です】", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/2f8ea5d2-eec4-4258-9e11-435f3850c12a" },
       { date:"2026-10-15", label:"和歌山県立串本古座高等学校オンライン説明会⑱【今年度もあと２回のみ実施です】", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/12ddbbd5-e610-485a-8e08-712871c8e270" },
       { date:"2026-10-19", label:"和歌山県立串本古座高等学校オンライン説明会⑲【今年度ラスト!?です。１回聞きに来てください。】", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/a214dcf9-8238-4f2d-9f70-355b0b7bca43" },
       { date:"2026-10-31", label:"和歌山県立串本古座高校文化祭(現地訪問)", time:"10:00-14:00", format:"現地", applyUrl:"https://c-mirai.jp/events/8c923705-334e-4f0e-8c96-546623ce2b06" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/events/002725", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/events/002725", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"nara_nishiyoshino", name:"五條市立西吉野農業高等学校", pref:"奈良県", quota:"学区外募集",
@@ -1984,9 +1965,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"第2次募集選抜", applyStart:"2027-03-18", applyEnd:"2027-03-18", examDate:"2027-03-25", resultDate:"2027-03-26", cycle:"R9",
         note:"一般選抜で募集人員に満たない場合のみ実施（募集人員は3/13公表）。海部高校での実施有無・他県受検者の応募可否は募集人員公表後に要確認。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" }
     ],
-    events:[
-      { date:"2026-10-10", label:"【徳島/海部高校】オープンスクール！プレエントリーページ（詳細が決定しましたらご案内いたします。）", time:"09:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/413e53c8-4260-43a0-b29d-b6465b8d6fd9" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/79f1b65c-d937-4708-bfdf-f92a5ddee6cd", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -2051,10 +2030,9 @@ const SCHOOLS = [
         note:"熊本県は前期・後期を統合する新制度『A日程／B日程』の導入を2025年9月25日付で当面見送ることを決定し、令和9年度も従来の前期・後期選抜を継続する見込み。", sourceUrl:"https://www.pref.kumamoto.jp/site/kyouiku/211426.html", whereToCheck:"熊本県教育委員会サイト『入学者選抜制度』欄" }
     ],
     events:[
-      { date:"2026-10-13", label:"矢部高校への進学相談⑪（１０月１３日）「矢部高校について、もっと詳しくお話しします！", time:"17:00-17:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/af5908d9-7fd4-41d1-8085-a36fc77dff1b" },
       { date:"2026-10-29", label:"矢部高校への進学相談⑫（１０月２９日）「矢部高校について、もっと詳しくお話しします！", time:"17:00-17:40", format:"オンライン", applyUrl:"https://c-mirai.jp/events/994e62e6-06c6-4c73-8aa3-0329ecab9cfa" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/0dd10dce-c0fa-4ae8-ada0-c5cf4e6aa1b0", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/0dd10dce-c0fa-4ae8-ada0-c5cf4e6aa1b0", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kumamoto_takushin_marine", name:"熊本県立天草拓心高等学校マリン校舎", pref:"熊本県", quota:"全国募集",
@@ -2361,17 +2339,9 @@ const SCHOOLS = [
     ],
     events:[
       { date:"2026-08-13〜2026-11-30", label:"「現地訪問・見学」随時受付中！ 北海道平取高等学校", format:"現地", applyUrl:"https://c-mirai.jp/events/2694469d-75b2-4389-9cc9-85836ca56ee2", note:"期間内に随時・複数日開催" },
-      { date:"2026-08-17〜2026-12-25", label:"【中学3年生向け】北海道びらとり高等学校 個別相談会 随時受付中！！", format:"オンライン", applyUrl:"https://c-mirai.jp/events/4be1a035-99af-4988-bb99-49d2f82865d6", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-08", label:"【北海道平取（びらとり）高校】オンライン説明会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/815e0e18-15fd-45bb-91ee-65383c3178dc" },
-      { date:"2026-10-08", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b65f8baf-675b-4730-83fb-2bb6016397a6" },
-      { date:"2026-10-09", label:"【北海道平取（びらとり）高校】オンライン説明会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/4f775053-dc9e-4915-a14f-7af7f39c3693" },
-      { date:"2026-10-09", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/f95c6303-d872-47aa-b3d5-0b03fee6e558" },
-      { date:"2026-10-10", label:"「平取高校、ちょっと気になる」～ その段階で大丈夫です。連休に個別相談しませんか？～", time:"10:00-10:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/0bcc6919-5166-4973-8eca-43c882152912" },
-      { date:"2026-10-10", label:"「平取高校、ちょっと気になる」 ～その段階で大丈夫です。連休に個別相談しませんか？～", time:"11:00-11:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/6b73e542-2ab5-4dd4-abfe-730684c780e9" },
-      { date:"2026-10-10", label:"「平取高校、ちょっと気になる」～ その段階で大丈夫です。連休に個別相談しませんか？～", time:"13:00-13:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b53b1db9-fa32-43ae-8a77-9dbc88e0f8c5" },
-      { date:"2026-10-10", label:"「平取高校、ちょっと気になる」～ その段階で大丈夫です。連休に個別相談しませんか？～", time:"14:00-14:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7bcf0270-9cf8-4e1d-a1cf-bb53878b7e9e" }
+      { date:"2026-08-17〜2026-12-25", label:"【中学3年生向け】北海道びらとり高等学校 個別相談会 随時受付中！！", format:"オンライン", applyUrl:"https://c-mirai.jp/events/4be1a035-99af-4988-bb99-49d2f82865d6", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/374a4569-d068-4765-899b-f284d95f7eac", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/374a4569-d068-4765-899b-f284d95f7eac", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"hokkaido_teshikaga", name:"北海道弟子屈高等学校", pref:"北海道", quota:"全国募集",
@@ -2400,12 +2370,13 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.shimane.lg.jp/education/kyoiku/senbatsu/senbatsu_info/index.data/R9_nyuugakusyasenbatsujissiyoukou.pdf", whereToCheck:"島根県教委『令和9年度島根県公立高等学校入学者選抜実施要綱』PDF（総合選抜p.12-13／一般選抜p.21／第2次募集p.34、出願及び選抜に関する手続一覧表）および日程表PDF" }
     ],
     events:[
-      { date:"2026-10-08", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/5f1ffa69-c8f7-423c-b9d9-9fd37fd052da", note:"終日・随時受付" },
-      { date:"2026-10-09", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/ad70c23b-9624-4957-bb8f-87e5a28a9761", note:"終日・随時受付" },
-      { date:"2026-10-10", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/5dffe01b-b3a2-4d5c-adeb-b3e072179285", note:"終日・随時受付" },
-      { date:"2026-10-11", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/cfc3b333-4997-4e93-adaa-948be95252ea", note:"終日・随時受付" }
+      { date:"2026-10-14", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/cfd68c3b-dcce-4c7b-98a6-54527663e12f", note:"終日・随時受付" },
+      { date:"2026-10-15", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/5f1ffa69-c8f7-423c-b9d9-9fd37fd052da", note:"終日・随時受付" },
+      { date:"2026-10-16", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/ad70c23b-9624-4957-bb8f-87e5a28a9761", note:"終日・随時受付" },
+      { date:"2026-10-17", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/5dffe01b-b3a2-4d5c-adeb-b3e072179285", note:"終日・随時受付" },
+      { date:"2026-10-18", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/cfc3b333-4997-4e93-adaa-948be95252ea", note:"終日・随時受付" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/d00de977-4536-4ab0-a256-ac5c35f77653", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/d00de977-4536-4ab0-a256-ac5c35f77653", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"shimane_iinan", name:"島根県立飯南高等学校", pref:"島根県", quota:"全国募集",
@@ -2420,11 +2391,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-18", resultDate:"2027-03-23", applyEnd:"2027-03-16", cycle:"R9", applyStart:"2027-03-12",
         sourceUrl:"https://www.pref.shimane.lg.jp/education/kyoiku/senbatsu/senbatsu_info/index.data/R9_nyuugakusyasenbatsujissiyoukou.pdf", whereToCheck:"島根県教委『令和9年度島根県公立高等学校入学者選抜実施要綱』PDF（総合選抜p.12-13／一般選抜p.21／第2次募集p.34、出願及び選抜に関する手続一覧表）および日程表PDF" }
     ],
-    events:[
-      { date:"2026-10-10", label:"オンライン個別説明会｜好きになるけん、来てみんさい！", time:"16:30-17:10", format:"オンライン", applyUrl:"https://c-mirai.jp/events/f8f22c15-8e11-4258-8c84-bb7faf1c7bca" },
-      { date:"2026-10-10", label:"オンライン個別説明会｜好きになるけん、来てみんさい！", time:"17:20-18:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/e533f0b5-28e8-4db8-89e0-cfbec0cefbf7" },
-      { date:"2026-10-12", label:"【東京開催：３校合同相談窓口】海・山・川で暮らす「留学」という選択肢〜はじまりは、どこからでも〜", time:"13:00-18:00", format:"現地", applyUrl:"https://c-mirai.jp/events/3c66f48d-3055-4426-9a3f-c1e31f1f95b8" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/36", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
   },
   {
@@ -2440,9 +2407,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-18", resultDate:"2027-03-23", applyEnd:"2027-03-16", cycle:"R9", applyStart:"2027-03-12",
         sourceUrl:"https://www.pref.shimane.lg.jp/education/kyoiku/senbatsu/senbatsu_info/index.data/R9_nyuugakusyasenbatsujissiyoukou.pdf", whereToCheck:"島根県教委『令和9年度島根県公立高等学校入学者選抜実施要綱』PDF（総合選抜p.12-13／一般選抜p.21／第2次募集p.34、出願及び選抜に関する手続一覧表）および日程表PDF" }
     ],
-    events:[
-      { date:"2026-10-10", label:"広島から約1時間の「ほど良い田舎」にようこそ！矢上高校オープンスクールの開催", time:"09:00-13:30", format:"現地", applyUrl:"https://c-mirai.jp/events/1d40a6a8-6915-47ef-a8a2-69d043608593" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/ab2f7f5a-b13c-42de-b368-ded7f2d93b4e", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -2594,16 +2559,15 @@ const SCHOOLS = [
     ],
     events:[
       { date:"2026-09-01〜2026-11-30", label:"随時開催！住田高校現地訪問（平日）", format:"現地", applyUrl:"https://c-mirai.jp/events/79061260-cffc-40e7-8d6b-83a2b630b0dc", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-10", label:"住高祭見学ツアー", time:"10:00-14:00", format:"現地" }
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/cd4a2e83-07d0-4858-b5e7-a2c6d2fd5801" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/29007094-00cd-4a66-a190-00734638b729", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/29007094-00cd-4a66-a190-00734638b729", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_otsuchi", name:"岩手県立大槌高等学校", pref:"岩手県", quota:"いわて留学（はま留学）",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連（民宿での下宿生活、『はま留学』制度）", examDate:null, resultDate:null, cycle:null,
-        note:"生活支援員がサポート、県外生17名在籍。入寮審査の詳細は未確認。",
-        sourceUrl:"https://c-mirai.jp/schools/12", whereToCheck:"学校ページ、または https://oht-hs.note.jp/" },
+      { type:"dorm", key:"dorm", label:"大槌はま留学生 候補者選考（下宿入居希望を含む・いわて留学受検の前提）", examDate:"2026-11-13", resultDate:"2026-11-20", cycle:"R9", applyStart:"2026-10-01", applyEnd:"2026-10-30",
+        note:"令和9年度入学『大槌はま留学生』募集要項（予定）による。募集6人（予定）。申込は在学中学校長を通じて大槌町教育委員会学務課へ10/1〜10/30必着（郵送・持参）。書類は申込書・志願者調査書（厳封）・下宿入居希望願。選考は書類審査＋オンライン親子面接（11/13、詳細は応募者に通知）、結果は11/20を目途に通知。事前に大槌高校への現地訪問（説明受講）が必須。候補者となった者がいわて留学（1/26）を受検し、合格者をはま留学生として決定。合格発表は受検日から約1週間後に文書で中学校長宛に通知。住居は民宿等の下宿。", sourceUrl:"https://www.town.otsuchi.iwate.jp/gyosei/docs/458355.html", whereToCheck:"大槌町『令和9年度入学「大槌はま留学生」募集』ページの募集要項・流れ（予定）PDF／大槌町教育委員会学務課 0193-42-6100" },
       { type:"exam", key:"iwateryugaku", label:"いわて留学（県外募集枠）検査", examDate:"2027-01-26", resultDate:null, applyEnd:null, exclusive:true, cycle:"R9",
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"岩手県教育委員会サイト『いわて留学』日程表" },
       { type:"exam", key:"ichiji", label:"一次募集", examDate:"2027-03-04〜05", resultDate:"2027-03-15", applyEnd:null, cycle:"R9",
@@ -2614,9 +2578,10 @@ const SCHOOLS = [
     events:[
       { date:"2026-07-17〜2026-10-30", label:"大槌はま留学 現地見学 いつでも受付フォーム！", format:"現地", applyUrl:"https://c-mirai.jp/events/eb4301db-3c48-46f4-860c-e5f9339cab38", note:"期間内に随時・複数日開催" },
       { date:"2026-07-30〜2026-10-31", label:"大槌はま留学 個別説明 いつでも受付フォーム！", format:"オンライン", applyUrl:"https://c-mirai.jp/events/bc6786a2-9f7b-47be-9f58-883a0788756e", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-17", label:"【10/17開催】文化祭オープンスクール/岩手県立大槌高校", time:"13:00-18:00", format:"現地", applyUrl:"https://c-mirai.jp/events/9ab40ee7-c7e6-4f7e-baac-40628857e87a" }
+      { date:"2026-10-17", label:"【10/17開催】文化祭オープンスクール/岩手県立大槌高校", time:"13:00-18:00", format:"現地", applyUrl:"https://c-mirai.jp/events/9ab40ee7-c7e6-4f7e-baac-40628857e87a" },
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/53a437ff-26cc-494d-9193-2423ea65a449" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/12", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/12", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_miyakosuisan", name:"岩手県立宮古水産高等学校", pref:"岩手県", quota:"いわて留学",
@@ -2631,8 +2596,10 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-25", applyEnd:null, cycle:"R9",
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" }
     ],
-    events:[],
-    eventsSource:{ url:"https://c-mirai.jp/schools/9e3cb1b3-a2c4-4db6-8beb-dc92b12df6ca", where:"学校ページ（9〜12月のイベントは本調査時点で未確認）" }
+    events:[
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/cd22d25f-46f3-40ad-a368-1c2c70572669" }
+    ],
+    eventsSource:{ url:"https://c-mirai.jp/schools/9e3cb1b3-a2c4-4db6-8beb-dc92b12df6ca", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_iwaizumi", name:"岩手県立岩泉高等学校", pref:"岩手県", quota:"いわて留学",
@@ -2647,8 +2614,10 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-23", resultDate:"2027-03-25", applyEnd:null, cycle:"R9",
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" }
     ],
-    events:[],
-    eventsSource:{ url:"https://c-mirai.jp/schools/fd8f60d3-f2ad-45d8-bddd-7d97431d4e54", where:"学校ページ（9〜12月のイベントは本調査時点で未確認）" }
+    events:[
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/d029507f-0a40-4fd6-9bd4-c2c663868a40" }
+    ],
+    eventsSource:{ url:"https://c-mirai.jp/schools/fd8f60d3-f2ad-45d8-bddd-7d97431d4e54", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"iwate_taneichi", name:"岩手県立種市高等学校", pref:"岩手県", quota:"いわて留学",
@@ -2664,10 +2633,10 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.iwate.jp/kyouikubunka/kyouiku/gakkou/senbatsu/1086539.html", whereToCheck:"同上" }
     ],
     events:[
-      { date:"2026-10-11", label:"水深0mから始まる大冒険。初めての一歩が、最高の思い出になる。 種市高校潜水体験会", time:"09:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/612b6a27-57de-48c6-8692-0f9d365429b0" },
+      { date:"2026-10-24", label:"【岩手県教育委員会主催】第４回いわて留学オンライン説明会", time:"13:30-14:15", format:"オンライン", applyUrl:"https://c-mirai.jp/events/65244343-c846-45fb-858b-d79641806a66" },
       { date:"2026-11-14", label:"水深0mから始まる大冒険。初めての一歩が、最高の思い出になる。 種市高校潜水体験会", time:"09:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/4b60b8c0-0513-440a-95be-66d4b5272218" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/5c774e63-ae9e-4952-8349-1fdf218a0635", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/5c774e63-ae9e-4952-8349-1fdf218a0635", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"yamagata_nagaikogyo", name:"山形県立長井工業高等学校", pref:"山形県", quota:"前期（特色）選抜・後期（一般）選抜",
@@ -2710,9 +2679,7 @@ const SCHOOLS = [
       { type:"exam", key:"kouki", label:"後期（一般）選抜", applyStart:"2027-02-17", applyEnd:"2027-02-22", examDate:"2027-03-07", resultDate:"2027-03-17", cycle:"R9",
         sourceUrl:"https://www.pref.yamagata.jp/700013/koko/r9nyuugakusyasennbatsu.html", whereToCheck:"山形県教育委員会「令和9年度入学者選抜情報」の実施要項・前期（特色）選抜及び後期（一般）選抜の概要／志願先校の募集要項", note:"令和9年度山形県共通日程。出願は2/17〜2/22正午（Web出願システム）、受検票は2/26〜3/7に取得。学力検査は3/7に5教科。合格者発表は3/17 16時。追検査は3/12（学力検査）・3/13（適性検査）。第2次募集は県教育長が特に必要と認めた場合のみ実施（公告は3/5まで）。" }
     ],
-    events:[
-      { date:"2026-10-12", label:"山形県立新庄神室産業高等学校金山校 学校説明会", time:"13:30-15:10", format:"現地", applyUrl:"https://c-mirai.jp/events/f43792ee-821e-4c00-b203-aadd8be20a89" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/6870d623-8cc0-4e73-bd5a-aaa29c659534", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
   },
   {
@@ -2742,9 +2709,9 @@ const SCHOOLS = [
     ],
     events:[
       { date:"2026-03-16〜2026-12-20", label:"個別訪問 随時募集中！！", format:"現地", applyUrl:"https://c-mirai.jp/events/c42080c5-3b46-4957-bad6-22a9db1a3a0d", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-12", label:"相談しマンデー【20:00-21:00】なんでもご相談ください！", time:"20:00-21:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/f0d8f4a5-3acf-4d57-9d43-6375ecac41e5" }
+      { date:"2026-10-19", label:"今知りたい！入寮説明会！ #寮 #面接", time:"20:00-21:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/1dbddc20-beb9-409a-b0bd-c3d87ef09e01" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/ae63e8cc-4a38-4a0a-add8-8e7c1303f339", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/ae63e8cc-4a38-4a0a-add8-8e7c1303f339", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"yamagata_yuza", name:"山形県立遊佐高等学校", pref:"山形県", quota:"前期（特色）選抜・後期（一般）選抜",
@@ -2815,11 +2782,10 @@ const SCHOOLS = [
         sourceUrl:"https://www.ehime-c.ed.jp/", whereToCheck:"愛媛県教育委員会高校教育課ページ" }
     ],
     events:[
-      { date:"2026-10-11", label:"第3回海事探究科体験入学10月11日", time:"09:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/6d2fad2b-ea6c-4042-b2bc-248f59bfd954" },
       { date:"2026-11-01", label:"海事探究科バスツアー11月1日", time:"10:00-16:30", format:"現地", applyUrl:"https://c-mirai.jp/events/55fc8f59-2219-4203-928f-ebc7d1df6d46" },
       { date:"2026-11-06", label:"愛媛県立今治工業高校 入試についての説明会", time:"21:00-21:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/e294089d-8976-4503-a812-94d84330c133" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/7afd21d1-e9fe-4f11-b9d3-1410c37b7d31", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/7afd21d1-e9fe-4f11-b9d3-1410c37b7d31", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_uwajimaminami", name:"愛媛県立宇和島南高等学校", pref:"愛媛県", quota:"全国募集",
@@ -2877,9 +2843,7 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入学者選抜", examDate:"2027-03-04〜05", resultDate:"2027-03-18", applyEnd:null, cycle:"R9",
         sourceUrl:"https://www.ehime-c.ed.jp/", whereToCheck:"愛媛県教育委員会高校教育課ページ" }
     ],
-    events:[
-      { date:"2026-10-10〜2026-10-11", label:"入寮希望者向け説明会（入寮希望の場合は参加必須）", format:"現地" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/9c888952-d12f-41cc-b44b-b3e2341d0e5f", where:"学校ページ『学校のことを知るイベント』欄" }
   },
   {
@@ -2893,11 +2857,10 @@ const SCHOOLS = [
         sourceUrl:"https://www.ehime-c.ed.jp/", whereToCheck:"愛媛県教育委員会高校教育課ページ" }
     ],
     events:[
-      { date:"2026-10-10", label:"家族で地域みらい留学について考えよう！60分で小田分校の地域みらい留学ライフをまるっと紹介！", time:"10:00-11:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/78810960-c3ea-425d-8654-abe6ebfc5b07" },
       { date:"2026-11-01", label:"【日帰りバスツアー】愛媛県立内子高等学校小田分校学校見学バスツアー", time:"10:00-16:00", format:"現地", applyUrl:"https://c-mirai.jp/events/18325d7f-7991-4bee-98cc-758a60cc8d7f" },
       { date:"2026-11-21", label:"愛媛県立内子高等学校小田分校 学校見学デー！", time:"13:00-15:00", format:"現地", applyUrl:"https://c-mirai.jp/events/ef61d416-e249-47a4-b77a-c54c0ee611e4" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/5676df65-0041-4880-b133-a66b3db9e751", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/5676df65-0041-4880-b133-a66b3db9e751", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_misaki", name:"愛媛県立三崎高等学校", pref:"愛媛県", quota:"全国募集",
@@ -2911,9 +2874,9 @@ const SCHOOLS = [
         sourceUrl:"https://www.ehime-c.ed.jp/", whereToCheck:"愛媛県教育委員会高校教育課ページ" }
     ],
     events:[
-      { date:"2026-10-12", label:"【四国の端っこ。】学校個別相談会", time:"16:00-16:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/e44285c6-2c3d-4b5c-b959-ecce131b5938" }
+      { date:"2026-10-25", label:"【四国の端っこ。】学校個別相談会", time:"16:00-16:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/0a308f42-c466-43f8-b446-60233f346b3c" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/0af2bb79-5a30-42db-8549-4c5d24ea9f54", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/0af2bb79-5a30-42db-8549-4c5d24ea9f54", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_kitauwa", name:"愛媛県立北宇和高等学校", pref:"愛媛県", quota:"全国募集",
@@ -2958,9 +2921,9 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html", whereToCheck:"新潟県教育庁『令和９年度新潟県公立高等学校入学者選抜以降の選抜日程について』（報道資料PDF）", note:"欠員補充のための2次募集（県共通）：出願3/11・3/12、選抜3/15、合格発表3/16。欠員が生じた学校・学科で実施。令和9年度から学力検査は実施せず、調査書・面接等（学校により追加検査）で選抜。欠員状況の公表日は未確認。" }
     ],
     events:[
-      { date:"2026-09-10〜2026-11-13", label:"「地域みらい留学 × 大学進学」なら村上高校へ！ R9年度地域みらい留学生募集", format:"現地", applyUrl:"https://c-mirai.jp/events/7572d054-a241-4dcc-98ea-f561625504db", note:"期間内に随時・複数日開催" }
+      { date:"2026-10-13〜2026-11-13", label:"「地域みらい留学 × 大学進学」なら村上高校へ！ R9年度地域みらい留学生募集！", format:"現地", applyUrl:"https://c-mirai.jp/events/7572d054-a241-4dcc-98ea-f561625504db", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/3f437a7a-8b06-4fc9-903f-8652ba66bb7c", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/3f437a7a-8b06-4fc9-903f-8652ba66bb7c", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"niigata_sado", name:"新潟県立佐渡高等学校", pref:"新潟県", quota:"全国募集（令和7年度より開始）",
@@ -3020,7 +2983,6 @@ const SCHOOLS = [
         note:"欠員補充のための2次募集（県共通）：出願3/11・3/12、選抜3/15、合格発表3/16。欠員が生じた学校・学科で実施。令和9年度から学力検査は実施せず、調査書・面接等（学校により追加検査）で選抜。欠員状況の公表日は未確認。", sourceUrl:"https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html", whereToCheck:"新潟県教育庁『令和９年度新潟県公立高等学校入学者選抜以降の選抜日程について』（報道資料PDF）" }
     ],
     events:[
-      { date:"2026-10-10", label:"オープンスクール（第2回）", time:"13:40-15:30（受付13:10〜）", applyDeadline:"事前申込制、9/10 8:30申込開始・Googleフォーム・先着60名", format:"現地", note:"会場：新潟県立国際情報高等学校（南魚沼市浦佐5664-1）" },
       { date:"2026-11-28", label:"学校概要説明・体験授業・個別相談会", note:"午後開催予定" }
     ],
     eventsSource:{ url:"https://c-mirai.jp/schools/46075558-a8ce-40a0-9faa-b874a91ae6e6", where:"学校ページ『学校のことを知るイベント』欄" }
@@ -3051,11 +3013,10 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html", whereToCheck:"新潟県教育庁『令和９年度新潟県公立高等学校入学者選抜以降の選抜日程について』（報道資料PDF）", note:"欠員補充のための2次募集（県共通）：出願3/11・3/12、選抜3/15、合格発表3/16。欠員が生じた学校・学科で実施。令和9年度から学力検査は実施せず、調査書・面接等（学校により追加検査）で選抜。欠員状況の公表日は未確認。" }
     ],
     events:[
-      { date:"2026-10-12", label:"よくあるQ＆Aと説明会【新潟県立阿賀黎明高校】", time:"19:00-19:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b0ab8c33-59c0-493b-ab14-dd223971bca8" },
       { date:"2026-10-23", label:"本とともに考える、地域みらい留学生が「越境」するものとは〜黎明書房ラジオ EP4.（阿賀黎明高校）", time:"18:30-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/59eeebbe-fbb5-4acf-85ee-7db045efaf1b" },
       { date:"2026-10-24", label:"【現地見学】まなび体験会【阿賀黎明高校】_ 261024", time:"13:00-17:00", format:"現地", applyUrl:"https://c-mirai.jp/events/1d8b08f9-7049-4fd3-bc02-d40e6355791e" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/events/095928", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/events/095928", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kochi_muroto", name:"高知県立室戸高等学校", pref:"高知県", quota:"全国募集（こうち留学）",
@@ -3068,10 +3029,7 @@ const SCHOOLS = [
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
         sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"同上PDF" }
     ],
-    events:[
-      { date:"2026-10-09", label:"高知県立室戸高等学校ミニ学校訪問会 （１０月９日開催分）申込み", time:"09:30-13:30", format:"現地", applyUrl:"https://c-mirai.jp/events/ed862a26-281d-42cf-8f82-2f6c41b04d79" },
-      { date:"2026-10-13", label:"【高知県立室戸高等学校】１１-１３(金)寮面接受けたい人！ 募集中！", time:"17:30-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7a4a9ce5-9d04-4196-85b6-5d6d86ffbd37" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/7c55b273-8c6b-4e5c-9942-84a1b0d676c7", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
   },
   {
@@ -3087,11 +3045,10 @@ const SCHOOLS = [
     ],
     events:[
       { date:"2026-09-28〜2026-10-25", label:"【高知・嶺北】入寮申し込み受付", format:"現地", applyUrl:"https://c-mirai.jp/events/a5266724-3a1b-42b0-8fe2-23ed5f611fec", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-10〜2026-10-11", label:"【女子限定・定員2名】先輩と過ごす1泊2日！嶺北高校 寮宿泊体験", format:"現地", applyUrl:"https://c-mirai.jp/events/52061223-2616-42db-a54a-349473dadbd2", note:"期間内に随時・複数日開催" },
       { date:"2026-10-22", label:"【随時】個別相談受付【高知/嶺北高校】", time:"09:00-23:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/bc03203a-ee6b-49c7-9e01-0b8a14e25f6f" },
       { date:"2026-12-26〜2026-12-28", label:"【準備中】探究×創造キャンプ Winter 2026", format:"現地", applyUrl:"https://c-mirai.jp/events/70f39028-8f5e-46f3-8a29-49b905d1b71c", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/a498fa71-acda-4bd3-a2eb-e1bad5a54c7d", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/a498fa71-acda-4bd3-a2eb-e1bad5a54c7d", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kochi_yusuhara", name:"高知県立梼原高等学校", pref:"高知県", quota:"全国募集（こうち留学）",
@@ -3152,11 +3109,10 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"同上PDF" }
     ],
     events:[
-      { date:"2026-09-30〜2026-10-31", label:"【随時募集】オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/5e390f3b-d660-4807-b10d-ccf3c55f4ef2", note:"期間内に随時・複数日開催" },
       { date:"2026-09-30〜2026-10-31", label:"【随時受付】オンライン個別相談会(30分程度)", format:"オンライン", applyUrl:"https://c-mirai.jp/events/25d2435c-8054-4958-a5a2-ad62c66f11dd", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-13", label:"高知県立中村高校 西土佐分校 学校説明会『若者住宅生が津野川若者住宅を紹介します』", time:"18:30-19:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/a61df667-8715-4229-9ada-c8a595b25af2" }
+      { date:"2026-09-30〜2026-10-31", label:"【随時募集】オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/5e390f3b-d660-4807-b10d-ccf3c55f4ef2", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/797ea927-c666-4bc5-ba0f-63e88ad3bd84", where:"c-mirai.jp イベント一覧（2026-10-08時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/797ea927-c666-4bc5-ba0f-63e88ad3bd84", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kochi_shimizu", name:"高知県立清水高等学校", pref:"高知県", quota:"全国募集（こうち留学）",
@@ -3169,8 +3125,10 @@ const SCHOOLS = [
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
         sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"同上PDF" }
     ],
-    events:[],
-    eventsSource:{ url:"https://c-mirai.jp/schools/4511da71-31bd-4481-b815-a930a844726e", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    events:[
+      { date:"2026-10-24", label:"【10/24開催】入寮について ～オンライン説明会～", time:"10:00-11:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/8788b257-3fb3-48d0-a340-925c29464ed0" }
+    ],
+    eventsSource:{ url:"https://c-mirai.jp/schools/4511da71-31bd-4481-b815-a930a844726e", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kochi_kaiyo", name:"高知県立高知海洋高等学校", pref:"高知県", quota:"全国募集（こうち留学）",
@@ -3254,10 +3212,9 @@ const SCHOOLS = [
     ],
     events:[
       { date:"2026-07-29〜2026-10-30", label:"随時受付中！ 学校&寮見学、個別相談", format:"現地", applyUrl:"https://c-mirai.jp/events/b4ca4d92-3865-4293-8e4a-a48670537d7c", note:"期間内に随時・複数日開催" },
-      { date:"2026-10-08", label:"説明会", format:"現地" },
       { date:"2026-10-24", label:"説明会", format:"現地" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/341ea75a-91df-43d6-a987-2ad03b5c4e4a", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/341ea75a-91df-43d6-a987-2ad03b5c4e4a", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"shiga_shigaraki", name:"滋賀県立信楽高等学校", pref:"滋賀県", quota:"全国募集枠（総合学科）",
@@ -3287,9 +3244,11 @@ const SCHOOLS = [
       { date:"2026-08-25〜2026-12-18", label:"随時開催中！＜宮城県”ナカコウ”中新田高校＞オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/1fd13f98-b06f-4b67-b391-a077b444d158", note:"期間内に随時・複数日開催" },
       { date:"2026-10-15", label:"【10月15日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/67473455-4bce-4f66-a554-aee796bc7b8d" },
       { date:"2026-10-22", label:"【10月22日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/00f16b03-a28b-4af2-8928-28e70a843c48" },
-      { date:"2026-10-29", label:"【10月29日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7d755fe0-7ee1-490e-95f3-9c210da53b25" }
+      { date:"2026-10-29", label:"【10月29日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7d755fe0-7ee1-490e-95f3-9c210da53b25" },
+      { date:"2026-11-05", label:"【11月5日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/0b9013c0-7def-462d-9a2f-a76913b75d5f" },
+      { date:"2026-11-12", label:"【11月12日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7e0ebc34-e7da-4510-80b8-41e190c5006a" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/89", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/89", where:"c-mirai.jp イベント一覧（2026-10-14時点で更新）。申込はイベントページから。" }
   },
   {
     id:"akita_yashima", name:"秋田県立矢島高等学校", pref:"秋田県", quota:"全国募集",
