@@ -718,7 +718,7 @@ const SCHOOLS = [
         note:"選抜結果通知は2/18、追検査は2/19。正式な合格者発表は一般入学者選抜と同じ3/17。", sourceUrl:"https://drive.google.com/file/d/1iKquGSmMP2B_hV0OAuzyW9brsFRdeRTJ/view", whereToCheck:"岡山県公表プレスリリースPDF『令和9年度岡山県立高等学校入学者選抜日程について』" },
       { type:"exam", key:"ippan", label:"一般入学者選抜", applyStart:"2027-02-24", applyEnd:"2027-02-26 正午", examDate:"2027-03-09〜10", resultDate:"2027-03-17", cycle:"R9",
         note:"追検査は3/17（合格発表と同日）。", sourceUrl:"https://drive.google.com/file/d/1iKquGSmMP2B_hV0OAuzyW9brsFRdeRTJ/view", whereToCheck:"同上PDF" },
-      { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-23", cycle:"R9", applyStart:"2027-03-18", applyEnd:"2027-03-19 正午",
+      { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-23", cycle:"R9", applyStart:"2027-03-18", applyEnd:"2027-03-19 正午", resultDate:"2027-03-23",
         note:"欠員を生じた学校・科・コースのみ実施（実施校・募集人員は2027-03-17 9:30頃に県高校魅力化推進室HPで公表）。出願は3/18〜3/19（9:00〜16:30、最終日は正午まで。志願者情報等登録は3/17 9:00〜3/19正午）。面接は3/23（9:30集合・志願校）。選抜結果は3/23以降に中学校長を通じて本人に通知（一斉発表ではない）。出願資格は原則、公立高校一般入学者選抜を受検し県内公私立いずれの高校にも合格していない者。なお令和9年度実施要項では、全国募集（県外生枠）としての第2次募集は「実施しない」とされている。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" }
     ],
     events:[],
@@ -1679,8 +1679,8 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.miyazaki.lg.jp/documents/109134/109134_20260909144123-1.pdf", whereToCheck:"県教委『令和9年度宮崎県立高等学校入学者選抜に関する日程』PDF（生徒募集ページ、2026-09-09更新）", note:"県教委『令和9年度入学者選抜に関する日程』（2026-09-09掲載）による。二次募集は従来通りの用紙による出願方式。願書受付3/18〜3/19、志願状況発表3/19、検査3/23、合格者発表3/24。" }
     ],
     events:[
-      { date:"2026-08-26〜2026-11-30", label:"【随時募集】高千穂高校個別相談会", format:"オンライン", applyUrl:"https://c-mirai.jp/events/6696b223-b861-4450-a9ff-d4b5880a9265", note:"期間内に随時・複数日開催" },
-      { date:"2026-08-26〜2026-11-30", label:"【随時募集】高千穂高校学校見学会", format:"現地", applyUrl:"https://c-mirai.jp/events/bb133a1a-e284-43ed-8b07-aceef004fa73", note:"期間内に随時・複数日開催" }
+      { date:"2026-08-26〜2026-11-30", label:"【随時募集】高千穂高校学校見学会", format:"現地", applyUrl:"https://c-mirai.jp/events/bb133a1a-e284-43ed-8b07-aceef004fa73", note:"期間内に随時・複数日開催" },
+      { date:"2026-08-26〜2026-11-30", label:"【随時募集】高千穂高校個別相談会", format:"オンライン", applyUrl:"https://c-mirai.jp/events/6696b223-b861-4450-a9ff-d4b5880a9265", note:"期間内に随時・複数日開催" }
     ],
     eventsSource:{ url:"https://c-mirai.jp/schools/6acde5b4-c5db-400c-8b1c-7a3746c7c457", where:"c-mirai.jp イベント一覧（2026-11-18時点で更新）。申込はイベントページから。" }
   },
@@ -1708,8 +1708,6 @@ const SCHOOLS = [
         sourceUrl:"https://www.city.nanto.toyama.jp/soshiki/seisakusuishin/10/1945.html", whereToCheck:"南砺市サイト『県外生徒下宿先募集』案内、学校サイト『全国募集について』" },
       { type:"exam", key:"zenkoku", label:"全国募集", applyStart:"2027-02-01", applyEnd:"2027-02-03正午", examDate:"2027-02-09", resultDate:"2027-02-15", exclusive:true, cycle:"R9",
         sourceUrl:"https://www.kengaku.tym.ed.jp/wp-content/uploads/2026/07/r9nittei.pdf", whereToCheck:"富山県教委R9入試日程PDF", note:"検査は作文・面接（県の令和9年度実施概要一覧）。全国募集の受入れ枠は普通科の募集定員30名のうち6名。志願は2/1 9時〜2/3正午、合格者発表は2/15 12:30。出願手続の詳細を定める令和9年度実施要領は本調査時点（2026-11-18）で県HP未掲載（例年11月中旬以降に公表）。" },
-      { type:"exam", key:"suisen", label:"推薦", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-02-09", resultDate:"2027-03-18", cycle:"R9",
-        note:"内定通知は2/15。合格発表は一般と同じ3/18。", sourceUrl:"https://www.kengaku.tym.ed.jp/wp-content/uploads/2026/07/r9nittei.pdf", whereToCheck:"同上" },
       { type:"exam", key:"ippan", label:"一般", applyStart:"2027-02-24", applyEnd:"2027-02-26", examDate:"2027-03-09〜10", resultDate:"2027-03-18", cycle:"R9",
         note:"追検査は2027-03-15。", sourceUrl:"https://www.kengaku.tym.ed.jp/wp-content/uploads/2026/07/r9nittei.pdf", whereToCheck:"同上" },
       { type:"exam", key:"niji", label:"第2次", applyStart:"2027-03-19", applyEnd:"2027-03-23", resultDate:"2027-03-26", cycle:"R9",
@@ -2254,10 +2252,8 @@ const SCHOOLS = [
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
-      { date:"2026-11-18", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/561d709a-1465-4f06-a4e9-508b5c74d43c" },
-      { date:"2026-11-18", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7e9f0287-0b03-4bcf-8808-9d0258cf4e03" },
-      { date:"2026-11-13〜2026-11-30", label:"「現地訪問・見学」随時受付中！ 北海道平取高等学校", format:"現地", applyUrl:"https://c-mirai.jp/events/fdb1184a-e06d-4f26-aa5e-e128025cab61", note:"期間内に随時・複数日開催" },
-      { date:"2026-11-13〜2026-12-25", label:"北海道びらとり高等学校 個別相談会 随時受付中！！", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c9d341fb-d679-4fa1-87da-64a1c8cd8ec9", note:"期間内に随時・複数日開催" },
+      { date:"2026-11-18〜2026-11-30", label:"「現地訪問・見学」随時受付中！ 北海道平取高等学校", format:"現地", applyUrl:"https://c-mirai.jp/events/fdb1184a-e06d-4f26-aa5e-e128025cab61", note:"期間内に随時・複数日開催" },
+      { date:"2026-11-18〜2026-12-25", label:"北海道びらとり高等学校 個別相談会 随時受付中！！", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c9d341fb-d679-4fa1-87da-64a1c8cd8ec9", note:"期間内に随時・複数日開催" },
       { date:"2026-11-19", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/d8d28da8-f9b4-4b9a-a30f-8a1424b45802" },
       { date:"2026-11-19", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/fe57af52-be52-45ad-b890-318ec5f1729b" }
     ],
@@ -3059,7 +3055,7 @@ const SCHOOLS = [
         note:"県教委の令和9年度実施大要による。出願は2027-01-26〜1/28（従来データの1/20〜1/22を修正）。学力検査2/9、面接・選択実施検査は2/9・2/10のいずれか1日、選抜結果の通知2/18、合格発表3/17。追検査は2/19（一般入学者選抜を実施しない場合のみ）。志願者情報のWeb入力は2026-12-08開始。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" },
       { type:"exam", key:"ippan", label:"一般入学者選抜", applyStart:"2027-02-24", applyEnd:"2027-02-26 正午", examDate:"2027-03-09〜10", resultDate:"2027-03-17", cycle:"R9",
         note:"県教委の令和9年度実施大要による。学力検査3/9、面接・実技3/10、合格発表3/17。追検査は3/17。特別入学者選抜で全国募集枠が埋まった科は一般入学者選抜で全国募集を実施しない場合がある。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" },
-      { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-23", cycle:"R9", applyStart:"2027-03-18", applyEnd:"2027-03-19 正午",
+      { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-23", cycle:"R9", applyStart:"2027-03-18", applyEnd:"2027-03-19 正午", resultDate:"2027-03-23",
         note:"欠員を生じた学校・科・コースのみ実施（実施校・募集人員は2027-03-17 9:30頃に県高校魅力化推進室HPで公表）。出願は3/18〜3/19（9:00〜16:30、最終日は正午まで。志願者情報等登録は3/17 9:00〜3/19正午）。面接は3/23（9:30集合・志願校）。選抜結果は3/23以降に中学校長を通じて本人に通知（一斉発表ではない）。出願資格は原則、公立高校一般入学者選抜を受検し県内公私立いずれの高校にも合格していない者。なお令和9年度実施要項では、全国募集（県外生枠）としての第2次募集は「実施しない」とされている。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" }
     ],
     events:[
@@ -3077,7 +3073,7 @@ const SCHOOLS = [
         note:"県教委の令和9年度実施大要による。出願は2027-01-26〜1/28（従来データの1/20〜1/22を修正）。学力検査2/9、面接・選択実施検査は2/9・2/10のいずれか1日、選抜結果の通知2/18、合格発表3/17。特別入学者選抜等の合格内定者数が募集定員を満たした場合、一般入学者選抜は実施されず、追検査は2/19。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" },
       { type:"exam", key:"ippan", label:"一般入学者選抜（岡山県共通日程を想定）", applyStart:"2027-02-24", applyEnd:"2027-02-26 正午", examDate:"2027-03-09〜10", resultDate:"2027-03-17", cycle:"R9",
         note:"県教委の令和9年度実施大要による。学力検査3/9、面接・実技3/10、合格発表3/17。ただし蒜山校地は、特別入学者選抜等の合格内定者数が募集定員を満たした場合は一般入学者選抜を実施しない。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" },
-      { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-23", cycle:"R9", applyStart:"2027-03-18", applyEnd:"2027-03-19 正午",
+      { type:"exam", key:"niji", label:"第2次募集", examDate:"2027-03-23", cycle:"R9", applyStart:"2027-03-18", applyEnd:"2027-03-19 正午", resultDate:"2027-03-23",
         note:"欠員を生じた学校・科・コースのみ実施（実施校・募集人員は2027-03-17 9:30頃に県高校魅力化推進室HPで公表）。出願は3/18〜3/19（9:00〜16:30、最終日は正午まで。志願者情報等登録は3/17 9:00〜3/19正午）。面接は3/23（9:30集合・志願校）。選抜結果は3/23以降に中学校長を通じて本人に通知（一斉発表ではない）。出願資格は原則、公立高校一般入学者選抜を受検し県内公私立いずれの高校にも合格していない者。なお令和9年度実施要項では、全国募集（県外生枠）としての第2次募集は「実施しない」とされている。", sourceUrl:"https://www.pref.okayama.jp/site/255/1044713.html", whereToCheck:"岡山県教委『令和9年度岡山県立高等学校入学者選抜実施大要』PDF（特別入学者選抜・一般入学者選抜・全国募集・第2次募集）" }
     ],
     events:[],
