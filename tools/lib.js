@@ -41,7 +41,14 @@ function schoolRange(html, id){
 
 function constReverse(consts){
   const rev = new Map();
-  for(const [k,v] of Object.entries(consts)) if(typeof v === 'string' && v.length > 8) rev.set(v, k);
+  // Only map long literal values (URLs, shared notes) back to constant names.
+  // Never map plain dates (e.g. DATA_UPDATED): a step date that happens to equal the update date
+  // would otherwise be written as a reference and silently change on the next DATA_UPDATED edit.
+  for(const [k,v] of Object.entries(consts)){
+    if(typeof v !== 'string' || v.length <= 8) continue;
+    if(k === 'DATA_UPDATED' || /^\d{4}-\d{2}-\d{2}$/.test(v)) continue;
+    rev.set(v, k);
+  }
   return rev;
 }
 function jsVal(v, rev){

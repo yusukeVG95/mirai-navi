@@ -22,15 +22,17 @@ c-mirai.jp は非ブラウザからのアクセスを 429 で拒否するため�
 
 ## 2. 日程・入寮情報の再調査
 - 現状把握: `node tools/gap_report.js`（都道府県別の穴・参考データ）、`node tools/dump_school.js <県名 or 学校ID>`
+- 調査担当（エージェント）には `tools/agent_brief.md`（共通ルール・止まらないための進め方・差分の作法）を最初に読ませる。
 - 調査担当（エージェント）は **index.html を直接編集せず**、差分ファイル（JSON）を作る。形式は `tools/apply_patches.js` の冒頭コメント参照
   （`setStep` / `addStep` / `removeStep` / `setField` / `setEvents`）。日付・cycle・noteの変更には `evidence.url`（根拠URL）が必須。
 - 検証: `node tools/apply_patches.js --dry <patch.json>`（何も書き込まない）。問題なければ `--dry` を外して適用。
+- 並び順: `addStep` は各校の末尾に追加されるため、適用後に `node tools/reorder_steps.js <out.json>` で日付順に並べ替える差分を作り、`apply_patches.js` で適用する。
 - 方針: 令和9年度（2027年4月入学）の日付が確認できたステップは `cycle:"R9"`、`yearLabel` は削除。確認できない項目は変更しない（推測で埋めない）。
   塾・進学情報サイトのみが根拠の場合は `evidence.confidence:"secondary"` とし、noteに出典と「公式資料で要確認」を明記。
 - 例年の公表時期の目安: 福井10月 / 宮崎「実施細目」10月上旬 / 山口県立大学附属周防大島 募集要項10月上旬 / 島根 各校募集要項11月以降 / 石川・香川 11月 / 北海道 学校別出願期間11月 / 各校の入寮審査案内 9〜12月
 
 ## 3. 仕上げ
-- `index.html` の `DATA_UPDATED`（"YYYY-MM-DD"）を更新日に書き換える
+- `index.html` の `DATA_UPDATED`（"YYYY-MM-DD"）を更新日に書き換える（差分適用の後に行う。lib.js の定数逆引きは日付を対象外にしてある）
 - 構文確認: `node -e "require('./tools/lib.js').loadData()"`（学校数・ID重複もチェック）
 - `git add index.html && git commit && git push origin main`（GitHub Pages へ反映）
 - Artifact版: `index.html` を作業用ファイルに複製して Artifact として再公開（URLは既存を維持）
