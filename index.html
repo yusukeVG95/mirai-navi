@@ -289,16 +289,15 @@ const OITA_URL = "https://www.pref.oita.jp/site/kyoiku/r09koukounyuushi.html";
 // フォーム設定「回答のコピーを送信＝常時」により送信者本人にもメールが届く）
 const EMAIL_FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSdt90bAIN0F9jggE10H7u9BZgFRDPLhdDkGVkIo3zt9oXecaQ/viewform";
 const EMAIL_FORM_ENTRY_SUMMARY = "entry.1970008572";
-const DATA_UPDATED = "2026-11-22"; // データを最後に更新した日（更新作業のたびに書き換える）
+const DATA_UPDATED = "2026-11-25"; // データを最後に更新した日（更新作業のたびに書き換える）
 const EMAIL_SUMMARY_MAX_LEN = 900; // 生テキストの上限（URLエンコード後は日本語で約7倍に増えるため、6000〜7000字程度に収まる設計）
 
 const SCHOOLS = [
   {
     id:"hokkaido_okushiri", name:"北海道奥尻高等学校", pref:"北海道", quota:"全国募集（まなびじま奥尻）",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮選考（松風寮）", examDate:"2025-12", resultDate:null, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
-        note:"推薦入試・一般入試に先行し、例年12月頃に実施される見込み。選考内容（面接・作文・保護者同伴の有無）や、合格が出願の前提になるかは非公表。奥尻町教育委員会（01397-2-3890）への確認を推奨します。",
-        sourceUrl:"https://ritokei.com/grow/34595", whereToCheck:"離島経済新聞（ritokei）「北海道の離島留学」記事内『【奥尻島】“島留学”』の項" },
+      { type:"dorm", key:"dorm", label:"入寮選考（松風寮）", resultDate:null, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
+        note:"推薦入試・一般入試に先行し、例年12月頃に実施される見込み（前年度データでは2025年12月実施。令和9年度の入寮選考の日程・内容は2026-11-25時点で奥尻町サイトの奥尻高校ページに未掲載）。奥尻町の寮案内チラシ（令和8年度時点の情報）では、松風寮は完全個室・寮費月額4万円（朝夕2食付き）・管理会社職員24時間常駐・ハウスマスター在籍、オープンキャンパス同日に見学可能。選考内容や合格が出願の前提になるかは非公表。奥尻町教育委員会（01397-2-3890）への確認を推奨します。", sourceUrl:"https://ritokei.com/grow/34595", whereToCheck:"離島経済新聞（ritokei）「北海道の離島留学」記事内『【奥尻島】“島留学”』の項" },
       { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:null, exclusive:true, cycle:"R9",
         note:"面接は2/9（北海道内共通日程）。奥尻高校の令和9年度学校裁量資料に『その他の事項は令和9年度道立高等学校入学者選抜の手引及び奥尻高校の入学者選抜の手引により実施』とあり、道の日程表では推薦の合格内定の通知は2027-02-17まで、合格発表は3/16 10:00。学校ごとの出願受付期間・道外からの出願方法は奥尻高校の手引で要確認（2026-11-21時点で奥尻町サイトの奥尻高校『入試案内』に手引は未掲載。道の出願受付は1/18〜21）。奥尻町立のため道の『道外からの出願に係る入学者選抜実施要項』の対象学科一覧には含まれない。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』日程表（2/17欄）と奥尻町サイトの『令和9年度北海道奥尻高等学校入学者選抜における学校裁量についての実施予定等』PDF" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:null, cycle:"R9",
@@ -459,7 +458,7 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮審査", examDate:null, resultDate:null, cycle:null,
         note:"寄宿舎の入寮審査に関する情報は本調査では確認できず。学校（0993-56-1151）への直接確認を推奨。", sourceUrl:null, whereToCheck:"川辺高校（0993-56-1151）へ電話確認" },
       { type:"exam", key:"suisen", label:"推薦等特別選抜", examDate:"2027-02-02", resultDate:"2027-03-12", applyEnd:"2027-01-25", exclusive:true, cycle:"R9", applyStart:"2027-01-19",
-        note:"出願は1/19〜1/25正午必着（県実施要綱）。県外生は自己推薦方式のみ出願可。学校固有の推薦定員は未確認。", sourceUrl:KAGOSHIMA_URL, whereToCheck:"県教育委員会サイトの令和9年度日程ページ／川辺高校サイト『入試情報』欄" },
+        note:"川辺高校『令和9年度 推薦入学者選抜募集要項』（2026-11-20掲載）で確定。推薦入学者数は学校推薦・自己推薦の合計8人（一定枠なし、学区外からの受検可）。県外生は自己推薦方式のみ出願可で様式19が必要。自己推薦は中3全教科の評定平均3.3以上が条件。出願1/19〜1/25正午必着、2/2 9時集合で作文（400字・50分）＋個人面接15分（自己PR3分以内含む）、結果通知2/8（中学校長宛）、入学確約書2/12正午まで、合格発表3/12 11時以後（HP）・同日13:30合格者集合（保護者同伴）。", sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/kawanabe/docs/2026112000026/file_contents/02_R9_.pdf", whereToCheck:"県教育委員会サイトの令和9年度日程ページ／川辺高校サイト『入試情報』欄" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03〜04", resultDate:"2027-03-12", applyEnd:"2027-02-10", cycle:"R9", applyStart:"2027-02-04",
         sourceUrl:KAGOSHIMA_URL, whereToCheck:"県教育委員会サイトの令和9年度日程ページ" },
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-19", resultDate:"2027-03-23", applyEnd:"2027-03-18", cycle:"R9", applyStart:"2027-03-17",
@@ -718,8 +717,8 @@ const SCHOOLS = [
         sourceUrl:"https://www.daigoseiryu-h.ibk.ed.jp/", whereToCheck:"学校サイト（トップメニューに入寮選考の記載なし）" },
       { type:"exam", key:"ippan1", label:"一般入学出願（第1希望）", applyEnd:"2027-02-09 正午", examDate:"2027-02-25", resultDate:"2027-03-11 9時", exclusive:false, cycle:"R9", applyStart:"2027-02-05",
         note:"令和9年度茨城県立高校入学者選抜（県教委リーフレット）による。一般入学（第1希望校）出願は2/5〜2/9 正午。志願先の変更・保護者の転勤に伴う特例受付は2/15〜2/16 14時。定員未充足校を『第2希望の対象校』として2/16夕方公表、第2希望校への出願は2/18〜2/19 14時（希望者のみ、保護者が出願）。学力検査2/25、特色選抜・共通選抜実技検査等2/26、追検査3/4〜3/5、合格発表3/11 9時（第1・第2希望校同日）。令和9年度から第2次募集に代わり欠員補充を実施（3/16予定）。大子清流は農業（農林科学科）・総合学科で全国募集を実施。全国募集での出願手続（身元引受人等）の詳細は県の実施細則・学校へ確認。", sourceUrl:"https://kyoiku.pref.ibaraki.jp/wp-content/uploads/2026/07/R9_HS_leaflet.pdf", whereToCheck:"茨城県教委『令和9年度茨城県立高等学校入学者選抜のご案内』リーフレット（主な日程）／令和9年度実施要項・実施細則" },
-      { type:"exam", key:"ketsuin", label:"欠員補充（第2次募集に代わる手続）", examDate:"2027-03-16", cycle:"R9",
-        note:"令和9年度から第2次募集に代わり実施。3/11の合格発表後に欠員がある学校・学科等のみ（全校で実施するとは限らない）。対象は3/11の不合格者や事情により一般入学出願期間に出願できなかった者など。選抜は調査書・面接を基本とする予定。出願手続・期間は実施細則等で要確認（本調査時点〈2026-11-21〉で未確認）。", sourceUrl:"https://kyoiku.pref.ibaraki.jp/wp-content/uploads/2026/07/R9_HS_leaflet.pdf", whereToCheck:"茨城県教委『令和9年度茨城県立高等学校入学者選抜のご案内』リーフレット（欠員補充）／実施細則" }
+      { type:"exam", key:"ketsuin", label:"欠員補充（第2次募集に代わる手続）", examDate:"2027-03-16", cycle:"R9", applyStart:"2027-03-11 9時", applyEnd:"2027-03-12 正午", resultDate:"2027-03-16",
+        note:"県教委『令和9年度茨城県立高等学校（全日制・定時制）入学者選抜実施細則』（2026-09）で確認：欠員補充は第2次募集に代わる手続で、『第2希望校の対象校』のうち3/11の合格発表後もなお合格者が募集定員に満たない学科のみで実施（全校で実施するとは限らない）。Web出願の志願者情報入力・手数料納付は2027-03-11 9時〜3/12正午、受検票交付は3/15 15時まで、検査（個別面接。調査書と面接で選抜）は3/16、合格者には原則3/16に中学校経由で合格通知書を交付。3/11の合格発表時点で公立高校の合格者は出願不可。郵送出願は対象外。", sourceUrl:"https://kyoiku.pref.ibaraki.jp/wp-content/uploads/2026/07/R9_HS_leaflet.pdf", whereToCheck:"茨城県教委『令和9年度茨城県立高等学校入学者選抜のご案内』リーフレット（欠員補充）／実施細則" }
     ],
     events:[
       { date:"2026-10-13〜2026-12-25", label:"行きたい高校がまだ決まっていなくても大丈夫！ 元大手塾塾長のコーディネーターに、高校選びを相談してみませんか？", format:"オンライン", applyUrl:"https://c-mirai.jp/events/035a992f-edbd-42e9-abdc-702a11d56f43", note:"期間内に随時・複数日開催" }
@@ -779,8 +778,7 @@ const SCHOOLS = [
     id:"iwate_kuzumaki", name:"岩手県立葛巻高等学校", pref:"岩手県", quota:"いわて留学（山村留学）",
     steps:[
       { type:"dorm", key:"sonraku", label:"くずまき山村留学生候補者選考（いわて留学受検資格の前提）", applyStart:"2026-10-01", applyEnd:"2026-10-31", examDate:"2026-11-28〜29", resultDate:null, cycle:"R9",
-        note:"面接は葛巻町または盛岡市（11/28）・東京都（11/29）で実施。必要書類は申込書・志願者調査書・面接日希望調査書等。この選考に認定されたうえで、下記『いわて留学』の検査を受ける流れ。",
-        sourceUrl:"https://www.town.kuzumaki.lg.jp/docs/2020062500018/", whereToCheck:"葛巻町サイト『募集要項』『選考基準』PDF" },
+        note:"面接は葛巻町または盛岡市（11/28）・東京都（11/29）で実施。必要書類は申込書・志願者調査書・面接日希望調査書等。この選考に認定されたうえで、下記『いわて留学』の検査を受ける流れ。葛巻町の『令和９年度入学「くずまき山村留学生」の募集』ページは2026-10-20付で『募集受付は終了しました』と表示（旧URL docs/2020062500018 は2026-11-25時点で404。新ページには申込期間・面接日の記載がなく、本調査〈2026-11-25〉では日程を一次資料で再確認できず。町教委 0195-65-8989 へ要確認）。寄宿舎使用料は県外生月額20,000円（食事付、令和8年度）。", sourceUrl:"https://www.town.kuzumaki.lg.jp/docs/2020062500032/", whereToCheck:"葛巻町『令和９年度入学「くずまき山村留学生」の募集』ページ（令和9年度リーフレットPDF）／葛巻町教育委員会事務局" },
       { type:"exam", key:"iwateryugaku", label:"いわて留学（県外募集枠）検査", examDate:"2027-01-26", resultDate:"2027-02-02", applyEnd:"2027-01-18 正午", exclusive:true, cycle:"R9", applyStart:"2027-01-13",
         sourceUrl:"https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/006/462/r9_youkou.pdf", whereToCheck:"岩手県教委『令和9年度岩手県立高等学校入学者選抜実施要項』と『令和9年度いわて留学概要』葛巻高校PDF（https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/091/434/r9_12.pdf）", note:"令和9年度『いわて留学』（留学実施校）：『くずまき山村留学生』の候補者として志願する県外居住者が対象（入学願書は候補者決定後に葛巻町教委から配付）。出願1/13〜1/18（休日除く・最終日正午締切）、志願者数発表1/20、検査1/26（9:30集合、12:00終了予定）、合格通知書は2/2までに中学校へ送付（必着）・合格者数発表2/2、正式な合格者発表は3/15 15:00。募集定員12名。選抜は調査書50・志願理由書50・個人面接50（約10分）の計150点。他の公立高校との併願不可。" },
       { type:"exam", key:"ichiji", label:"一次募集（一般＋特色）", examDate:"2027-03-04〜05", resultDate:"2027-03-15", applyEnd:"2027-02-09 16:00", cycle:"R9", applyStart:"2027-02-03",
@@ -980,7 +978,7 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮関連（三好池田寮／三好寮）", examDate:null, resultDate:null, cycle:null,
         note:"三好池田寮（2025年完成・個室、愛称ミライケ）・三好寮（集団部屋）の2寮。在籍中学校を通じて入舎選考願書等を提出し、応募多数の場合は入舎できない場合あり。令和9年度の舎生募集要項は本調査時点（2026-11-22）で学校サイト『舎生募集について』ページに未掲載（掲載は令和8年度分のみ。令和8年度三好寮の応募書類提出期限は2026-03-06必着）。詳細な審査基準は未確認。", sourceUrl:"https://ikeda-hs.tokushima-ec.ed.jp/", whereToCheck:"池田高校サイト『舎生募集について』ページ（https://ikeda-hs.tokushima-ec.ed.jp/Recruitingdormitorystudents）" },
       { type:"exam", key:"ikusei", label:"育成型選抜", applyStart:"2027-01-20", applyEnd:"2027-01-21", examDate:"2027-02-02", resultDate:"2027-02-06", exclusive:true, cycle:"R9",
-        sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」", note:"令和9年度の徳島県公立高校入学者選抜関係日程（県教委公表）による。育成型選抜の願書受付は1/20〜21、検査2/2、結果通知2/6。一般選抜の募集人員は2/8公表。" },
+        sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」", note:"令和9年度の徳島県公立高校入学者選抜日程（県教委公表）による。育成型選抜の願書受付は1/20〜21、検査2/2、結果通知2/6。一般選抜の募集人員は2/8公表。県教委『令和9年度…志願者のみの転住で受検が承認される高等学校』によると池田高校は全国募集Ⅰ（合格可能人数の制限なし）で、育成型選抜の募集競技・分野は普通科：男子硬式野球、男女ハンドボール、男子サッカー、男子・女子レスリング／探究科：探究活動。県外からは事前に中学校長経由で『県外志願特例措置願』を県教委へ提出し教育長の承認が必要（育成型選抜分の手続期間2026-12-01〜2027-01-08、1回の承認で一般・第2次募集まで有効）。" },
       { type:"exam", key:"ippan", label:"一般選抜", applyStart:"2027-02-16", applyEnd:"2027-02-17", examDate:"2027-03-03〜04", resultDate:"2027-03-13", cycle:"R9",
         note:"令和9年度：願書受付2/16〜17、志願変更2/22・2/24・2/25、一般選抜(学力検査)3/3、(面接等)3/4、追検査・追面接3/10、結果通知3/13。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
       { type:"exam", key:"niji", label:"第2次募集選抜", applyStart:"2027-03-18", applyEnd:"2027-03-18", examDate:"2027-03-25", resultDate:"2027-03-26", cycle:"R9",
@@ -996,7 +994,7 @@ const SCHOOLS = [
         note:"集団部屋、男女各9名定員、運営は一般社団法人神山つなぐ公社。入居前に事前面談を実施すると明記。入寮希望者は『地域留学体験』への参加が推奨されている（個別対応も可）。詳細な審査基準・提出書類は別途資料にあるが未取得。",
         sourceUrl:"https://www.town.kamiyama.lg.jp/josei/support/", whereToCheck:"神山町サイト『あゆハウス』入居案内ページ" },
       { type:"exam", key:"ikusei", label:"育成型選抜（農業分野）", applyStart:"2027-01-20", applyEnd:"2027-01-21", examDate:"2027-02-02", resultDate:"2027-02-06", exclusive:true, cycle:"R9",
-        note:"募集4名程度。配点は調査書100・学力検査150・活動記録50・実技等150・面接50（令和9年度資料で確認済み）。令和9年度日程：願書受付1/20〜21、検査2/2、結果通知2/6（県教委公表）。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
+        note:"募集4名程度。配点は調査書100・学力検査150・活動記録50・実技等150・面接50（令和9年度資料で確認済み）。令和9年度日程：願書受付1/20〜21、検査2/2、結果通知2/6（県教委公表）。県教委『令和9年度…志願者のみの転住で受検が承認される高等学校』によると神山校（地域創生類）は全国募集Ⅰで合格可能人数6人以内、育成型選抜の募集分野は農業分野。県外からは事前に中学校長経由で『県外志願特例措置願』を県教委へ提出し教育長の承認が必要（育成型選抜分の手続期間2026-12-01〜2027-01-08、1回の承認で一般・第2次募集まで有効。ただし育成型で合格可能人数が満たされた場合は一般選抜での全国募集はない）。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
       { type:"exam", key:"ippan", label:"一般選抜", applyStart:"2027-02-16", applyEnd:"2027-02-17", examDate:"2027-03-03〜04", resultDate:"2027-03-13", cycle:"R9",
         note:"令和9年度：願書受付2/16〜17、志願変更2/22・2/24・2/25、一般選抜(学力検査)3/3、(面接等)3/4、追検査・追面接3/10、結果通知3/13。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
       { type:"exam", key:"niji", label:"第2次募集", applyStart:"2027-03-18", applyEnd:"2027-03-18", examDate:"2027-03-25", resultDate:"2027-03-26", cycle:"R9",
@@ -1156,8 +1154,10 @@ const SCHOOLS = [
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
-    events:[],
-    eventsSource:{ url:"https://www.oononougyou.hokkaido-c.ed.jp/", where:"学校サイト『お知らせ』欄" }
+    events:[
+      { date:"2026-12-08", label:"令和８年度大野農業高等学校 学校説明会（住まい（寮）編）", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/ce48e533-d79b-4082-9d86-56b836fa3714" }
+    ],
+    eventsSource:{ url:"https://www.oononougyou.hokkaido-c.ed.jp/", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"hokkaido_matsumae", name:"北海道松前高等学校", pref:"北海道", quota:"全国募集",
@@ -1197,9 +1197,8 @@ const SCHOOLS = [
   {
     id:"hokkaido_saroma", name:"北海道佐呂間高等学校", pref:"北海道", quota:"全国募集（定員6名）",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮関連（個室寮男女各9名・リフォーム予定）", examDate:null, resultDate:null, cycle:null,
-        note:"入寮審査の名称・時期は未確認。10/22の現地説明会で寮見学が可能。令和9年度より全国募集・推薦入試を開始する新規校のため、寮関連の情報整備自体がまだ進んでいない可能性が高い。",
-        sourceUrl:"https://c-mirai.jp/schools/5a3d700b-1214-46eb-afe4-54d2ae931e49", whereToCheck:"学校ページ『学校のことを知るイベント』欄" },
+      { type:"dorm", key:"dorm", label:"入寮申込（佐呂間町地域交流学生寮・仮入寮）", examDate:null, resultDate:null, cycle:"R9", applyStart:"2026-11-01", applyEnd:"2026-11-30",
+        note:"『2027年度 佐呂間町地域交流学生寮 入寮生募集要項』（2026-10-01公開）による。募集は男子3名・女子3名、対象は2027年度佐呂間高校入学予定者。仮入寮申込書を佐呂間町教育委員会教育魅力化推進室（01587-2-1294）へ持参・郵送・メールで提出。選考は応募書類の記載内容・居住地等による総合審査（面接日の記載なし）。結果（仮入寮の決定）は申込期間終了後1週間以内に電話連絡。館内見学は事前予約制で随時受付。寮費等は募集要項に記載なし（2026-11-25確認）。", sourceUrl:"https://docs.google.com/document/d/e/2PACX-1vQXBOgvMKAdtxnW-dluJxR74hYnNmyHuPlOZctDYGLH8-MazErl6zvEnWaiccj3pA7VGOe-U03ckkDO/pub", whereToCheck:"佐呂間町地域交流学生寮サイト『募集要項』（https://sites.google.com/saroma.ed.jp/saromakoukou-gakuseiryou/）" },
       { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:"2027-01-21", exclusive:true, cycle:"R9", applyStart:"2027-01-18",
         note:"道外からの出願は推薦入試（道外推薦）で行う。出願受付は2027-01-18〜21（9:00〜16:30、21日は12:00まで）、出願者情報のオンライン入力は2026-12-04〜2027-01-21。面接等は2/9（やむを得ない場合は2/10に継続実施可）。合格内定の通知は2/17まで、入学確約書の提出は2/18〜22（22日は16:00まで）。内定とならなかった場合は再出願（2/18〜22）で一般の学力検査へ進める。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/5/3/_/12_dougaisuisenyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
@@ -1399,7 +1398,7 @@ const SCHOOLS = [
     id:"hokkaido_shikaoi", name:"北海道鹿追高等学校", pref:"北海道", quota:"全国募集",
     steps:[
       { type:"dorm", key:"dorm", label:"入寮申込（寮『ペンギンドミトリー』／シェアハウス『ペンギンハウス』）", examDate:null, resultDate:null, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
-        note:"鹿追町教委と鹿追高校の共同審査で、公共交通機関で通学できない遠距離の生徒を優先（通学可能な者は空き状況により決定）。申込は専用フォーム。令和8年度実績では申込開始1/19、推薦入学者は2/23まで申込・3/3までにメールで結果通知、一般入学者選抜は3/22まで申込・3/26頃までに順次通知。2026-11-21時点で町の寮ページは令和8年度入寮者向けのままで、令和9年度の申込日程は未掲載。鹿追高校の令和9年度道外推薦案内では『寮・シェアハウスには定員があるが、定員を満たした場合は鹿追町と協議のうえ対応』とされる。面接の有無は不明。", sourceUrl:"https://shikaoi.ed.jp/high-school/dormitory/", whereToCheck:"鹿追町教育サイト『寮』ページの申込日程表（令和9年度分は例年1月に更新）と、鹿追高校『令和9年度入学者選抜 道外から推薦入学者選抜により出願しようと考えている生徒・保護者の皆さんへ』PDF" },
+        note:"鹿追町教委と鹿追高校の共同審査で、公共交通機関で通学できない遠距離の生徒を優先（通学可能な者は空き状況により決定）。申込は専用フォーム。令和8年度実績では申込開始1/19、推薦入学者は2/23まで申込・3/3までにメールで結果通知、一般入学者選抜は3/22まで申込・3/26頃までに順次通知。2026-11-25時点で町の寮ページは令和8年度入寮者向けのままで、令和9年度の申込日程は未掲載。鹿追高校の令和9年度道外推薦案内では『寮・シェアハウスには定員があるが、定員を満たした場合は鹿追町と協議のうえ対応』とされる。面接の有無は不明。", sourceUrl:"https://shikaoi.ed.jp/high-school/dormitory/", whereToCheck:"鹿追町教育サイト『寮』ページの申込日程表（令和9年度分は例年1月に更新）と、鹿追高校『令和9年度入学者選抜 道外から推薦入学者選抜により出願しようと考えている生徒・保護者の皆さんへ』PDF" },
       { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:"2027-01-21", exclusive:true, cycle:"R9", applyStart:"2027-01-18",
         note:"道外からの出願は推薦入試（道外推薦）で行う。出願受付は2027-01-18〜21（9:00〜16:30、21日は12:00まで）、出願者情報のオンライン入力は2026-12-04〜2027-01-21。面接等は2/9（やむを得ない場合は2/10に継続実施可）。合格内定の通知は2/17まで、入学確約書の提出は2/18〜22（22日は16:00まで）。内定とならなかった場合は再出願（2/18〜22）で一般の学力検査へ進める。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/5/3/_/12_dougaisuisenyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
@@ -1426,13 +1425,13 @@ const SCHOOLS = [
     id:"hokkaido_shiranuka", name:"北海道白糠高等学校", pref:"北海道", quota:"全国募集",
     steps:[
       { type:"dorm", key:"dorm", label:"入居予約（白糠町多目的宿泊施設『からまつ寮』）", examDate:null, resultDate:null, cycle:"R9", applyEnd:"2026-10-30",
-        note:"『令和9年度 白糠町多目的宿泊施設 募集要領』による。対象は令和9年度白糠高校入学希望者、募集3名（男女兼用棟・3室）、利用料月額30,000円（学校稼業日の朝夕食・光熱費込み、希望者には給食を無料提供）。個別相談・面談（日程は随時調整）のうえ決定し、白糠高校を第一志望とする道外在住者→道内の通学圏外の順に予約を受付（第2志望の場合は第1志望者の後）。仮予約は2026-10-30（金）までで、仮予約の状況により募集を締め切る場合あり（締切後の空きは白糠町教委へ要確認）。利用内定は決定次第通知、正式決定は白糠高校の合格発表後に利用申込書を提出。問合せ：白糠町教育委員会管理課総務係 01547-2-2171（内線264）。", sourceUrl:"https://www.shiranuka.hokkaido-c.ed.jp/wysiwyg/file/download/1/3679", whereToCheck:"白糠高校サイト掲載『令和9年度 白糠町多目的宿泊施設 入居者募集のご案内』PDF（5.予約申込み〜7.利用決定）" },
+        note:"『令和9年度 白糠町多目的宿泊施設 募集要領』による。対象は令和9年度白糠高校入学希望者、募集3名（男女兼用棟・3室）、利用料月額30,000円（学校稼業日の朝夕食・光熱費込み、希望者には給食を無料提供）。個別相談・面談（日程は随時調整）のうえ決定し、白糠高校を第一志望とする道外在住者→道内の通学圏外の順に予約を受付（第2志望の場合は第1志望者の後）。仮予約は2026-10-30（金）までで、仮予約の状況により募集を締め切る場合あり。白糠高校サイトに2026-11-06付で『令和9年度の入居者募集受付終了』の掲載あり（空きの有無は白糠町教委へ要確認）。利用内定は決定次第通知、正式決定は白糠高校の合格発表後に利用申込書を提出。問合せ：白糠町教育委員会管理課総務係 01547-2-2171（内線264）。", sourceUrl:"https://www.shiranuka.hokkaido-c.ed.jp/wysiwyg/file/download/1/3679", whereToCheck:"白糠高校サイト掲載『令和9年度 白糠町多目的宿泊施設 入居者募集のご案内』PDF（5.予約申込み〜7.利用決定）" },
       { type:"exam", key:"suisen", label:"推薦入試", examDate:"2027-02-09", resultDate:"2027-02-17", applyEnd:"2027-01-21", exclusive:true, cycle:"R9", applyStart:"2027-01-18",
         note:"道外からの出願は推薦入試（道外推薦）で行う。出願受付は2027-01-18〜21（9:00〜16:30、21日は12:00まで）、出願者情報のオンライン入力は2026-12-04〜2027-01-21。面接等は2/9（やむを得ない場合は2/10に継続実施可）。合格内定の通知は2/17まで、入学確約書の提出は2/18〜22（22日は16:00まで）。内定とならなかった場合は再出願（2/18〜22）で一般の学力検査へ進める。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/5/3/_/12_dougaisuisenyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03", resultDate:"2027-03-16", applyEnd:"2027-02-22", cycle:"R9", applyStart:"2027-02-18",
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" },
       { type:"exam", key:"niji", label:"二次募集", examDate:null, resultDate:"2027-03-26", applyEnd:"2027-03-23", cycle:"R9", applyStart:"2027-03-19",
-        note:"第2次募集には全道共通の検査日の設定はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。令和8年度は二次募集要項が2026年3月19日付で公表された実績あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
+        note:"第2次募集には全道共通の検査日の設定はなく、当初の学力検査成績等で選抜（学力検査成績証明書がない場合は作文・必要により面接を学校が実施）。令和8年度は二次募集要項が2026年3月19日付で公表された実績あり。令和9年度の第2次募集は、合格者が募集人員に満たない場合のみ実施。実施の有無と募集人員は2027-03-18（9:00）に各校で掲示・発表される。出願受付は3/19〜23（土日祝除く、9:00〜16:30）、個人調査書の送付は3/24まで、合格の通知は3/26まで。再出願後も合格とならなかった道外出願者も、第2次募集を行う学科へ出願できる。2026-11-13掲載の『令和9年度道立高等学校入学者選抜の手引』日程表でも第2次募集の検査日の設定はないことを確認（2026-11-25）。面接等の有無は白糠高校の第2次募集要項（例年3月中旬公表）で確認。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/7/4/4/_/03_ippanyoukou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
       { date:"2026-07-01〜2026-11-30", label:"しらぬか高校オープンスクール＆寮見学会【本年7月から10月まで個別受付してます】写真は８月白糠漁港の花火大会", format:"現地", applyUrl:"https://c-mirai.jp/events/e7e0b367-53ac-491e-8b31-5b3098e4964d", note:"期間内に随時・複数日開催" }
@@ -1796,7 +1795,7 @@ const SCHOOLS = [
         note:"入寮資格は条例上『通学困難』または『教育委員会が認めた特別事由』。必要書類は入寮申請書（様式第1号）・誓約書（様式第3号）で、教育委員会が可否判定。審査基準・実施時期は規則上『教育委員会が別に定める』とされ詳細未確認。",
         sourceUrl:"https://www.city.gojo.lg.jp/section/reiki_int/reiki_honbun/k408RG00001061.html", whereToCheck:"五條市寄宿舎設置条例施行規則の『入寮資格』『必要書類』条文" },
       { type:"exam", key:"zenkoku", label:"全国募集特別選抜（県外生対象・定員25名）", applyStart:"2027-01-22", applyEnd:"2027-01-26", examDate:"2027-02-01", resultDate:"2027-02-04", exclusive:true, cycle:"R9",
-        note:"西吉野農高独自日程（県立の全国募集特別選抜とは別日程）。出願受付は1/22・1/25・1/26の各9〜15時（郵送は1/21消印まで）。検査は2/1に数学の口頭試問・作文・個人面接。合格発表は2/4 14時に学校Webページで受検番号により発表。合格した場合は必ず入学。出願前に五條市教委の県外生対象志願手続説明会（令和8年11月14日のオープンスクールで開催予定）への出席が必須で、願書・要項はそこで配付。定員に満たない分は一次選抜（2/24）で追加募集。", sourceUrl:"https://gojo-agri.jp/wp-content/uploads/2026/09/r9_jishiyoukou2.pdf", whereToCheck:"西吉野農高『令和9年度入学者選抜実施要項』（全国募集特別選抜実施要項 p.4-5）と『R9入試日程』PDF（gojo-agri.jp/notice/）" },
+        note:"西吉野農高独自日程（県立の全国募集特別選抜とは別日程）。出願受付は1/22・1/25・1/26の各9〜15時（郵送は1/21消印まで）。検査は2/1に数学の口頭試問・作文・個人面接。合格発表は2/4 14時に学校Webページで受検番号により発表。合格した場合は必ず入学。出願前に五條市教委の県外生対象『入学志願手続き説明会』への出席が必須で、願書・要項はそこで配付（学校『入学志願手続き説明会の開催について』による：①2026-11-14の体験入学内で実施〈終了〉、②2026-12-12〈土〉13:30〜15:30 五條市役所3F会議室3-5、申込は学校Webフォームで11/15〜12/11正午。どちらか1回出席）。定員に満たない分は一次選抜（2/24）で追加募集。", sourceUrl:"https://gojo-agri.jp/wp-content/uploads/2026/09/r9_jishiyoukou2.pdf", whereToCheck:"西吉野農高『令和9年度入学者選抜実施要項』（全国募集特別選抜実施要項 p.4-5）と『R9入試日程』PDF（gojo-agri.jp/notice/）" },
       { type:"exam", key:"ippan", label:"一般選抜", applyStart:"2027-02-08", applyEnd:"2027-02-16", examDate:"2027-02-24", resultDate:"2027-03-08", cycle:"R9",
         note:"令和9年度から県の名称は『一次選抜』。第一出願期間2/8〜2/16（15時まで）、第二出願期間2/17〜2/19。検査は2/24に学力検査（国数英）＋個人面接。合格発表は3/8 14時にWeb出願システムで本人に通知。募集人員は5名＋全国募集特別選抜の不足分（2/5に確定発表）。", sourceUrl:"https://gojo-agri.jp/wp-content/uploads/2026/09/r9_jishiyoukou2.pdf", whereToCheck:"西吉野農高『令和9年度入学者選抜実施要項』（一次選抜）と奈良県『令和9年度奈良県立高等学校入学者選抜概要』" },
       { type:"exam", key:"niji", label:"二次選抜", applyStart:"2027-03-09", applyEnd:"2027-03-10", resultDate:"2027-03-12", cycle:"R9",
@@ -1847,10 +1846,12 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮関連（単独寮『若鮎寮』）", examDate:null, resultDate:null, cycle:null,
         note:"学校敷地内の単独寮。町に住民票を異動するBコースは月26,400〜33,000円（光熱費込・1日3食提供）。入寮審査の詳細は未確認。",
         sourceUrl:"https://c-mirai.jp/schools/4e60749f-b249-45bb-a7c3-4bef168c66c8", whereToCheck:"学校ページ、または https://naka-hs.tokushima-ec.ed.jp/" },
+      { type:"exam", key:"ikusei", label:"育成型選抜（全国募集Ⅰ）", applyStart:"2027-01-20", applyEnd:"2027-01-21", examDate:"2027-02-02", resultDate:"2027-02-06", exclusive:true, cycle:"R9", yearLabel:null,
+        note:"徳島県教委『令和9年度徳島県公立高等学校入学者選抜において、徳島県外から志願者のみの転住で受検が承認される高等学校』（全国募集Ⅰ：育成型選抜・一般選抜・第2次募集選抜）による。那賀高校（普通科・森林クリエイト科、合格可能人数の制限なし）の育成型選抜の募集競技・分野：女子バレーボール、男子硬式野球、林業・環境分野（森林クリエイト科のみ）、男女カヌー、阿波人形浄瑠璃。日程（県教委『令和9年度入学者選抜日程』）：願書受付1/20〜21、検査2/2(火)、結果通知2/6。県外からの志願は事前に中学校長経由で『県外志願特例措置願』を県教委へ提出し教育長の承認が必要で、育成型選抜分の手続期間は2026-12-01〜2027-01-08（1回の承認で育成型・一般・第2次募集の全てに有効）。手続き前に中学校から県教委（教育創生課 088-621-3120）へ問い合わせること。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/file/2319", whereToCheck:"徳島県入試情報サイト『令和9年度 県外から志願する皆さまへ』（https://nyuushi.tokushima-ec.ed.jp/R9_kengaisigann_hs）の全国募集校一覧PDF・全国募集案内リーフレット2027、および『令和9年度 入学者選抜日程について』" },
       { type:"exam", key:"ippan", label:"一般選抜（徳島県共通日程）", examDate:"2027-03-03〜04", resultDate:"2027-03-13", applyEnd:"2027-02-17", cycle:"R9", applyStart:"2027-02-16",
         note:"令和9年度（徳島県共通日程）：願書受付2/16〜17、志願変更2/22・2/24・2/25、一般選抜(学力検査)3/3、(面接等)3/4、追検査・追面接3/10、結果通知3/13。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
       { type:"exam", key:"niji", label:"第2次募集選抜", applyStart:"2027-03-18", applyEnd:"2027-03-18", examDate:"2027-03-25", resultDate:"2027-03-26", cycle:"R9",
-        note:"一般選抜で募集人員に満たない場合のみ実施（募集人員は3/13公表）。那賀高校での実施有無・他県受検者の応募可否は募集人員公表後に要確認。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" }
+        note:"一般選抜で募集人員に満たない場合のみ実施（第2次募集選抜の募集人員は3/13公表）。県教委『令和9年度…志願者のみの転住で受検が承認される高等学校』によると、那賀高校は全国募集Ⅰ（育成型・一般・第2次募集）の対象で、1回の県外志願特例措置の承認で第2次募集選抜まで有効（第2次募集分の手続期間は2027-02-08〜03-02）。ただし一般選抜で合格可能人数が満たされた場合は第2次募集選抜での募集はない（那賀高校は合格可能人数の制限なし）。実施有無は3/13の募集人員公表で確認。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
     ],
     events:[
       { date:"2026-12-12", label:"進学相談会", time:"10:00-12:00", format:"現地", applyUrl:"https://c-mirai.jp/events/7f8c8eb3-0e1c-4dce-8d87-4d40e2e10b0f" }
@@ -1863,10 +1864,12 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮関連（第1〜第3寮）", examDate:null, resultDate:null, cycle:null,
         note:"第1寮（平成20年開寮）・第2寮（令和3年）・第3寮（令和7年、牟岐町）の3寮体制。部活動加入者・遠距離通学困難者が対象。入寮審査の詳細は未確認。",
         sourceUrl:"https://kaifu-hs.tokushima-ec.ed.jp/file/2703", whereToCheck:"学校サイト内寮案内ページ" },
+      { type:"exam", key:"ikusei", label:"育成型選抜（全国募集Ⅰ）", applyStart:"2027-01-20", applyEnd:"2027-01-21", examDate:"2027-02-02", resultDate:"2027-02-06", exclusive:true, cycle:"R9", yearLabel:null,
+        note:"徳島県教委『令和9年度徳島県公立高等学校入学者選抜において、徳島県外から志願者のみの転住で受検が承認される高等学校』（全国募集Ⅰ：育成型選抜・一般選抜・第2次募集選抜）による。海部高校（普通科・情報ビジネス科・数理科学科、合格可能人数の制限なし）の育成型選抜の募集競技・分野：男子野球、女子バスケットボール、女子バレーボール、国際理解分野（数理科学科のみ）、男子バスケットボール。日程（県教委『令和9年度入学者選抜日程』）：願書受付1/20〜21、検査2/2(火)、結果通知2/6。県外からの志願は事前に中学校長経由で『県外志願特例措置願』を県教委へ提出し教育長の承認が必要で、育成型選抜分の手続期間は2026-12-01〜2027-01-08（1回の承認で育成型・一般・第2次募集の全てに有効）。手続き前に中学校から県教委（教育創生課 088-621-3120）へ問い合わせること。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/file/2319", whereToCheck:"徳島県入試情報サイト『令和9年度 県外から志願する皆さまへ』（https://nyuushi.tokushima-ec.ed.jp/R9_kengaisigann_hs）の全国募集校一覧PDF・全国募集案内リーフレット2027、および『令和9年度 入学者選抜日程について』" },
       { type:"exam", key:"ippan", label:"一般選抜（徳島県共通日程）", examDate:"2027-03-03〜04", resultDate:"2027-03-13", applyEnd:"2027-02-17", cycle:"R9", applyStart:"2027-02-16",
         note:"令和9年度（徳島県共通日程）：願書受付2/16〜17、志願変更2/22・2/24・2/25、一般選抜(学力検査)3/3、(面接等)3/4、追検査・追面接3/10、結果通知3/13。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
       { type:"exam", key:"niji", label:"第2次募集選抜", applyStart:"2027-03-18", applyEnd:"2027-03-18", examDate:"2027-03-25", resultDate:"2027-03-26", cycle:"R9",
-        note:"一般選抜で募集人員に満たない場合のみ実施（募集人員は3/13公表）。海部高校での実施有無・他県受検者の応募可否は募集人員公表後に要確認。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" }
+        note:"一般選抜で募集人員に満たない場合のみ実施（第2次募集選抜の募集人員は3/13公表）。県教委『令和9年度…志願者のみの転住で受検が承認される高等学校』によると、海部高校は全国募集Ⅰ（育成型・一般・第2次募集）の対象で、1回の県外志願特例措置の承認で第2次募集選抜まで有効（第2次募集分の手続期間は2027-02-08〜03-02）。ただし一般選抜で合格可能人数が満たされた場合は第2次募集選抜での募集はない（海部高校は合格可能人数の制限なし）。実施有無は3/13の募集人員公表で確認。", sourceUrl:"https://nyuushi.tokushima-ec.ed.jp/R9_nittei", whereToCheck:"徳島県教委 入学者選抜情報サイト「令和9年度 入学者選抜日程について」" },
     ],
     events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/79f1b65c-d937-4708-bfdf-f92a5ddee6cd", where:"c-mirai.jp イベント一覧（2026-10-05時点で更新）。申込はイベントページから。" }
@@ -1947,9 +1950,7 @@ const SCHOOLS = [
       { type:"exam", key:"niji", label:"二次募集", cycle:"R9", yearLabel:null, applyStart:"2027-03-15", applyEnd:"2027-03-17", examDate:"2027-03-18", resultDate:"2027-03-23",
         note:"二次募集の実施校は3/12に発表。出願は3/15〜3/17 16時、面接等は3/18 13時以降、選抜結果通知は3/23（令和9年度熊本県立高等学校入学者選抜要項による）。" },
     ],
-    events:[
-      { date:"2026-11-24", label:"矢部高校への進学相談⑭（１１月２４日）「まだまだ間に合う！矢部高校について、お話しします」", time:"17:00-17:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/52dcfe00-48da-4905-8d69-6c2e3fbbf054" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/0dd10dce-c0fa-4ae8-ada0-c5cf4e6aa1b0", where:"c-mirai.jp イベント一覧（2026-11-11時点で更新）。申込はイベントページから。" }
   },
   {
@@ -2055,9 +2056,9 @@ const SCHOOLS = [
     id:"kagoshima_noda", name:"鹿児島県立野田女子高等学校", pref:"鹿児島県", quota:"全国募集",
     steps:[
       { type:"dorm", key:"dorm", label:"入寮関連（『白梅寮』）", examDate:null, resultDate:null, cycle:null,
-        note:"体験留学の宿泊先としても利用。費用等の詳細は未確認。", sourceUrl:"https://c-mirai.jp/schools/a63de9c5-9714-49fd-be37-dac6049d9814", whereToCheck:"学校ページ" },
+        note:"学校の寮『白梅寮』（2人部屋・エアコン完備、現寮生18名、東京都・愛知県・熊本県出身の寮生あり）。令和8年度の寮費は4〜1月が月額60,695円（維持費＋食費）、2・3月が月額44,495円（食費のみ）。入寮審査・申込時期は学校ページに記載がなく未確認（2026-11-25時点）。体験留学の宿泊先としても利用。", sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/noda/docs/2026061600070/", whereToCheck:"学校ページ" },
       { type:"exam", key:"suisen", label:"推薦等特別選抜", examDate:"2027-02-02", resultDate:"2027-03-12", applyEnd:"2027-01-25", exclusive:true, cycle:"R9", applyStart:"2027-01-19",
-        sourceUrl:KAGOSHIMA_URL, whereToCheck:"県教育委員会サイトの令和9年度日程ページ" },
+        sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/noda/docs/2026111100109/file_contents/R9_suisen.pdf", whereToCheck:"県教育委員会サイトの令和9年度日程ページ", note:"野田女子高校『令和9年度 推薦入学者選抜募集要項』（2026-11-11掲載）で確定。生活文化科・食物科・衛生看護科で各募集定員の30％（12人）以内、自己推薦方式のみ（女子）。県外生は様式19が必要。出願1/19〜1/25正午必着、2/2に作文50分＋プレゼンテーション（3〜5分）・面接、結果通知2/8（中学校長宛）、入学確約書2/12正午まで、合格発表3/12 11時以後（HP）、合格者説明会3/15 12:40（保護者同伴）。" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03〜04", resultDate:"2027-03-12", applyEnd:"2027-02-10", cycle:"R9", applyStart:"2027-02-04",
         sourceUrl:KAGOSHIMA_URL, whereToCheck:"同上" },
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-19", resultDate:"2027-03-23", applyEnd:"2027-03-18", cycle:"R9", applyStart:"2027-03-17",
@@ -2119,7 +2120,7 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"住居関連", examDate:null, resultDate:null, cycle:null,
         note:"寮・下宿情報は検索では確認できず未確認。", sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/shibushi/", whereToCheck:"学校サイト、または学校へ電話確認" },
       { type:"exam", key:"suisen", label:"推薦等特別選抜", examDate:"2027-02-02", resultDate:"2027-03-12", applyEnd:"2027-01-25", exclusive:true, cycle:"R9", applyStart:"2027-01-19",
-        sourceUrl:KAGOSHIMA_URL, whereToCheck:"県教育委員会サイトの令和9年度日程ページ" },
+        sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/shibushi/docs/2026111200038/file_contents/004.pdf", whereToCheck:"県教育委員会サイトの令和9年度日程ページ", note:"志布志高校『令和9年度 推薦入学者選抜（自己推薦）募集要項』（2026-11-12掲載）で確定。普通科で学校推薦と合わせて36人以内（定員120人の30％以内、学区外からの受検可）。県外生は自己推薦方式で出願（県実施要綱により様式19が必要）。出願1/19〜1/25正午必着、2/2に作文（資料読み取り含む）＋個人面接（自己PR含む）、結果通知2/8（中学校長宛）、入学確約書2/12正午まで、合格発表3/12 11時以後・同日13:30合格者集合（保護者同伴）。" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03〜04", resultDate:"2027-03-12", applyEnd:"2027-02-10", cycle:"R9", applyStart:"2027-02-04",
         sourceUrl:KAGOSHIMA_URL, whereToCheck:"同上" },
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-19", resultDate:"2027-03-23", applyEnd:"2027-03-18", cycle:"R9", applyStart:"2027-03-17",
@@ -2131,10 +2132,10 @@ const SCHOOLS = [
   {
     id:"kagoshima_yakushima", name:"鹿児島県立屋久島高等学校", pref:"鹿児島県", quota:"離島留学",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連", examDate:null, resultDate:null, cycle:null,
-        note:"国交省「令和9年度 離島留学募集地域一覧」では受入体制は里親型・合宿型・孫もどし型。下宿等については屋久島町政策推進課（0997-43-5900）が窓口。離島留学生の多くが環境コースに在籍。入寮審査の有無・日程・費用は未確認。", sourceUrl:"https://c-mirai.jp/schools/abd04578-409b-43b9-aef8-858b0e24ca82", whereToCheck:"学校ページ、または学校（0997-42-0013）へ電話確認" },
+      { type:"dorm", key:"dorm", label:"住居関連", examDate:null, resultDate:null, cycle:"R9", applyEnd:"2026-12-04",
+        note:"屋久島高校『令和9年度 町外から入学を希望される方へ』（2026-11-13掲載）で、町外からの入学希望者の募集を案内。募集期間は2026年12月4日（金）まで、申込は屋久島町HPの案内に従う（町HP側の要項・審査日程は本調査では未確認）。国交省『令和9年度 離島留学募集地域一覧』では受入体制は里親型・合宿型・孫もどし型。住まいの相談は屋久島町政策推進課（0997-43-5900）。", sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/yakushima/docs/2026111300073/", whereToCheck:"学校ページ、または学校（0997-42-0013）へ電話確認" },
       { type:"exam", key:"suisen", label:"推薦等特別選抜", examDate:"2027-02-02", resultDate:"2027-03-12", applyEnd:"2027-01-25", exclusive:true, cycle:"R9", applyStart:"2027-01-19",
-        sourceUrl:KAGOSHIMA_URL, whereToCheck:"県教育委員会サイトの令和9年度日程ページ" },
+        sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/yakushima/docs/2026111800092/file_contents/R9nyuushi_suisen.pdf", whereToCheck:"県教育委員会サイトの令和9年度日程ページ", note:"屋久島高校『令和9年度 推薦入学者選抜募集要項』（2026-11-18掲載）で確定。募集数：普通科は学校推薦・自己推薦合わせて8人以内、情報ビジネス科は学校推薦8人以内・自己推薦4人以内。県外生は自己推薦方式（志望理由書）で出願し様式19が必要。出願1/19〜1/25正午必着、作文50分＋面接10分程度は2/2、結果通知2/8（中学校長宛）、入学確約書2/12正午まで、合格発表3/12 11時以後、合格者集合3/15 13:30（保護者同伴）。" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03〜04", resultDate:"2027-03-12", applyEnd:"2027-02-10", cycle:"R9", applyStart:"2027-02-04",
         sourceUrl:KAGOSHIMA_URL, whereToCheck:"同上" },
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-19", resultDate:"2027-03-23", applyEnd:"2027-03-18", cycle:"R9", applyStart:"2027-03-17",
@@ -2165,7 +2166,7 @@ const SCHOOLS = [
         note:"サンゴ留学生の条件は①学力検査合格②入寮審査合格③サンゴ礁科学研究所での研究活動、の3点。入寮審査は書類＋面接で、サンゴ礁科学研究所の審査と同時実施予定。寮費は月額3〜5万円程度（完全個室・朝夕食提供）。窓口は喜界町役場企画観光課0997-65-3682。具体的な選考実施月は未確認。",
         sourceUrl:"https://c-mirai.jp/schools/b4f62fad-e799-428f-b0c0-acfb013a6ef5", whereToCheck:"学校ページ『居住タイプ』欄" },
       { type:"exam", key:"ippan", label:"一般入試", examDate:"2027-03-03〜04", resultDate:"2027-03-12", applyEnd:"2027-02-10", cycle:"R9", applyStart:"2027-02-04",
-        sourceUrl:KAGOSHIMA_URL, whereToCheck:"同上" },
+        sourceUrl:"https://www.edu.pref.kagoshima.jp/sh/kikai/docs/2021120200024/file_contents/03_R09_ippan.pdf", whereToCheck:"同上", note:"喜界高校『令和9年度 一般入学者選抜生徒募集要項』（2026-11-18掲載）で確定。出願2/4〜2/10正午必着、出願変更2/15〜2/19正午、学力検査3/3・3/4（面接は3/4 12時〜）、合格者発表3/12 11時以後・合格者集合同日13:30（保護者同伴）。県外生は様式19が必要。サンゴ留学・ふるさと留学の志願者には喜界町を通じて願書等が送付される（同校『県外からの出願について』）。" },
       { type:"exam", key:"niji", label:"二次募集", examDate:"2027-03-19", resultDate:"2027-03-23", applyEnd:"2027-03-18", cycle:"R9", applyStart:"2027-03-17",
         sourceUrl:KAGOSHIMA_URL, whereToCheck:"同上" }
     ],
@@ -2261,16 +2262,15 @@ const SCHOOLS = [
         note:"道外からは推薦での出願が基本。推薦で合格内定とならなかった場合の『再出願』が2027-02-18〜22（22日は16:00まで）で、そのまま3/3の学力検査（面接等を実施する学校は3/4）を受検する。追検査は2027-03-10、合格発表は3/16 10:00。なお保護者の転勤等で道内転居が確実な場合などの道外からの一般出願は2/26まで（出願事情説明書が必要）。", sourceUrl:"https://www.dokyoi.pref.hokkaido.lg.jp/fs/1/3/2/2/2/5/4/7/_/02_nitteihyou.pdf", whereToCheck:"北海道教育委員会『令和9年度道立高等学校入学者選抜の手引』（日程表・道外推薦要項・一般要項）" }
     ],
     events:[
+      { date:"2026-11-25", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/cbf52114-d6a2-428b-bb66-2b5d0f1154f8" },
       { date:"2026-11-19〜2026-11-30", label:"「現地訪問・見学」随時受付中！ 北海道平取高等学校", format:"現地", applyUrl:"https://c-mirai.jp/events/fdb1184a-e06d-4f26-aa5e-e128025cab61", note:"期間内に随時・複数日開催" },
       { date:"2026-11-19〜2026-12-25", label:"北海道びらとり高等学校 個別相談会 随時受付中！！", format:"オンライン", applyUrl:"https://c-mirai.jp/events/c9d341fb-d679-4fa1-87da-64a1c8cd8ec9", note:"期間内に随時・複数日開催" },
-      { date:"2026-11-25", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/370313af-9fd7-4b24-a0c2-f3318280d4d1" },
-      { date:"2026-11-25", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/cbf52114-d6a2-428b-bb66-2b5d0f1154f8" },
       { date:"2026-11-26", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/8b6edc9b-229b-49f6-b75c-95e85399c8fe" },
       { date:"2026-11-26", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/f879d5d9-aa6f-4a33-bf50-b59ec4b1e6dd" },
       { date:"2026-11-27", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b132916f-a87a-4c6f-af2a-b8f66dfba958" },
       { date:"2026-11-27", label:"【完全個別】北海道平取高等学校オンライン相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/b4142ce3-1a63-41ff-b22e-c19c5acf646e" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/374a4569-d068-4765-899b-f284d95f7eac", where:"c-mirai.jp イベント一覧（2026-11-22時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/374a4569-d068-4765-899b-f284d95f7eac", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"hokkaido_teshikaga", name:"北海道弟子屈高等学校", pref:"北海道", quota:"全国募集",
@@ -2298,9 +2298,13 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.shimane.lg.jp/education/kyoiku/senbatsu/senbatsu_info/index.data/R9_nyuugakusyasenbatsujissiyoukou.pdf", whereToCheck:"島根県教委『令和9年度島根県公立高等学校入学者選抜実施要綱』PDF（総合選抜p.12-13／一般選抜p.21／第2次募集p.34、出願及び選抜に関する手続一覧表）および日程表PDF" }
     ],
     events:[
-      { date:"2026-11-22", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/cfc3b333-4997-4e93-adaa-948be95252ea", note:"終日・随時受付" }
+      { date:"2026-11-25", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/cfd68c3b-dcce-4c7b-98a6-54527663e12f", note:"終日・随時受付" },
+      { date:"2026-11-26", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/5f1ffa69-c8f7-423c-b9d9-9fd37fd052da", note:"終日・随時受付" },
+      { date:"2026-11-27", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/ad70c23b-9624-4957-bb8f-87e5a28a9761", note:"終日・随時受付" },
+      { date:"2026-11-28", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/5dffe01b-b3a2-4d5c-adeb-b3e072179285", note:"終日・随時受付" },
+      { date:"2026-11-29", label:"【横田高校】～地方への進学にお悩みのあなたへ～", format:"現地", applyUrl:"https://c-mirai.jp/events/cfc3b333-4997-4e93-adaa-948be95252ea", note:"終日・随時受付" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/d00de977-4536-4ab0-a256-ac5c35f77653", where:"c-mirai.jp イベント一覧（2026-11-22時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/d00de977-4536-4ab0-a256-ac5c35f77653", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"shimane_iinan", name:"島根県立飯南高等学校", pref:"島根県", quota:"全国募集",
@@ -2315,14 +2319,12 @@ const SCHOOLS = [
         sourceUrl:"https://iinan.ed.jp/files/original/2026111911142682923f43399.pdf", whereToCheck:"飯南高校サイト『入試情報』→『令和9年度入学者選抜募集要項』PDF", note:"令和9年度飯南高校入学者選抜募集要項による。欠員がある場合のみ実施（募集人員は3/12 10時に県教委HPで公表）。一般選抜学力検査の受検者が対象（一般選抜で飯南に出願した者は再出願不可）。出願（Web）は3/12 11時〜3/16 15時、面接は3/18、合格発表は3/23 15時。" }
     ],
     events:[
-      { date:"2026-11-22", label:"【保護者さん向け：１組限定】オンライン個別相談会｜気になることは聞いたもん勝ち", time:"16:30-17:10", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7e79f444-f37d-4fc3-aac1-c7b5f7c98557" },
-      { date:"2026-11-22", label:"【保護者さん向け：１組限定】オンライン個別相談会｜気になることは聞いたもん勝ち", time:"17:20-18:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/3e91235a-89ad-4116-a413-3d8feacb92f5" },
       { date:"2026-12-13", label:"【保護者さん向け：１組限定】オンライン個別相談会｜気になることは聞いたもん勝ち", time:"16:30-17:10", format:"オンライン", applyUrl:"https://c-mirai.jp/events/d137f59a-1a65-499d-99e0-4c1ebda520e5" },
       { date:"2026-12-13", label:"【保護者さん向け：１組限定】オンライン個別相談会｜気になることは聞いたもん勝ち", time:"17:20-18:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/6d8e8d63-3e9b-4a2c-95fd-3d656c47cf5b" },
       { date:"2026-12-27", label:"【保護者さん向け：１組限定】オンライン個別相談会｜気になることは聞いたもん勝ち", time:"16:30-17:10", format:"オンライン", applyUrl:"https://c-mirai.jp/events/a65e6e0a-816b-4e54-acdc-ca36e169d5bb" },
       { date:"2026-12-27", label:"【保護者さん向け：１組限定】オンライン個別相談会｜気になることは聞いたもん勝ち", time:"17:20-18:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/ca4b4b19-cbe8-4bc5-8d39-b569f396daeb" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/36", where:"c-mirai.jp イベント一覧（2026-11-11時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/36", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"shimane_yakami", name:"島根県立矢上高等学校", pref:"島根県", quota:"全国募集",
@@ -2342,9 +2344,8 @@ const SCHOOLS = [
   {
     id:"shimane_yoshika", name:"島根県立吉賀高等学校", pref:"島根県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮関連（男子『よしかみらい交流センター』／女子『サクラマス交流センター』）", examDate:null, resultDate:null, cycle:null,
-        note:"男子は1〜3人部屋、女子は個室。各室バス・トイレ付、3食提供。入寮審査の詳細は未確認。",
-        sourceUrl:"https://shimane-ryugaku.jp/archives/school/yoshika/", whereToCheck:"しまね留学サイト『吉賀高校』ページ" },
+      { type:"dorm", key:"dorm", label:"入寮関連（男子『よしかみらい交流センター』／女子『サクラマス交流センター』）", examDate:null, resultDate:null, cycle:"R9",
+        note:"吉賀高校『令和9年度入学者選抜 出願に関する注意事項（県外）』（2026-11-24掲載）による。出願前の入寮審査・面談はなく、吉賀町営の交流センター（男子：よしかみらい交流センター、女子：サクラマス交流センター）は合格（内定）後の斡旋で、合格（内定）通知とともに送付される書類に記入して高校へ返送する。学校HP『学生宿舎』ページによれば定員は女子32名・男子30名、入居は①総合（特色）選抜合格内定者（県外生）②一般選抜合格者（県外生）③県内生…の順に原則決定。県外生の出願時の居住予定地（様式第9号）は各交流センターの住所を記入。令和9年度生徒募集要項（11月中旬公表予定）は2026-11-25時点で学校HPに未掲載。", sourceUrl:"https://shimane-ryugaku.jp/archives/school/yoshika/", whereToCheck:"しまね留学サイト『吉賀高校』ページ" },
       { type:"exam", key:"tokushoku", label:"特色選抜", examDate:"2027-01-20", resultDate:"2027-01-28", applyEnd:"2027-01-08", exclusive:true, cycle:"R9", applyStart:"2026-12-21",
         sourceUrl:"https://www.pref.shimane.lg.jp/education/kyoiku/senbatsu/senbatsu_info/index.data/R9_sougousenbatsugaiyou.pdf", whereToCheck:"島根県教委『総合選抜概要』PDF" },
       { type:"exam", key:"sogo", label:"総合選抜（一般選抜）", examDate:"2027-03-03〜04", resultDate:"2027-03-12", applyEnd:"2027-02-04", cycle:"R9", applyStart:"2027-01-25",
@@ -2563,11 +2564,10 @@ const SCHOOLS = [
   {
     id:"yamagata_kaneyama", name:"山形県立新庄神室産業高等学校金山校", pref:"山形県", quota:"前期（特色）選抜・後期（一般）選抜",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連（ホームステイ／シェアハウス）", examDate:null, resultDate:null, cycle:null,
-        note:"ホームステイまたは町施設改修のシェアハウス。『町親』『ハウスマスター』がサポート、学校まで徒歩10〜15分。入寮審査の詳細は未確認。",
-        sourceUrl:"https://kaneyama-mirairyugaku.com/", whereToCheck:"金山町地域みらい留学サイト" },
+      { type:"dorm", key:"dorm", label:"『金山町みらい留学生』候補者選考（前期・後期選抜出願の前提／ホームステイ・シェアハウス）", examDate:"2026-12-12", resultDate:null, cycle:"R9", applyStart:"2026-06-01", applyEnd:"2026-12-04 午後5時必着",
+        note:"『金山町みらい留学生』募集要項（令和8年度募集・令和9年度入学者用）による。募集5名程度（前期・後期選抜合わせて）。申込資格は令和9年3月山形県外中学校卒業見込み、金山校入学希望、金山町内に居住、金山町訪問並びに金山校説明会に参加した者。申込は在籍中学校を通じて金山町教育委員会へ簡易書留で郵送（様式1申込書・様式2校長所見並びに学業成績等証明書）。第1回選考会は申込10/30午後5時必着・選考会11/7（オンライン、終了）。第2回選考会は申込12/4午後5時必着・選考会12/12午前9時〜（オンライン、本人・保護者出席で15分程度の個人面接）で、後期（一般）選抜の受検希望者のみ。書類審査通過者に面接の詳細を通知、結果は1週間後をめどに本人宛郵送。候補者認定後に県立高校入試（前期A日程1/19または後期3/7）を受検し、合格した場合に3/17に金山町みらい留学生に決定。県外からの出願は在籍中学校から県教委へ申請・許可後にWeb出願システムにログイン（2週間程度の余裕をもって中学校へ依頼）。住居はホームステイまたは町施設改修のシェアハウス（『町親』『ハウスマスター』がサポート、学校まで徒歩10〜15分）。問い合わせ：金山町教育委員会 0233-32-0075。", sourceUrl:"https://kaneyama-mirairyugaku.com/wp/wp-content/uploads/2026/08/Ｒ８-金山町みらい留学募集要項（改３）.pdf", whereToCheck:"金山町地域みらい留学サイト（https://kaneyama-mirairyugaku.com/）の『金山町みらい留学生』募集要項・実施要項・申込書" },
       { type:"exam", key:"zenki", label:"前期（特色）選抜", examDate:"2027-01-19", resultDate:"2027-01-28", applyEnd:"2027-01-07", exclusive:true, cycle:"R9", applyStart:"2027-01-04",
-        note:"令和9年度山形県共通日程。本校の検査日程はA日程（1/19）。出願は山形県公立学校Web出願システムで1/4〜1/7 12時。受検票は1/13〜1/27に取得。結果は1/28に中学校へ合格内定通知（Web出願システム）、正式な合格者の発表は3/17。【本校の前期（特色）選抜概要（県教委公表・令和9年度）】普通科、募集人員は定員の50％以内、県外志願者受入れあり。出願要件は(1)地域協働（最上地域の人々・自然・文化に魅力を感じ前向きに活動しようとする者）に加え、(2)評定合計23以上、(3)地区大会3位以上・部長等・生徒会役員等、(4)学校説明会・金山町みらい留学生説明会等への参加、のいずれか一つ。県外志願者は(1)と(5)『金山町で学びたい意欲を持ち「金山町みらい留学生」候補者に選考された者』に加え、それ以外の要件のいずれか一つ（出願前に町の候補者選考を経る必要あり。選考日程は本調査時点〈2026-11-21〉で未確認）。検査は個人面接・作文。選抜割合は調査書（学習の記録）30％・調査書（学習の記録以外）30％・個人面接20％・作文20％。", sourceUrl:"https://www.pref.yamagata.jp/documents/50958/20r9kaneyama.pdf", whereToCheck:"山形県教委『令和9年度入学者選抜情報』の実施要項・北学区『前期（特色）選抜における各校の概要』（金山校PDF）／志願先校の募集要項／金山町地域みらい留学サイト" },
+        note:"令和9年度山形県共通日程。本校の検査日程はA日程（1/19）。出願は山形県公立学校Web出願システムで1/4〜1/7 12時。受検票は1/13〜1/27に取得。結果は1/28に中学校へ合格内定通知（Web出願システム）、正式な合格者の発表は3/17。【本校の前期（特色）選抜概要（県教委公表・令和9年度）】普通科、募集人員は定員の50％以内、県外志願者受入れあり。出願要件は(1)地域協働（最上地域の人々・自然・文化に魅力を感じ前向きに活動しようとする者）に加え、(2)評定合計23以上、(3)地区大会3位以上・部長等・生徒会役員等、(4)学校説明会・金山町みらい留学生説明会等への参加、のいずれか一つ。県外志願者は(1)と(5)『金山町で学びたい意欲を持ち「金山町みらい留学生」候補者に選考された者』に加え、それ以外の要件のいずれか一つ（出願前に町の候補者選考を経る必要あり。町の募集要項では前期選抜受検希望者向けの第1回選考会は申込10/30・選考会11/7で終了、第2回〈12/12〉は後期選抜受検希望者のみ。2026-11-25確認）。検査は個人面接・作文。選抜割合は調査書（学習の記録）30％・調査書（学習の記録以外）30％・個人面接20％・作文20％。", sourceUrl:"https://www.pref.yamagata.jp/documents/50958/20r9kaneyama.pdf", whereToCheck:"山形県教委『令和9年度入学者選抜情報』の実施要項・北学区『前期（特色）選抜における各校の概要』（金山校PDF）／志願先校の募集要項／金山町地域みらい留学サイト" },
       { type:"exam", key:"kouki", label:"後期（一般）選抜", applyStart:"2027-02-17", applyEnd:"2027-02-22", examDate:"2027-03-07", resultDate:"2027-03-17", cycle:"R9",
         sourceUrl:"https://www.pref.yamagata.jp/700013/koko/r9nyuugakusyasennbatsu.html", whereToCheck:"山形県教育委員会「令和9年度入学者選抜情報」の実施要項・前期（特色）選抜及び後期（一般）選抜の概要／志願先校の募集要項", note:"令和9年度山形県共通日程。出願は2/17〜2/22正午（Web出願システム）、受検票は2/26〜3/7に取得。学力検査は3/7に5教科。合格者発表は3/17 16時。追検査は3/12（学力検査）・3/13（適性検査）。第2次募集は県教育長が特に必要と認めた場合のみ実施（公告は3/5まで）。" }
     ],
@@ -2592,10 +2592,10 @@ const SCHOOLS = [
   {
     id:"yamagata_oguni", name:"山形県立小国高等学校", pref:"山形県", quota:"前期（特色）選抜・後期（一般）選抜",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮関連（教育寮『桜寮』、令和5年度整備）", examDate:null, resultDate:null, cycle:null,
-        note:"県外生は地元生と共同生活。入寮審査の詳細は未確認。", sourceUrl:"https://shiroimori-ryugaku.com/", whereToCheck:"小国町地域みらい留学サイト" },
+      { type:"dorm", key:"dorm", label:"『小国町白い森留学生』認定選考（前期選抜出願の前提／教育寮『桜寮』）", examDate:"2026-12-06", resultDate:null, cycle:"R9", applyStart:"2026-11-04", applyEnd:"2026-11-20 午後5時必着",
+        note:"『小国町白い森留学生募集要項（令和9年度入学者用）』（2026-08-28掲載）による。定員10名程度。申込資格は山形県外の中学校卒業見込み等、小国高校入学希望、親元を離れ小国町内に居住できる者、応募前に町主催オープンスクール・個別訪問・県主催バスツアー等で訪問（またはZoom等の個別面談）済みの者。申込は在学中学校を通じて小国町教育委員会へ郵送、11/4〜11/20午後5時必着（様式1申込書・様式2保健調査票・様式3学業成績等証明書）。選考は書類選考＋オンライン面接（12/6午前9時頃から順次、1人約30分。受検者が多い場合は別日も設定）。認定結果は2026年12月中に在学中学校長を通じて通知。認定者が小国高校の入試（前期B日程等）に出願し、合格した者が留学生となる。県外生は教育寮『桜寮』で地元生と共同生活。問い合わせ：小国町教育委員会 高校魅力化推進室 0238-87-3665。", sourceUrl:"https://shiroimori-ryugaku.com/shiroimori-wp/wp-content/uploads/2026/08/小国町白い森留学生募集要項R9入学者用）.pdf", whereToCheck:"小国町地域みらい留学サイト『小国町白い森留学生募集要項（R9入学者用）』（https://shiroimori-ryugaku.com/2026/08/28/recruitment-r9-2/）" },
       { type:"exam", key:"zenki", label:"前期（特色）選抜", examDate:"2027-02-02", resultDate:"2027-02-10", applyEnd:"2027-01-07", exclusive:true, cycle:"R9", applyStart:"2027-01-04",
-        note:"令和9年度山形県共通日程。本校の検査日程はB日程（2/2）。出願は山形県公立学校Web出願システムで1/4〜1/7 12時。受検票は1/13〜1/27に取得。結果は2/10に中学校へ合格内定通知（Web出願システム）、正式な合格者の発表は3/17。【本校の前期（特色）選抜概要（県教委公表・令和9年度）】普通科、募集人員は定員の50％以内、県外志願者受入れあり。出願要件は(1)地域協働（小国町の自然・文化に魅力を感じ、協働して主体的に取り組もうとする者）に加え、(2)評定合計23以上、(3)生徒会・部活動での主体的活動、(4)校外活動での主体的活動、のいずれか一つ以上。県外志願者は(1)と(5)『本校が指定した個別説明会に保護者とともに参加（オンライン可）』かつ『「小国町白い森留学生」として採択された者』の全てに該当することが必要（出願前に町の採択を受ける。採択手続きの日程は本調査時点〈2026-11-21〉で未確認）。検査は個人面接・作文。選抜割合は調査書（学習の記録）10％・調査書（学習の記録以外）20％・個人面接40％・作文30％。", sourceUrl:"https://www.pref.yamagata.jp/documents/50961/30r9oguni.pdf", whereToCheck:"山形県教委『令和9年度入学者選抜情報』の実施要項・南学区『前期（特色）選抜における各校の概要』（小国PDF）／志願先校の募集要項／小国町地域みらい留学サイト" },
+        note:"令和9年度山形県共通日程。本校の検査日程はB日程（2/2）。出願は山形県公立学校Web出願システムで1/4〜1/7 12時。受検票は1/13〜1/27に取得。結果は2/10に中学校へ合格内定通知（Web出願システム）、正式な合格者の発表は3/17。【本校の前期（特色）選抜概要（県教委公表・令和9年度）】普通科、募集人員は定員の50％以内、県外志願者受入れあり。出願要件は(1)地域協働（小国町の自然・文化に魅力を感じ、協働して主体的に取り組もうとする者）に加え、(2)評定合計23以上、(3)生徒会・部活動での主体的活動、(4)校外活動での主体的活動、のいずれか一つ以上。県外志願者は(1)と(5)『本校が指定した個別説明会に保護者とともに参加（オンライン可）』かつ『「小国町白い森留学生」として採択された者』の全てに該当することが必要（出願前に町の採択を受ける。町の令和9年度入学者用募集要項では申込11/4〜11/20午後5時必着、オンライン面接12/6、認定は12月中に中学校長経由で通知）。検査は個人面接・作文。選抜割合は調査書（学習の記録）10％・調査書（学習の記録以外）20％・個人面接40％・作文30％。", sourceUrl:"https://www.pref.yamagata.jp/documents/50961/30r9oguni.pdf", whereToCheck:"山形県教委『令和9年度入学者選抜情報』の実施要項・南学区『前期（特色）選抜における各校の概要』（小国PDF）／志願先校の募集要項／小国町地域みらい留学サイト" },
       { type:"exam", key:"kouki", label:"後期（一般）選抜", applyStart:"2027-02-17", applyEnd:"2027-02-22", examDate:"2027-03-07", resultDate:"2027-03-17", cycle:"R9",
         sourceUrl:"https://www.pref.yamagata.jp/700013/koko/r9nyuugakusyasennbatsu.html", whereToCheck:"山形県教育委員会「令和9年度入学者選抜情報」の実施要項・前期（特色）選抜及び後期（一般）選抜の概要／志願先校の募集要項", note:"令和9年度山形県共通日程。出願は2/17〜2/22正午（Web出願システム）、受検票は2/26〜3/7に取得。学力検査は3/7に5教科。合格者発表は3/17 16時。追検査は3/12（学力検査）・3/13（適性検査）。第2次募集は県教育長が特に必要と認めた場合のみ実施（公告は3/5まで）。" }
     ],
@@ -2660,10 +2660,9 @@ const SCHOOLS = [
         note:"一次選抜で欠員が出た場合のみ実施。", sourceUrl:"https://www.pref.hiroshima.lg.jp/", whereToCheck:"同上要項" }
     ],
     events:[
-      { date:"2026-11-24", label:"【11/24】入試説明会", time:"16:30-17:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/bc413867-4df2-43d3-8725-9226fd8fac2d" },
       { date:"2026-12-08", label:"【12/8】部活動紹介 by 生徒企画部", time:"16:00-16:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/e1546706-e41d-438b-932d-2a789af13979" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/f0422847-d90a-4631-8cd4-ebdad8ce4551", where:"c-mirai.jp イベント一覧（2026-11-22時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/f0422847-d90a-4631-8cd4-ebdad8ce4551", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_imabarikogyo", name:"愛媛県立今治工業高等学校", pref:"愛媛県", quota:"全国募集",
@@ -2711,9 +2710,8 @@ const SCHOOLS = [
   {
     id:"ehime_nomura", name:"愛媛県立野村高等学校", pref:"愛媛県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮関連（男子『緑ヶ丘寮』／女子シェアハウス『ヌーボーヴィレ』）", examDate:null, resultDate:null, cycle:null,
-        note:"男子寮は学校隣接、寮母・舎監管理、朝夕食提供。入寮審査の詳細は未確認。",
-        sourceUrl:"https://nomura-h.esnet.ed.jp/schooldormitory", whereToCheck:"学校サイト『寮』ページ" },
+      { type:"dorm", key:"dorm", label:"入寮関連（男子『緑ヶ丘寮』／女子シェアハウス『ヌーボーヴィレ』）", examDate:null, resultDate:null, cycle:"R9", applyEnd:"2026-12-18",
+        note:"野村高校『寮（男子用）、下宿・シェアハウス（女子用）予約制度について（令和9年度入学生）』による。寮・下宿・シェアハウスは数に限りがあるため事前予約制で、予約された順番で部屋を確保（選考・面接の記載なし）。受検を検討している段階で予約可、キャンセルはいつでも可（様式2を提出）。予約票【様式1】を学校魅力推進室へ郵便・FAX・持参で提出、締切2026-12-18(金)（締切後も受付けるが早めの連絡を依頼）。自宅から通学できない男子（相撲部を除く）は緑ヶ丘寮に入寮（10名以内なら1室1名、超えると1室2名）、女子は学校斡旋の下宿・シェアハウスに入居。問合せ：野村高校 0894-72-0102。", sourceUrl:"https://nomura-h.esnet.ed.jp/file/14051", whereToCheck:"野村高校サイト『寮・下宿』ページ（https://nomura-h.esnet.ed.jp/schooldormitory）の予約制度PDF・御案内PDF・入居状況" },
       { type:"exam", key:"tokushoku", label:"特色入学者選抜", examDate:"2027-01-29", resultDate:"2027-03-18", applyEnd:"2027-01-19 正午", exclusive:true, cycle:"R9", applyStart:"2027-01-12",
         sourceUrl:"https://ehime-kyoiku.esnet.ed.jp/file/3395", whereToCheck:"愛媛県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』PDF（掲載ページ https://ehime-kyoiku.esnet.ed.jp/koukou/nyuusi/r09nyuusi ）", note:"県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』による。出願1/12 9時〜1/19正午（えひめ電子申請システム。県外特色入学者募集は自己アピール書に加え入学志願理由書を中学校長経由で提出）、検査1/29、合格内定通知2/5 10時〜2/8正午（中学校長経由）、入学確約書の提出は2/12正午まで、正式な合格発表は3/18 10時。" },
       { type:"exam", key:"ippan", label:"一般入学者選抜", examDate:"2027-03-04〜05", resultDate:"2027-03-18", applyEnd:"2027-02-15 正午", cycle:"R9", applyStart:"2027-02-08",
@@ -2738,8 +2736,8 @@ const SCHOOLS = [
   {
     id:"ehime_ouchi_oda", name:"愛媛県立内子高等学校小田分校", pref:"愛媛県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮関連（定員男36名・女40名）", examDate:null, resultDate:null, cycle:null,
-        note:"全国募集生と通学困難な県内生が共同生活。日中は管理人・ハウスマスター、夜間は舎監常駐。入寮審査の基準は未確認。", sourceUrl:"https://c-mirai.jp/schools/5676df65-0041-4880-b133-a66b3db9e751", whereToCheck:"学校ページ『居住タイプ』欄" },
+      { type:"dorm", key:"dorm", label:"入寮審査（小田分校寄宿舎、内子町の入寮希望調査）", examDate:"2026-12-19〜20", resultDate:"2026-12-23 発送予定", cycle:"R9", applyEnd:"2026-12-11 必着",
+        note:"内子町『令和9年度内子高等学校小田分校寄宿舎入寮希望調査（2次）について』（町ページ2026-11-16更新）による。寄宿舎定員77名、令和9年度の募集人数は男子10名程度（第1寮）・女子13名程度（第5寮）。入寮希望調査書を内子町役場小田支所 小田魅力化係へ郵送（原則）。第1次募集（締切2026-11-13必着、面接11/21・22、結果11/26発送）は終了。第2次募集：締切2026-12-11必着、保護者同伴の対面面接12/19(土)・20(日)、結果通知12/23発送予定。第3次募集は随時（定員到達で終了。実施有無は町ホームページで告知）。寮費は月額29,700円（食費込み）＋光熱水費実費（予定）。調査は小田分校への志願が前提で、入寮・入学を約束するものではない。問合せ：内子町役場小田支所 0892-52-3111。", sourceUrl:"https://www.town.uchiko.ehime.jp/soshiki/14/146865.html", whereToCheck:"内子町サイト『令和９年度内子高等学校小田分校寄宿舎入寮希望調査（第２次募集）の実施について』ページの案内PDF（https://www.town.uchiko.ehime.jp/uploaded/attachment/111209.pdf）・入寮希望調査書" },
       { type:"exam", key:"tokushoku", label:"特色入学者選抜", examDate:"2027-01-29", resultDate:"2027-03-18", applyEnd:"2027-01-19 正午", exclusive:true, cycle:"R9", applyStart:"2027-01-12",
         sourceUrl:"https://ehime-kyoiku.esnet.ed.jp/file/3395", whereToCheck:"愛媛県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』PDF（掲載ページ https://ehime-kyoiku.esnet.ed.jp/koukou/nyuusi/r09nyuusi ）", note:"県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』による。出願1/12 9時〜1/19正午（えひめ電子申請システム。県外特色入学者募集は自己アピール書に加え入学志願理由書を中学校長経由で提出）、検査1/29、合格内定通知2/5 10時〜2/8正午（中学校長経由）、入学確約書の提出は2/12正午まで、正式な合格発表は3/18 10時。" },
       { type:"exam", key:"ippan", label:"一般入学者選抜", examDate:"2027-03-04〜05", resultDate:"2027-03-18", applyEnd:"2027-02-15 正午", cycle:"R9", applyStart:"2027-02-08",
@@ -2755,25 +2753,23 @@ const SCHOOLS = [
     id:"ehime_misaki", name:"愛媛県立三崎高等学校", pref:"愛媛県", quota:"全国募集",
     steps:[
       { type:"dorm", key:"dorm", label:"入寮関連（『速水寮』）", examDate:null, resultDate:null, cycle:null,
-        note:"男女合計20名在寮、生徒の半数以上が寮生活。入寮審査の詳細は未確認。",
-        sourceUrl:"https://misaki-h.net/dormitory/", whereToCheck:"学校サイト『寮』ページ" },
+        note:"三崎高校公式サイト『速水寮』ページによる：自宅が遠い生徒等のための寄宿舎、学校から徒歩10分、定員20名（男子10名・女子10名、男女共用）、舎費月額33,400円（教育振興会費の援助により生徒負担18,400円）、3食あり（昼食は学校へ弁当配達）。令和9年度の入寮申込・選考の日程は2026-11-25時点で学校サイトに掲載なし。学校（0894-54-0550）へ確認推奨。", sourceUrl:"https://ehm-misaki-h.esnet.ed.jp/page_20191115035548", whereToCheck:"三崎高校サイト『速水寮』ページ・『寄宿舎情報リンク』ページ（https://ehm-misaki-h.esnet.ed.jp/page_20230512013937）" },
       { type:"exam", key:"tokushoku", label:"特色入学者選抜", examDate:"2027-01-29", resultDate:"2027-03-18", applyEnd:"2027-01-19 正午", exclusive:true, cycle:"R9", applyStart:"2027-01-12",
         sourceUrl:"https://ehime-kyoiku.esnet.ed.jp/file/3395", whereToCheck:"愛媛県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』PDF（掲載ページ https://ehime-kyoiku.esnet.ed.jp/koukou/nyuusi/r09nyuusi ）", note:"県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』による。出願1/12 9時〜1/19正午（えひめ電子申請システム。県外特色入学者募集は自己アピール書に加え入学志願理由書を中学校長経由で提出）、検査1/29、合格内定通知2/5 10時〜2/8正午（中学校長経由）、入学確約書の提出は2/12正午まで、正式な合格発表は3/18 10時。" },
       { type:"exam", key:"ippan", label:"一般入学者選抜", examDate:"2027-03-04〜05", resultDate:"2027-03-18", applyEnd:"2027-02-15 正午", cycle:"R9", applyStart:"2027-02-08",
         sourceUrl:"https://ehime-kyoiku.esnet.ed.jp/file/3395", whereToCheck:"愛媛県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』PDF（掲載ページ https://ehime-kyoiku.esnet.ed.jp/koukou/nyuusi/r09nyuusi ）", note:"県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』による。出願2/8 9時〜2/15正午（県外からは入学志願理由書も提出）、志願変更2/16 9時〜2/24正午、学力検査3/4、学力検査・面接3/5、追検査3/12、合格発表3/18 10時。第2次募集は定時制のみで、全日制には設定されていない。" }
     ],
     events:[
-      { date:"2026-11-23", label:"【大丈夫！進学先決定は今から！】完全個別進路相談会③", time:"16:00-16:45", format:"オンライン", applyUrl:"https://c-mirai.jp/events/ad1d7cc7-ec0a-4db7-9041-f16ffba8e766" },
-      { date:"2026-11-26", label:"【大丈夫！進学先決定は今から！】完全個別進路相談会④", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/5209bd0d-9747-4d8e-8187-0bc3fdfee984" }
+      { date:"2026-11-26", label:"【大丈夫！進学先決定は今から！】完全個別進路相談会④", time:"18:00-18:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/5209bd0d-9747-4d8e-8187-0bc3fdfee984" },
+      { date:"2026-12-02", label:"【大丈夫！進学先決定は今から！】完全個別進路相談会⑤", time:"16:00-16:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/7dfde3ab-653b-4a93-9cb6-ca1e76110893" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/0af2bb79-5a30-42db-8549-4c5d24ea9f54", where:"c-mirai.jp イベント一覧（2026-11-22時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/0af2bb79-5a30-42db-8549-4c5d24ea9f54", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"ehime_kitauwa", name:"愛媛県立北宇和高等学校", pref:"愛媛県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連（『北辰寮』）", examDate:null, resultDate:null, cycle:null,
-        note:"学校徒歩7分、鬼北町整備・県外生中心。町営住宅家賃補助（上限月3万円）、寮費補助制度あり。入寮審査の詳細は未確認。",
-        sourceUrl:"https://kitauwa-h.esnet.ed.jp/", whereToCheck:"学校サイト" },
+      { type:"dorm", key:"dorm", label:"入寮審査（北辰寮／多世代交流施設チカナガぷらっとホーム、鬼北町）", examDate:"2026-12-20〜25", resultDate:"2026-12-28 発送予定", cycle:"R9", applyStart:"2026-09-18", applyEnd:"2026-11-30",
+        note:"鬼北町『令和9年度 北宇和高校寮（多世代交流施設・北宇和高校教育寮）入居募集要項』（町ページ2026-09-18更新）による。対象は令和9年度入居希望者（北宇和高校受験予定者）。募集13名予定（多世代交流施設・北辰寮それぞれ6〜7名、応募に偏りが出た場合は抽選）。申込期間2026-09-18〜11-30（入居申込書・個人票・自己紹介シート・志望理由書・出席状況確認書・中1の1学期〜中3の1学期の通知表コピー等を町企画振興課へ郵送。応募状況により追加募集あり）。選考は書類と面接（対面かWEBを選択、20分程度）：面接は2026-12-20(日)9〜12時、または12/21〜12/25の9〜19時の希望日時。入居予定者承認通知は12/28発送予定、合格発表後に正式に入居許可。施設使用料は月額60,000円（平日朝夕2食・光熱水費等込み、月15,000円程度の補助制度を予定）。入居後は住民票の異動が条件。問合せ：鬼北町企画振興課 地域活力創出係 0895-45-1111（内線2211）。", sourceUrl:"https://www.town.kihoku.ehime.jp/soshiki/kikaku/36110.html", whereToCheck:"鬼北町サイト『北宇和高校寮（多世代交流施設・北宇和高校教育寮）の入居生徒募集について』ページの募集要項PDF（https://www.town.kihoku.ehime.jp/uploaded/attachment/19382.pdf）" },
       { type:"exam", key:"tokushoku", label:"特色入学者選抜", examDate:"2027-01-29", resultDate:"2027-03-18", applyEnd:"2027-01-19 正午", exclusive:true, cycle:"R9", applyStart:"2027-01-12",
         sourceUrl:"https://ehime-kyoiku.esnet.ed.jp/file/3395", whereToCheck:"愛媛県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』PDF（掲載ページ https://ehime-kyoiku.esnet.ed.jp/koukou/nyuusi/r09nyuusi ）", note:"県教委『令和9年度愛媛県県立高等学校入学者選抜実施要項』による。出願1/12 9時〜1/19正午（えひめ電子申請システム。県外特色入学者募集は自己アピール書に加え入学志願理由書を中学校長経由で提出）、検査1/29、合格内定通知2/5 10時〜2/8正午（中学校長経由）、入学確約書の提出は2/12正午まで、正式な合格発表は3/18 10時。" },
       { type:"exam", key:"ippan", label:"一般入学者選抜", examDate:"2027-03-04〜05", resultDate:"2027-03-18", applyEnd:"2027-02-15 正午", cycle:"R9", applyStart:"2027-02-08",
@@ -2800,9 +2796,8 @@ const SCHOOLS = [
   {
     id:"niigata_murakami", name:"新潟県立村上高等学校", pref:"新潟県", quota:"全国募集（粟島留学）",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮手続き（粟島浦村設置『晴海寮』）", examDate:null, resultDate:null, cycle:null,
-        note:"月6万円、平日3食提供（土日祝は自炊）。学校まで近距離。入寮には『説明会への出席』と『申込書の提出』が必要と明記されているが、具体的な審査基準・選考方法・面接の有無は未確認。市担当課：むらかみ暮らし推進課 移住定住推進室 0254-75-8926。",
-        sourceUrl:"https://www.city.murakami.lg.jp/soshiki/12/chiikimirairyuugaku.html", whereToCheck:"村上市サイト" },
+      { type:"dorm", key:"dorm", label:"村上市 地域みらい留学生 受入面接（一般選抜出願の前提／粟島浦村『晴海寮』）", examDate:null, resultDate:null, cycle:"R9", applyStart:"2026-10-19", applyEnd:"2026-11-13 17時必着",
+        note:"『村上市 地域みらい留学生募集要項（令和8年度募集／令和9年度入学者用）』による。募集2名。申込資格は新潟県外の中学校卒業見込み等で、一般選抜（一般枠）で村上高校を受検する者など。申込は様式1申込書・様式2保健調査票を村上市むらかみ暮らし推進課移住定住推進室へ郵送、2026-10-19〜11-13 17時必着（受付終了）。受入面接は2026年11月下旬〜12月中旬に原則対面（現地訪問・面談済み等の場合はオンラインの場合あり）、認定結果は12月中旬〜下旬頃に申込者へ通知。認定者のうち村上高校の入試に合格した者を留学生に決定。住居は粟島浦村高校寄宿舎『晴海寮』で、2027年3月実施予定の入寮説明会に生徒・保護者が出席し入寮申込書兼誓約書を提出（説明会日程は決定しだい市HPで告知）。寮使用料は月額70,000円（光熱水費・平日3食込、土日祝の食事なし。お盆・年末年始等は閉寮）。問い合わせ：0254-75-8926。", sourceUrl:"https://www.city.murakami.lg.jp/uploaded/attachment/78708.pdf", whereToCheck:"村上市『地域みらい留学（令和9年度入学・令和8年度募集）』ページ（https://www.city.murakami.lg.jp/soshiki/12/chiikimirairyuugaku.html）の募集要項・募集スケジュール" },
       { type:"exam", key:"ippan", label:"一般選抜", examDate:"2027-02-25", resultDate:"2027-03-08", applyEnd:"2027-02-10", exclusive:true, cycle:"R9", applyStart:"2027-02-08",
         note:"『令和9年度新潟県公立高等学校入学者選抜要項』（2026-10-23公表）で確認：出願2/8〜2/10、志願変更2/16〜2/18、学力検査2/25（5教科）、追検査3/2・3/3、合格発表3/8（時刻は要項本文で要確認）。村上（普通、定員120）は学校設定枠の設定なし、一般枠の学校独自検査なし。学力検査翌日（2/26）の検査はなし。県外からの出願可（学科への目的意識が強く、県内に親権を代行できる者がいること。県外中学校が県教育庁高等学校教育課に要項・出願書類を請求）。", sourceUrl:"https://www.pref.niigata.lg.jp/uploaded/attachment/513619.pdf", whereToCheck:"新潟県教委『高等学校入学者選抜に関する情報』ページ（https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html）の令和9年度選抜要項、『学校・学科ごとの募集人数と選抜方法等』PDF" },
       { type:"exam", key:"niji", label:"欠員補充二次募集", examDate:"2027-03-15", resultDate:"2027-03-16", applyEnd:"2027-03-12", cycle:"R9", applyStart:"2027-03-11",
@@ -2814,9 +2809,8 @@ const SCHOOLS = [
   {
     id:"niigata_sado", name:"新潟県立佐渡高等学校", pref:"新潟県", quota:"全国募集（令和7年度より開始）",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連（下宿予定）", examDate:null, resultDate:null, cycle:null,
-        note:"学校徒歩10分、ハウスマスターが調理。令和7年度より地域みらい留学募集開始。入寮審査の詳細は未確認。",
-        sourceUrl:"https://www.city.sado.niigata.jp/site/chiiki-mirai-ryugaku/", whereToCheck:"佐渡市サイト" },
+      { type:"dorm", key:"dorm", label:"住居関連（佐渡市の島留学受入は令和9年度入試から見送り）", examDate:null, resultDate:null, cycle:null,
+        note:"佐渡市は『令和9年度以降の高校島留学の受入体制について』（2026-11-02更新）で、令和9年度入試から島留学の受入を羽茂高校1校に集約し、佐渡高校・佐渡総合高校での受入は当面の間見送ると公表。令和9年度入学者向けの市の島留学生募集（住居支援）は佐渡高校では行われない。県の選抜要項上は県外からの一般選抜出願自体は可能（県内に親権を代行できる者がいること等）だが、住居は自己手配となる見込み。出願を検討する場合は学校・佐渡市移住交流推進課（0259-67-7153）へ要確認。", sourceUrl:"https://www.city.sado.niigata.jp/site/chiiki-mirai-ryugaku/88011.html", whereToCheck:"佐渡市『令和9年度以降の高校島留学の受入体制について』ページ" },
       { type:"exam", key:"ippan", label:"一般選抜", examDate:"2027-02-25", resultDate:"2027-03-08", applyEnd:"2027-02-10", exclusive:true, cycle:"R9", applyStart:"2027-02-08",
         sourceUrl:"https://www.pref.niigata.lg.jp/uploaded/attachment/513619.pdf", whereToCheck:"新潟県教委『高等学校入学者選抜に関する情報』ページ（https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html）の令和9年度選抜要項、『学校・学科ごとの募集人数と選抜方法等』PDF", note:"『令和9年度新潟県公立高等学校入学者選抜要項』（2026-10-23公表）で確認：出願2/8〜2/10、志願変更2/16〜2/18、学力検査2/25（5教科）、追検査3/2・3/3、合格発表3/8（時刻は要項本文で要確認）。佐渡（普通、定員160。両津キャンパスは別募集で県外出願の対象外）は学校設定枠の設定なし、一般枠の学校独自検査なし。学力検査翌日（2/26）の検査はなし。県外からの出願可（学科への目的意識が強く、県内に親権を代行できる者がいること。県外中学校が県教育庁高等学校教育課に要項・出願書類を請求）。" },
       { type:"exam", key:"niji", label:"欠員補充二次募集", examDate:"2027-03-15", resultDate:"2027-03-16", applyEnd:"2027-03-12", cycle:"R9", applyStart:"2027-03-11",
@@ -2828,8 +2822,8 @@ const SCHOOLS = [
   {
     id:"niigata_sadosogo", name:"新潟県立佐渡総合高等学校", pref:"新潟県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連（シェアハウス型民宿）", examDate:null, resultDate:null, cycle:null,
-        note:"佐渡市が借り上げた近隣の民宿を改装したシェアハウス。個室（2年次以降は相部屋の可能性あり）、共同の浴室・トイレ、月額費用は約5万円（朝夕食・光熱費込み）。入居審査・選考プロセスの詳細は未確認（佐渡市移住交流推進課0259-67-7153へ確認要）。", sourceUrl:"https://www.city.sado.niigata.jp/site/chiiki-mirai-ryugaku/72250.html", whereToCheck:"佐渡市サイト『佐渡総合高校【生活環境】』ページ" },
+      { type:"dorm", key:"dorm", label:"住居関連（佐渡市の島留学受入は令和9年度入試から見送り）", examDate:null, resultDate:null, cycle:null,
+        note:"佐渡市は『令和9年度以降の高校島留学の受入体制について』（2026-11-02更新）で、令和9年度入試から島留学の受入を羽茂高校1校に集約し、佐渡高校・佐渡総合高校での受入は当面の間見送ると公表。令和9年度入学者向けの市の島留学生募集（シェアハウス型民宿等の住居支援）は佐渡総合高校では行われない。県の選抜要項上は県外からの一般選抜出願自体は可能（県内に親権を代行できる者がいること等）だが、住居は自己手配となる見込み。出願を検討する場合は学校・佐渡市移住交流推進課（0259-67-7153）へ要確認。", sourceUrl:"https://www.city.sado.niigata.jp/site/chiiki-mirai-ryugaku/88011.html", whereToCheck:"佐渡市『令和9年度以降の高校島留学の受入体制について』ページ" },
       { type:"exam", key:"ippan", label:"一般選抜", examDate:"2027-02-25", resultDate:"2027-03-08", applyEnd:"2027-02-10", exclusive:true, cycle:"R9", applyStart:"2027-02-08",
         sourceUrl:"https://www.pref.niigata.lg.jp/uploaded/attachment/513619.pdf", whereToCheck:"新潟県教委『高等学校入学者選抜に関する情報』ページ（https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html）の令和9年度選抜要項、『学校・学科ごとの募集人数と選抜方法等』PDF", note:"『令和9年度新潟県公立高等学校入学者選抜要項』（2026-10-23公表）で確認：出願2/8〜2/10、志願変更2/16〜2/18、学力検査2/25（5教科）、追検査3/2・3/3、合格発表3/8（時刻は要項本文で要確認）。佐渡総合（総合学科、定員120）は学校設定枠の設定なし、一般枠の学校独自検査なし。学力検査翌日（2/26）の検査はなし。県外からの出願可（学科への目的意識が強く、県内に親権を代行できる者がいること。県外中学校が県教育庁高等学校教育課に要項・出願書類を請求）。" },
       { type:"exam", key:"niji", label:"欠員補充二次募集", examDate:"2027-03-15", resultDate:"2027-03-16", applyEnd:"2027-03-12", cycle:"R9", applyStart:"2027-03-11",
@@ -2841,9 +2835,8 @@ const SCHOOLS = [
   {
     id:"niigata_hamochi", name:"新潟県立羽茂高等学校", pref:"新潟県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"住居関連（シェアハウス型寮）", examDate:null, resultDate:null, cycle:null,
-        note:"学校から徒歩約10分。個別現地訪問（随時実施、固定日時なし）で寮見学・説明を受けられる。内容：①学校説明②校舎見学③授業見学④部活動見学⑤寮の説明・見学⑥地区案内⑦質疑応答。入寮審査の基準は未確認。担当：佐渡市総合政策課0259-63-3802（kikaku@city.sado.niigata.jp）。",
-        sourceUrl:"https://c-mirai.jp/schools/2788c1ec-f192-4e28-9fac-a3c8f5602b5d", whereToCheck:"学校ページ『居住タイプ』欄" },
+      { type:"dorm", key:"dorm", label:"佐渡市島留学生 申込・面談（一般選抜出願前／市が用意する施設・下宿）", examDate:null, resultDate:null, cycle:"R9", applyStart:"2026-11-10", applyEnd:"2026-12-10 必着",
+        note:"『佐渡市島留学生募集要項（令和8年度募集、令和9年度入学者用）』による。令和9年度入試から市の島留学の受入は羽茂高校1校に集約。募集は男子1名・女子1名。申込資格は令和9年3月に佐渡市外の中学校卒業見込みで、一般選抜で羽茂高校を受験する者など。島留学生申込書を佐渡市移住交流推進課へ2026-11-10〜12-10必着で提出。申込書に基づき本人・保護者の面談を実施（日程は申込者と調整、オンラインまたは現地）。選考結果で受入内定し、かつ羽茂高校に合格した者を島留学生として正式決定。住居は市が用意する施設または下宿先、住居費月額50,000円（平日朝夕食・光熱水費等込）。個別現地訪問（学校・寮見学等）は随時。問い合わせ：佐渡市移住交流推進課 0259-67-7153（r-iju@city.sado.niigata.jp）。", sourceUrl:"https://www.city.sado.niigata.jp/uploaded/attachment/63078.pdf", whereToCheck:"佐渡市『令和9年度 島留学申込受付』ページ（https://www.city.sado.niigata.jp/site/chiiki-mirai-ryugaku/87935.html）の募集要項・申込書・入学までの流れ" },
       { type:"exam", key:"ippan", label:"一般選抜", examDate:"2027-02-25", resultDate:"2027-03-08", applyEnd:"2027-02-10", exclusive:true, cycle:"R9", applyStart:"2027-02-08",
         sourceUrl:"https://www.pref.niigata.lg.jp/uploaded/attachment/513619.pdf", whereToCheck:"新潟県教委『高等学校入学者選抜に関する情報』ページ（https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html）の令和9年度選抜要項、『学校・学科ごとの募集人数と選抜方法等』PDF", note:"『令和9年度新潟県公立高等学校入学者選抜要項』（2026-10-23公表）で確認：出願2/8〜2/10、志願変更2/16〜2/18、学力検査2/25（5教科）、追検査3/2・3/3、合格発表3/8（時刻は要項本文で要確認）。羽茂（普通、定員40）は学校設定枠12人以内：『その他の検査等』は志願理由書と実績等を証明する書類（総合的な学習の時間等での地域と連携した活動）（50点、配点は調査書400：学力600）。一般枠28人は学校独自検査なし。学力検査翌日（2/26）の検査はなし。県外からの出願可（学科への目的意識が強く、県内に親権を代行できる者がいること。県外中学校が県教育庁高等学校教育課に要項・出願書類を請求）。" },
       { type:"exam", key:"niji", label:"欠員補充二次募集", examDate:"2027-03-15", resultDate:"2027-03-16", applyEnd:"2027-03-12", cycle:"R9", applyStart:"2027-03-11",
@@ -2872,9 +2865,8 @@ const SCHOOLS = [
   {
     id:"niigata_nakajo", name:"新潟県立中条高等学校", pref:"新潟県", quota:"全国募集",
     steps:[
-      { type:"dorm", key:"dorm", label:"入寮関連（農家民宿『桑苺』改装、寮長在中）", examDate:null, resultDate:null, cycle:null,
-        note:"胎内市の農家民宿『桑苺（マルベリー）』を改装。個室（トイレ・風呂は共同）、食事は併設の農家レストラン『亜久里』で提供。学校まで徒歩約10分、周辺にスーパー・コンビニ・ホームセンターあり。挨拶・靴管理など生活指導を重視。具体的な月額費用・入寮審査の詳細は未確認（info@yorishiro.org等へ問合せ）。",
-        sourceUrl:"https://c-mirai.jp/schools/57da3152-698f-4569-87ef-c9e5cc2f1478", whereToCheck:"学校ページ『居住タイプ』欄" },
+      { type:"dorm", key:"dorm", label:"胎内市 地域みらい留学生 受入面接（入寮希望者／農家民宿『桑苺』改装の寮）", examDate:null, resultDate:null, cycle:"R9", applyStart:"2026-11-02", applyEnd:"2026-11-27 17時必着",
+        note:"胎内市『地域みらい留学生募集』ページ（2026-10-13更新）による。令和9年度に中条高校へ入学を希望し、胎内市が用意する寮への入寮を希望する生徒が対象、募集定員2名。申込は様式1申込書・様式2保健調査票を胎内市総合政策課企画政策係へ郵送、2026-11-02〜11-27 17時必着。受入面接は原則対面で2026年12月中に申込者と日程調整して実施、認定通知は2026年12月下旬〜2027年1月上旬頃。認定者のうち新潟県公立高校入試に合格した者を留学生に決定（県外からの出願手続きは県教委へ別途）。寮使用料は月50,000円（朝・昼・夕食提供、今後変更の場合あり）。寮は農家民宿『桑苺（マルベリー）』を改装、個室（トイレ・風呂共同）、学校まで徒歩約10分。", sourceUrl:"https://www.city.tainai.niigata.jp/gyose/sogoseisasu/chiikimirai.html", whereToCheck:"胎内市『胎内市 地域みらい留学生募集』ページの募集要項・様式1・様式2" },
       { type:"exam", key:"ippan", label:"一般選抜", examDate:"2027-02-25〜26", resultDate:"2027-03-08", applyEnd:"2027-02-10", exclusive:true, cycle:"R9", applyStart:"2027-02-08",
         sourceUrl:"https://www.pref.niigata.lg.jp/uploaded/attachment/513619.pdf", whereToCheck:"新潟県教委『高等学校入学者選抜に関する情報』ページ（https://www.pref.niigata.lg.jp/sec/kotogakko/nyugakushasenbatsu.html）の令和9年度選抜要項、『学校・学科ごとの募集人数と選抜方法等』PDF", note:"『令和9年度新潟県公立高等学校入学者選抜要項』（2026-10-23公表）で確認：出願2/8〜2/10、志願変更2/16〜2/18、学力検査2/25（5教科）、追検査3/2・3/3、合格発表3/8（時刻は要項本文で要確認）。中条（普通、定員80）は学校設定枠24人以内：『その他の検査等』は志願理由書と実績等を証明する書類（総合的な学習の時間等での地域と連携した取組）に加え、2/26に個人面接（100点、配点は調査書600：学力400）。一般枠56人は学校独自検査なし（2/26の来校は学校設定枠の志願者のみ）。県外からの出願可（学科への目的意識が強く、県内に親権を代行できる者がいること。県外中学校が県教育庁高等学校教育課に要項・出願書類を請求）。" },
       { type:"exam", key:"niji", label:"欠員補充二次募集", examDate:"2027-03-15", resultDate:"2027-03-16", applyEnd:"2027-03-12", cycle:"R9", applyStart:"2027-03-11",
@@ -2904,8 +2896,8 @@ const SCHOOLS = [
     steps:[
       { type:"dorm", key:"dorm", label:"入寮審査（『いさな寮』、室戸高校地域交流センター、最重要）", applyEnd:"2026-11-13", cycle:"R9",
         note:"室戸高校サイト『入試』ページ（2026-09-30掲載『令和9年度入寮面接のご案内』）による：入寮面接はオンラインで実施。『入寮面接のご案内』『R8寮規定』『R8寮生心得』を読んだうえで入寮事前申し込みフォーム（Googleフォーム）から申込、締切11/13(金)。面接日・結果通知日は案内PDF（本調査では本文未確認）で要確認。参考：R8は定員超過時のみオンライン面接（保護者同席）、入寮許可があっても入試に合格しなければ入寮不可。寮費はR8で入寮費10,000円＋月額50,000円（室戸市補助で実質25,000円、住民票移動が条件）。締切後の追加募集の有無は学校（0887-22-1155）へ確認。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/moroto-h/学校案内/入試", whereToCheck:"室戸高校（全日制）サイト『学校案内＞入試』の『令和9年度入寮面接のご案内』PDF・入寮事前申し込みフォーム" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。室戸高校〔総合〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（面接・作文・プレゼン・実技から学校が定める。R8は1/17に面接・作文）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡（R8一覧表の注記）。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-16 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。室戸高校：検査1/16(土)9時〜（面接 個人8分・作文600字/50分）、R9募集定員45名、寄宿舎入所可能者数 最大21名。出願要件は基礎的な学力を有し、ジオパーク等の地域資源を活用した探究学習や国際交流に強い興味と意欲を持って取り組める生徒。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
@@ -2920,25 +2912,26 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮審査（『嶺北研修交流学舎』、定員32名程度）", examDate:null, resultDate:null, cycle:"R8ref", yearLabel:"令和8年度実績（参考）",
         note:"入寮/入試説明会が2026年9月28日・10月2日にオンライン開催、入寮面接は例年11月上旬（オンライン）というスケジュール。",
         sourceUrl:"https://c-mirai.jp/schools/a498fa71-acda-4bd3-a2eb-e1bad5a54c7d", whereToCheck:"学校ページ『居住タイプ』欄" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。嶺北高校〔普通〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（R8は1/15にプレゼンテーション）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14 9:30", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。嶺北高校：検査1/14(木)9時30分〜（プレゼンテーション12分＝プレゼン7分・質疑応答5分、テーマ「嶺北高校のアドミッション・ポリシーと『私』」、スケッチブックやポスターなど紙媒体のみ使用可）、R9募集定員35名、寄宿舎入所可能者数 最大10名程度。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。連携型中高一貫の特別選抜（連携中学校出身者向け）もA日程に準じて実施。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
         sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"同上PDF" },
     ],
     events:[
-      { date:"2026-12-26〜2026-12-28", label:"【受付中】探究×創造キャンプ Winter 2026", format:"現地", applyUrl:"https://c-mirai.jp/events/70f39028-8f5e-46f3-8a29-49b905d1b71c", note:"期間内に随時・複数日開催" }
+      { date:"2026-11-24〜2026-11-27", label:"【間もなく締切】探究×創造キャンプ in Winter 2026", format:"現地", applyUrl:"https://c-mirai.jp/events/396a88f8-45bd-4902-9b2c-f75484b023a6", note:"期間内に随時・複数日開催" },
+      { date:"2026-12-26〜2026-12-28", label:"【受付中】探究×創造キャンプ in Winter 2026", format:"現地", applyUrl:"https://c-mirai.jp/events/70f39028-8f5e-46f3-8a29-49b905d1b71c", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/a498fa71-acda-4bd3-a2eb-e1bad5a54c7d", where:"c-mirai.jp イベント一覧（2026-11-18時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/a498fa71-acda-4bd3-a2eb-e1bad5a54c7d", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"kochi_yusuhara", name:"高知県立梼原高等学校", pref:"高知県", quota:"全国募集（こうち留学）",
     steps:[
       { type:"dorm", key:"dorm", label:"住居関連（寮『ゆすゆす』）", examDate:null, resultDate:null, cycle:null,
         note:"梼原町生涯学習交流センター内、3学年定員70名、2026年3月に女子寮完成。費用は住居費15,000円/月＋食費30,000円/月＋入寮費5,000円/年（生活費合計月額50,000円）。集団部屋（2〜3人部屋）、全室シャワー・トイレ・洗濯機・IHコンロ・Wi-Fi完備。入寮審査の詳細は未確認。", sourceUrl:"https://c-mirai.jp/schools/e65545a1-d727-4b8d-b476-eb3c9cb4ab0e", whereToCheck:"学校ページ、または https://www.kochinet.ed.jp/yusuhara-h/mt/miryokuka/ryouseibi.html" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。檮原高校〔普通〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（R8は1/15に面接）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。檮原高校：検査1/14(木)9時〜（面接 個人8分・作文400字/30分）、R9募集定員30名、寄宿舎入所可能者数 最大24名。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。連携型中高一貫の特別選抜（連携中学校出身者向け）もA日程に準じて実施。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
@@ -2956,8 +2949,8 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮関連（2階建・2人部屋）", examDate:null, resultDate:null, cycle:null,
         note:"朝夕2食提供、コンビニ徒歩100m以内。寮名は未確認。",
         sourceUrl:"https://c-mirai.jp/schools/49511a6f-b26b-4d24-afa1-89d74d2afbe8", whereToCheck:"学校ページ『居住タイプ』欄" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。窪川高校〔普通〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（R8は1/16にプレゼンテーション）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-15 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。窪川高校：検査1/15(金)9時〜（プレゼンテーション15分＝プレゼン8分・質疑応答7分、テーマ「四万十町での高校生活への思い」、紙媒体・立体制作物・タブレット等も使用可）、R9募集定員35名、寄宿舎入所可能者数 最大15名程度。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
@@ -2971,8 +2964,8 @@ const SCHOOLS = [
     steps:[
       { type:"dorm", key:"dorm", label:"入寮審査（『木の香寮』）", examDate:"2026-11-21", resultDate:"2026-11-24", cycle:"R9", applyStart:"2026-08-07", applyEnd:"2026-11-13",
         note:"四万十高校『令和9年度「木の香寮」「もりだば寮」入寮案内』（2026-08-08掲載）による。募集は男女各5〜8名程度（原則木の香寮・定員20名、応募多数時は希望によりもりだば寮・定員6名）。施設見学への参加が申込の必須条件（見学・教育振興会役員と面談した人は8/7から受付）。第1回募集：申込10/1必着、オンライン面接10/10、結果発送10/13。第2回募集：申込11/13必着、オンライン面接11/21、結果発送11/24（面接は申込者が募集人数を超えた場合のみ）。入寮許可があっても入試に合格しなければ入寮不可。入寮費5,000円＋月額38,000円（食費24,000円＋維持費14,000円、四万十町へ住民票を移すと町補助で9,000円減額）。学校サイトで『【女子生徒限定】入寮希望枠1名追加』の告知あり（希望者は学校0880-27-0034へ連絡）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/shimanto-h/学校生活/寮", whereToCheck:"四万十高校サイト『学校生活＞寮』の令和9年度入寮案内・入寮申込書・入寮及び入試の流れ" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-15", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。四万十高校〔普通、普通(自然環境)〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は本校サイトで令和9年1月15日(金)と掲載（県要項では1/14〜1/19の期間で学校が定める日。R8は面接・作文）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-15 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。四万十高校：検査1/15(金)9時〜（面接 個人7分・作文600字/50分）、R9募集定員45名、寄宿舎入所可能者数 最大14名程度。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。連携型中高一貫の特別選抜（連携中学校出身者向け）もA日程に準じて実施。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
@@ -2990,16 +2983,14 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮関連（『青葉寮』、市営『津野川若者ハウス』も優先入居可）", examDate:null, resultDate:null, cycle:null,
         note:"津野川若者ハウスは家賃無料、食費等自己負担。入寮審査の詳細は未確認。",
         sourceUrl:"https://c-mirai.jp/schools/797ea927-c666-4bc5-ba0f-63e88ad3bd84", whereToCheck:"学校ページ『居住タイプ』欄" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。中村高校西土佐分校〔普通〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（R8は1/15に面接・作文）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-15 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。中村高校西土佐分校：検査1/15(金)9時〜（面接 個人8分・作文600字/50分）、R9募集定員20名、寄宿舎入所可能者数 最大10名。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
         sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"同上PDF" },
     ],
-    events:[
-      { date:"2026-11-24", label:"【中学1・2年生対象】中2からの進路探し「寮生活ってどんな感じ？」", time:"18:30-19:00", format:"オンライン", applyUrl:"https://c-mirai.jp/events/4278b415-4afb-40ba-b65d-229d8311c115" }
-    ],
+    events:[],
     eventsSource:{ url:"https://c-mirai.jp/schools/797ea927-c666-4bc5-ba0f-63e88ad3bd84", where:"c-mirai.jp イベント一覧（2026-11-18時点で更新）。申込はイベントページから。" }
   },
   {
@@ -3008,8 +2999,8 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"入寮関連（廃校小学校改修『みらいコミュニティTOSASHIMIZU Base』）", examDate:null, resultDate:null, cycle:null,
         note:"寮兼地域交流施設として整備。入寮審査の詳細は未確認。",
         sourceUrl:"https://c-mirai.jp/schools/4511da71-31bd-4481-b815-a930a844726e", whereToCheck:"学校ページ『居住タイプ』欄" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。清水高校〔普通(未来共創)〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（R8は1/16にプレゼンテーション）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-17 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。清水高校：検査1/17(日)9時〜（プレゼンテーション10分＝プレゼン7分・質疑応答3分、テーマ「ジョン万次郎と私、そして、私の未来」、紙媒体・立体制作物・タブレット等も使用可）、R9募集定員45名、寄宿舎入所可能者数 最大18名。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。連携型中高一貫の特別選抜（連携中学校出身者向け）もA日程に準じて実施。北海道の同名『清水高等学校』とは別校。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
@@ -3027,8 +3018,8 @@ const SCHOOLS = [
       { type:"dorm", key:"dorm", label:"住居関連（男子寮『くろしお寮』／女子寮『なぎさ寮』）", examDate:null, resultDate:null, cycle:null,
         note:"男子寮定員48名／女子寮定員15名。入寮費10,000円＋食費・維持費約45,000〜50,000円（1日2食＝朝夕、900円/日）。昼食は学校弁当（350〜400円）販売、日曜・長期休業中は食事提供なし。一人部屋・二人部屋あり、通学徒歩5分。入寮の優先順位は遠隔地出身の生徒を優先し、通学可能地域の生徒は断られる場合あり。実習船『土佐海援丸』（486トン）等の設備。",
         sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kaiyo/高知県外からの入学志願について", whereToCheck:"学校サイト『高知県外からの入学志願について』ページ" },
-      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-14〜19", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
-        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』（2026-06-17 定例教育委員会付議第3号）による。高知海洋高校〔水産(海洋)〕は実施校。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、検査は1/14〜1/19の期間で学校が定める日（R8は1/17に面接・作文）、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寮は事前に志願先高校へ連絡。本校の検査日・募集定員は県教委の『令和9年度こうちフロンティア募集 実施校及び募集定員、検査内容等一覧表』で要確認（本調査ではPDF本文未確認）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の入学志願者取扱要項・こうちフロンティア募集一覧表" },
+      { type:"exam", key:"frontier", label:"こうちフロンティア募集【中山間等先行募集】", applyStart:"2027-01-05", applyEnd:"2027-01-08 17:00", examDate:"2027-01-16 9:00", resultDate:"2027-01-25 9:00", exclusive:true, cycle:"R9",
+        note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』および『令和9年度こうちフロンティア募集【中山間等先行募集】の実施校及び募集定員、検査内容等一覧表』による。高知海洋高校：検査1/16(土)9時〜（面接 個人15分・作文600〜800字/50分）、R9募集定員30名、寄宿舎入所可能者数 最大15名程度。出願要件は基礎的な学力を有し、海洋産業や海洋資源などに興味があり水産・海洋関連産業の担い手を強く志す生徒。Web出願（志願者情報等の登録は2026年12月から予定）、中学校等による承認・調査書等提出は1/5〜1/8 17時、合格発表1/25 9時。合格者は1/26〜2/2に入学意思確認書を提出。志願先変更不可。県外からの志願は事前に県教委の志願承認が必要。寄宿舎入所希望者は事前に志願先高校へ連絡（入所に当たっての面談等を実施する場合あり）。", sourceUrl:"https://sites.google.com/g.kochinet.ed.jp/kochi-highschool-entrance-exam/令和9年度高知県公立高等学校入学者選抜について", whereToCheck:"高知県教委 高校入試専用ページ『令和9年度高知県公立高等学校入学者選抜について』の⑦こうちフロンティア募集一覧表（https://drive.google.com/file/d/1idNba3S2j3tDo2x5eOyrT6SiWZqI6N6S/view）" },
       { type:"exam", key:"a", label:"A日程", applyStart:"2027-02-01", applyEnd:"2027-02-03", examDate:"2027-03-03〜04", resultDate:"2027-03-12", exclusive:true, cycle:"R9",
         note:"県教委『令和9年度高知県立高等学校入学志願者取扱要項』による。承認期間2/1〜2/3 17時、志願先変更2/8〜2/10 17時、調査書等提出2/10〜2/15 17時、学力検査3/3、面接等3/3または3/4、合格発表3/12 9時。本校〔水産(海洋)〕はこうちフロンティア募集（1月）実施校のため、A日程の募集定員は入学定員からフロンティア合格者数を減じた人数（県教委が1/25に公表）。", sourceUrl:"https://www.pref.kochi.lg.jp/doc/2026011400217/", whereToCheck:"高知県教育委員会『主な日程』PDF" },
       { type:"exam", key:"b", label:"B日程", applyStart:"2027-03-15", applyEnd:"2027-03-16", examDate:"2027-03-18", resultDate:"2027-03-23", cycle:"R9",
@@ -3126,10 +3117,10 @@ const SCHOOLS = [
         note:"令和9年度宮城県公立高等学校入学者選抜要項（令和8年10月1日版）による。募集定員の外数で実施。出願資格は志願者・保護者が宮城県外に居住し、入学期日までに県内に居住予定で、事前に学校と加美町を訪問・見学等して説明を受けた者（出願は1校1学科）。【手順】①ウェブ出願システムで出願承認申請（全国）と身元引受人の登録：2026-12-01〜2027-02-15 午前11時（身元引受人の確保は町に依頼可。承認後は出願先を変更できない）。②出願（出願先登録・手数料2,200円・志願理由書〈全国募集選抜用〉登録）：2027-02-09〜02-16 午前11時（基本情報の登録は1/18から）。③受験票は2/19 午後3時以降。④学力検査（5教科）3/3、面接は同日の学力検査終了後。⑤追試験3/9（面接等は3/9又は3/10）。⑥合格発表3/15 午後3時（ウェブ出願システム）。", sourceUrl:"https://www.pref.miyagi.jp/documents/62797/r9_sennbatsuyoukou_all_20261001.pdf", whereToCheck:"宮城県教委『令和9年度宮城県公立高等学校入学者選抜要項』（令和8年10月1日版）の事務日程表・Ⅷ全国募集選抜（p.28-32）、『県外からの出願申請等の手引』p.1・p.18" }
     ],
     events:[
-      { date:"2026-08-25〜2026-12-18", label:"随時開催中！＜宮城県”ナカコウ”中新田高校＞オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/1fd13f98-b06f-4b67-b391-a077b444d158", note:"期間内に随時・複数日開催" },
+      { date:"2026-08-25〜2026-12-27", label:"随時開催中！＜宮城県”ナカコウ”中新田高校＞オープンスクール", format:"現地", applyUrl:"https://c-mirai.jp/events/1fd13f98-b06f-4b67-b391-a077b444d158", note:"期間内に随時・複数日開催" },
       { date:"2026-11-26", label:"【11月26日(木)19時〜】＜宮城県”ナカコウ”中新田高校＞学校説明・相談会", time:"19:00-19:30", format:"オンライン", applyUrl:"https://c-mirai.jp/events/60f86e04-5c6d-498b-8f0d-1c3766b2db6d" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/89", where:"c-mirai.jp イベント一覧（2026-11-22時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/89", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"akita_yashima", name:"秋田県立矢島高等学校", pref:"秋田県", quota:"全国募集",
@@ -3186,11 +3177,9 @@ const SCHOOLS = [
         sourceUrl:"https://www.pref.fukushima.lg.jp/site/edu/r9koukounyushi.html", whereToCheck:"福島県教育委員会「令和9年度入学者選抜に関すること」の実施要綱・入学者選抜関係日程／志願先校の募集要項", note:"令和9年度福島県共通日程。出願（WEB出願システム、志願者申請）は3/16 9時〜3/17 14時。学力検査は3/23。合格者発表は3/24 13時。後期選抜は前期・連携型選抜で定員に満たない学校・学科のみ実施。" }
     ],
     events:[
-      { date:"2026-11-22", label:"【川口高校】入寮/入試に関してのご相談受付中！", format:"現地", applyUrl:"https://c-mirai.jp/events/845d8821-5c6c-4eea-b10b-358c08f66766", note:"終日・随時受付" },
-      { date:"2026-09-08〜2026-12-16", label:"全国の中学生集まれ！川口高校オープンスクールin福島県金山町", format:"現地", applyUrl:"https://c-mirai.jp/events/c1c0d24f-2f90-44a9-b43d-7a15c1c26e01", note:"期間内に随時・複数日開催" },
-      { date:"2026-11-23", label:"【川口高校】入寮/入試に関してのご相談受付中！", format:"現地", applyUrl:"https://c-mirai.jp/events/27502d9c-e328-49e2-9ce5-a285c6574ec5", note:"終日・随時受付" }
+      { date:"2026-09-08〜2026-12-16", label:"全国の中学生集まれ！川口高校オープンスクールin福島県金山町", format:"現地", applyUrl:"https://c-mirai.jp/events/c1c0d24f-2f90-44a9-b43d-7a15c1c26e01", note:"期間内に随時・複数日開催" }
     ],
-    eventsSource:{ url:"https://c-mirai.jp/schools/ee4fe50e-bd98-4353-b782-46abb18335e4", where:"c-mirai.jp イベント一覧（2026-11-22時点で更新）。申込はイベントページから。" }
+    eventsSource:{ url:"https://c-mirai.jp/schools/ee4fe50e-bd98-4353-b782-46abb18335e4", where:"c-mirai.jp イベント一覧（2026-11-25時点で更新）。申込はイベントページから。" }
   },
   {
     id:"fukui_katsuyama", name:"福井県立勝山高等学校", pref:"福井県", quota:"全国募集",
